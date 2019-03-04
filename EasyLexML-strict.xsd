@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!-- Type: EasyLexML -->
+	<xsd:complexType name="EasyLexML">
+		<xsd:sequence>
+			<xsd:element name="metadata" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="corpus" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence> 
+	</xsd:complexType>
+	
+	<xsd:element name="EasyLexML">
+	</xsd:element>
+	<!-- ROOT -->
+	<xs:element name="EastLexML" type="EastLexML"/>
+</xsd:schema>

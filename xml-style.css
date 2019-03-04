@@ -1,0 +1,59 @@
+EasyLexML {
+	max-width: 42rem;
+	margin-left: calc(50% - 21rem);
+	margin-top: 2rem;
+	font-family: sans-serif;
+	font-size: 12pt;
+}
+metadata, sub {
+	display: block;
+}
+sec, toc {
+	display: block;
+	margin-top: 2rem;
+}
+cls sub {
+	display: block;
+	margin-left: 1rem;
+}
+sub sub {
+	display: block;
+	margin-left: 1.5rem;
+}
+sec > label, toc > label {
+	content: attr(label);
+	text-align: center;
+	width: 100%;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+cls {
+	display: block;
+	margin-bottom: 1rem;
+}
+ul {
+	display: block;
+	margin-left: 2rem;
+}
+li, p {
+	display: inline-block;
+}
+p > label {
+	color: #AAA;
+	display: inline-block;
+	min-width: 1.5rem;
+	text-align: right;
+}
+metadata title {
+	display: block;
+	font-size: 20pt;
+	text-align: center;
+}
+metadata * {
+	display: none;
+}
+
+toc {
+	display: block;
+}
