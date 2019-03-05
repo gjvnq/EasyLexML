@@ -23,6 +23,12 @@ func init() {
 	rootCmd.PersistentFlags().BoolVarP(&easyLexML.Debug, "debug", "", false, "show debug information")
 }
 
+func panicIfErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func main() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
