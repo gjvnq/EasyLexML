@@ -1,15 +1,161 @@
 <?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<!-- Type: EasyLexML -->
-	<xsd:complexType name="EasyLexML">
+	<!-- Type: EasyLexML-type -->
+	<xsd:complexType name="EasyLexML-type">
 		<xsd:sequence>
-			<xsd:element name="metadata" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="corpus" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence> 
+			<xsd:element name="metadata" type="metadata-type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="toc" type="toc-type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="corpus" minOccurs="1" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:complexContent>
+	    				<xsd:extension base="corpus-type">
+							<xsd:attribute name="id" type="xsd:string" fixed="corpus"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
 	</xsd:complexType>
-	
-	<xsd:element name="EasyLexML">
-	</xsd:element>
+
+	<!-- Type: metadata-type -->
+	<xsd:complexType name="metadata-type">
+		<xsd:all>
+			<xsd:element name="title" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+			<xsd:element name="author" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+			<xsd:element name="label-signs" minOccurs="1" maxOccurs="1" type="label-sings-type"/>
+		</xsd:all>
+	</xsd:complexType>
+
+	<!-- Type: label-sings-type -->
+	<xsd:complexType name="label-sings-type">
+		<xsd:attribute name="sec" type="xsd:string" use="optional"/>
+		<xsd:attribute name="cls" type="xsd:string" use="optional"/>
+		<xsd:attribute name="sub" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+
+	<!-- Type: toc-type -->
+	<xsd:complexType name="toc-type">
+		<xsd:sequence>
+			<xsd:element name="label" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+			<xsd:element name="ul" minOccurs="0" maxOccurs="1" type="ul-toc-type"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" fixed="toc"/>
+	</xsd:complexType>
+
+	<!-- Type: ul-toc-type -->
+	<xsd:complexType name="ul-toc-type">
+		<xsd:sequence>
+			<xsd:element name="li" minOccurs="1" type="li-toc-type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type: li-toc-type -->
+	<xsd:complexType name="li-toc-type">
+		<xsd:sequence>
+			<xsd:element name="p" minOccurs="1" maxOccurs="1" type="p-toc-type"/>
+			<xsd:element name="ul" minOccurs="0" maxOccurs="1" type="ul-toc-type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type: p-toc-type -->
+	<xsd:complexType name="p-toc-type">
+		<xsd:sequence>
+			<xsd:element name="a" type="a-local-type" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type: a-type (anchor local link) -->
+	<xsd:complexType name="a-local-type" mixed="true">
+		<xsd:attribute name="href" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="[#].*"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<!-- Type: a-type (anchor) -->
+	<xsd:complexType name="a-type" mixed="true">
+		<xsd:attribute name="href" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="(#|[a-z]+:).*"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<!-- Type: corpus-type -->
+	<xsd:complexType name="corpus-type">
+		<xsd:all>
+			<xsd:element name="cls" minOccurs="0" type="cls-type"/>
+			<xsd:element name="sec" minOccurs="0" type="sec-type"/>
+		</xsd:all>
+	</xsd:complexType>
+
+	<!-- Type: cls-type -->
+	<xsd:complexType name="cls-type">
+		<xsd:sequence>
+			<xsd:element name="p" minOccurs="1" maxOccurs="1" type="p-type"/>
+			<xsd:element name="sub" minOccurs="0" maxOccurs="unbounded" type="cls-type"/>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
+	</xsd:complexType>
+
+	<!-- Type: p-type -->
+	<xsd:complexType name="p-type" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="label" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="a" minOccurs="0" type="a-type"/> <!-- Link -->
+				<xsd:element name="b" minOccurs="0" type="xsd:string"/> <!-- Bold -->
+				<xsd:element name="i" minOccurs="0" type="xsd:string"/> <!-- Italic -->
+				<xsd:element name="fw" minOccurs="0" type="xsd:string"/> <!-- Foreign Word -->
+				<xsd:element name="tt" minOccurs="0" type="xsd:string"/> <!-- Technical Term -->
+				<xsd:element name="sub" minOccurs="0" type="xsd:string"/> <!-- Subscript -->
+				<xsd:element name="sup" minOccurs="0" type="xsd:string"/> <!-- Superscript -->
+				<xsd:element name="ipa" minOccurs="0" type="xsd:string"/> <!-- IPA phonetic transcription -->
+				<!-- <xsd:element name="abbrev" minOccurs="0" type="abbrev-type"/> --><!-- Abbreviation, acronym or initialism --> 
+				<xsd:element name="quote" minOccurs="0" type="p-type"/> <!-- (in-line) Quotation -->
+				<xsd:element name="code" minOccurs="0" type="code-type"/> <!-- Code -->
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
+	</xsd:complexType>
+
+	<!-- Type: sec-type -->
+	<xsd:complexType name="sec-type">
+		<xsd:sequence>
+			<xsd:element name="label" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="cls" minOccurs="0" type="cls-type"/>
+				<xsd:element name="sec" minOccurs="0" type="sec-type"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
+		<xsd:attribute name="major" type="xsd:boolean" use="optional"/>
+	</xsd:complexType>
+
+	<!-- Type: code-type -->
+	<xsd:complexType name="code-type">
+		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
+		<xsd:attribute name="code-lang" type="xsd:string" use="required"/>
+	</xsd:complexType>
+
+	<!-- AttributeGroup: attr-group-lexid-basics -->
+	<xsd:attributeGroup name="attr-group-lexid-basics">
+		<xsd:attribute name="id" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value=".*_v[0-9]+"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="lexid" type="xsd:string" use="required"/>
+		<xsd:attribute name="title" type="xsd:string" use="optional"/>
+	</xsd:attributeGroup>
+
 	<!-- ROOT -->
-	<xs:element name="EastLexML" type="EastLexML"/>
+	<xsd:element name="EasyLexML" type="EasyLexML-type"/>
 </xsd:schema>

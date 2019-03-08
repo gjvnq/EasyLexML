@@ -10,9 +10,9 @@
 		<label>Table of Contents</label>
 		<ul>
 			<li>
-				<a href="sec1_v1">§1 - Introduction</a>
+				<p><a href="#sec1_v1">§1 - Introduction</a></p>
 				<ul>
-					<li><a href="sec1.1_v1">§1.1 - Sub-Intro</a></li>
+					<li><p><a href="#sec1.1_v1">§1.1 - Sub-Intro</a></p></li>
 				</ul>
 			</li>
 		</ul>
