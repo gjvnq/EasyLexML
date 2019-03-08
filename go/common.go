@@ -1,6 +1,9 @@
 package easyLexML
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 const VERSION = "0.0.1"
 
@@ -24,4 +27,22 @@ func counter2string(counter, subcounter int) string {
 		}
 	}
 	return ans
+}
+
+func panicIfErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
+func Debugln(args ...interface{}) {
+	if Debug {
+		fmt.Println(args...)
+	}
+}
+
+func Debugf(format string, args ...interface{}) {
+	if Debug {
+		fmt.Printf(format, args...)
+	}
 }

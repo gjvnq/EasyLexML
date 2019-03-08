@@ -5,6 +5,9 @@
 		<title>Example 1</title>
 		<author>gjvnq</author>
 	</metadata>
+	<toc>
+		<bold><toc>hi</toc>fsdfds</bold>
+	</toc>
 	<corpus>
 		<sec title="Introduction" major="true">
 			<cls>Rule 1</cls>
