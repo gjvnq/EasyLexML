@@ -9,6 +9,8 @@
 		<bold><toc>hi</toc>fsdfds</bold>
 	</toc>
 	<corpus>
+		<cls>Rule 0</cls>
+		<cls>Rule 0b</cls>
 		<sec title="Introduction" major="true">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">
@@ -20,6 +22,9 @@
 					</sub>
 				</cls>
 			</sec>
+		</sec>
+		<sec title="Coninuation" major="true">
+			<cls>Rule 2</cls>
 		</sec>
 	</corpus>
 </EasyLexML>

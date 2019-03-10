@@ -90,9 +90,14 @@ func token_set_attr(token *xml.StartElement, key string, value interface{}) {
 	})
 }
 
-func token_has_attr(token *xml.StartElement, key string) (string, bool) {
+func token_has_attr(token xml.StartElement, key string) bool {
+	_, ans := token_get_attr(token, key)
+	return ans
+}
+
+func token_get_attr(token xml.StartElement, key string) (string, bool) {
 	for _, attr := range token.Attr {
-		if attr.Name.Local == key {
+		if name2string(attr.Name) == key {
 			return attr.Value, true
 		}
 	}

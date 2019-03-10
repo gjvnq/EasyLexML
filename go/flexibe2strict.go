@@ -2,6 +2,7 @@ package easyLexML
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
 )
 
@@ -10,13 +11,13 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	// known_ids := make(map[string]bool)
 	// cls_counter := 0
 	elem_stack := newElementStack()
-	// counter_stack := newCounterStack()
+	counter_stack := newCounterStack()
 	// sec_sign := "§{}"
 	// cls_sign := "Art. {}"
 	// sub_sign := "{}."
 
 	// Start reading XML
-	last_label := "???"
+	next_label := "???"
 	label_pending := false
 	decoder := xml.NewDecoder(input)
 	encoder := xml.NewEncoder(output)
@@ -40,12 +41,24 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				// the table of contents will be auto generated latter
 				continue
 			}
+			if elem_stack.Has("metadata") {
+				// ignore metadata for now
+				Debugln(">>>", token2string(tk))
+				panicIfErr(encoder.EncodeToken(tk))
+				continue
+			}
 
 			tag := tk.Name.Local
-			switch {
-			case tag == "cls":
-				last_label = "??cls??"
+			// Set id and lexid for elements like <cls>, <sec>, <sub>
+			if tag_has_id_in_stack(tag) {
+				counter_stack.PushOrUpdate(tk)
+				lexid := counter_stack.LexId()
+				token_set_attr(&tk, "lexid", lexid)
+				token_set_attr(&tk, "id", lexid+"_v1")
+			}
+			if tag_has_label(tag) {
 				label_pending = true
+				next_label = counter_stack.Label(tk)
 			}
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
@@ -66,7 +79,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				Debugln(">>>", token2string(tk_p))
 				panicIfErr(encoder.EncodeToken(tk_p))
 				// Add <label>
-				add_label(encoder, last_label)
+				add_label(encoder, next_label)
 				label_pending = false
 			}
 
@@ -78,6 +91,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				// the table of contents will be auto generated latter
 				elem_stack.Pop()
 				continue
+			}
+			if !elem_stack.Has("metadata") && tag_has_id_in_stack(tag) {
+				counter_stack.Pop()
 			}
 
 			// End all tags we might have opened
@@ -104,16 +120,17 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		}
 	}
 	// Finalize
+	fmt.Println(label_pending)
 
 	return nil
 }
 
-func add_label(encoder *xml.Encoder, last_label string) {
+func add_label(encoder *xml.Encoder, next_label string) {
 	tk_lbl := xml.StartElement{Name: xml.Name{Local: "label"}}
 	Debugln(">>>", token2string(tk_lbl))
 	panicIfErr(encoder.EncodeToken(tk_lbl))
 
-	tk_txt := xml.CharData(last_label)
+	tk_txt := xml.CharData(next_label)
 	Debugln(">>>", token2string(tk_txt))
 	panicIfErr(encoder.EncodeToken(tk_txt))
 
