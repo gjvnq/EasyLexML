@@ -2,7 +2,6 @@ package easyLexML
 
 import (
 	"encoding/xml"
-	"fmt"
 	"io"
 )
 
@@ -31,11 +30,23 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		panicIfErr(err)
 		token = sanitize_char_data(token)
 
+		Debugf("\n\n\n")
 		Debugln("[elem_stack]", elem_stack)
-		Debugln(token2string(token))
+		Debugln("[counter_stack]", counter_stack)
+		Debugln("<<<", token2string(token))
 
 		switch tk := token.(type) {
 		case xml.StartElement:
+			tag := tk.Name.Local
+
+			if tag_has_label(tag) && elem_stack.PeekTag() == "p" {
+				tk_p := xml.StartElement{Name: xml.Name{Local: "p"}}.End()
+				elem_stack.Pop()
+				counter_stack.Pop()
+				Debugln(">>>", token2string(tk_p))
+				panicIfErr(encoder.EncodeToken(tk_p))
+			}
+
 			elem_stack.Push(tk)
 			if elem_stack.Has("toc") {
 				// the table of contents will be auto generated latter
@@ -48,7 +59,6 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				continue
 			}
 
-			tag := tk.Name.Local
 			// Set id and lexid for elements like <cls>, <sec>, <sub>
 			if tag_has_id_in_stack(tag) {
 				counter_stack.PushOrUpdate(tk)
@@ -76,11 +86,17 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				// Add <p>
 				tk_p := xml.StartElement{Name: xml.Name{Local: "p"}}
 				elem_stack.Push(tk_p)
+				counter_stack.PushOrUpdate(tk_p)
+				lexid := counter_stack.LexId()
+				token_set_attr(&tk_p, "lexid", lexid)
+				token_set_attr(&tk_p, "id", lexid+"_v1")
 				Debugln(">>>", token2string(tk_p))
 				panicIfErr(encoder.EncodeToken(tk_p))
 				// Add <label>
-				add_label(encoder, next_label)
-				label_pending = false
+				if label_pending {
+					add_label(encoder, next_label)
+					label_pending = false
+				}
 			}
 
 			Debugln(">>>", token2string(tk))
@@ -99,6 +115,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			// End all tags we might have opened
 			for tag != elem_stack.PeekTag() {
 				tk2 := elem_stack.Pop().End()
+				if tag_has_id_in_stack(name2string(tk2.Name)) {
+					counter_stack.Pop()
+				}
 				Debugln(">>>", token2string(tk2))
 				panicIfErr(encoder.EncodeToken(tk2))
 				Debugln("[elem_stack]", elem_stack)
@@ -120,7 +139,6 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		}
 	}
 	// Finalize
-	fmt.Println(label_pending)
 
 	return nil
 }

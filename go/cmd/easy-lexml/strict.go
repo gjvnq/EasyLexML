@@ -32,8 +32,7 @@ var strictCmd = &cobra.Command{
 
 		// Delete and open output file if needed
 		if output_path != "" {
-			err = os.Remove(output_path)
-			panicIfErr(err)
+			os.Remove(output_path)
 
 			output_file, err := os.OpenFile(output_path, os.O_RDWR|os.O_CREATE, 0644)
 			panicIfErr(err)

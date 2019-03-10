@@ -2,6 +2,7 @@ package easyLexML
 
 import (
 	"encoding/xml"
+	"fmt"
 	"strconv"
 )
 
@@ -52,6 +53,7 @@ func (this *counterStack) PrePeek() *counterStackFrame {
 func (this *counterStack) Push(elem string, frame *counterStackFrame) {
 	this.Frames = append(this.Frames, frame)
 	this.Elems = append(this.Elems, elem)
+	Debugln("[counter_stack].Push()", this.String())
 }
 
 func (this *counterStack) PushOrUpdate(token xml.StartElement) {
@@ -84,17 +86,16 @@ func (this *counterStack) Pop() *counterStackFrame {
 	ans := this.Peek()
 	this.Frames = this.Frames[:this.Len()-1]
 	this.Elems = this.Elems[:this.Len()-1]
+	Debugln("[counter_stack].Pop()", this.String())
 	return ans
 }
 
 func (this *counterStack) LexId() string {
 	ans := ""
 	last_elem := ""
-	Debugln(this)
 	for i, _ := range this.Elems {
 		elem := this.Elems[i]
 		frame := this.Frames[i]
-		Debugln(ans)
 		if last_elem != this.Elems[i] {
 			if i != 0 {
 				ans += "_"
@@ -105,7 +106,6 @@ func (this *counterStack) LexId() string {
 			ans += "."
 			ans += frame.LexId("")
 		}
-		Debugln(ans)
 	}
 	return ans
 }
@@ -117,8 +117,37 @@ func (this *counterStack) Label(tk xml.StartElement) string {
 	if this.Len() == 0 {
 		return ""
 	} else {
-		return this.PrePeek().String()
+		ans := ""
+		got_cls := false
+		for i, frame := range this.Frames {
+			if i == 0 || i == this.Len()-1 {
+				continue
+			}
+			if this.Elems[i-1] == "cls" {
+				got_cls = true
+			}
+			if got_cls {
+				if ans != "" {
+					ans += "."
+				}
+				ans += frame.String()
+			}
+		}
+		return ans
 	}
+}
+
+func (this *counterStack) String() string {
+	ans := fmt.Sprintf("(cls-counter %d-%d) ", this.ClsCounter.Main, this.ClsCounter.Rev)
+	for i, frame := range this.Frames {
+		if i == 0 {
+			ans += fmt.Sprintf("%d-%d", frame.Main, frame.Rev)
+		} else {
+			elem := this.Elems[i-1]
+			ans += fmt.Sprintf(" %s:%d-%d", elem, frame.Main, frame.Rev)
+		}
+	}
+	return ans
 }
 
 func tag_has_id_in_stack(tag string) bool {
