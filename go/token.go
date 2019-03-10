@@ -116,3 +116,27 @@ func token_requires_p(token xml.Token) bool {
 	}
 	return tag == "Artigo" || tag == "Caput" || tag == "Recital" || tag == "Parágrafo" || tag == "Inciso" || tag == "Alínea" || tag == "Item"
 }
+
+func token_same_element(t1, t2 xml.Token) bool {
+	tag1 := ""
+	tag2 := ""
+	switch tk := t1.(type) {
+	case xml.StartElement:
+		tag1 = name2string(tk.Name)
+	case xml.EndElement:
+		tag1 = name2string(tk.Name)
+	default:
+		return false
+	}
+	switch tk := t2.(type) {
+	case xml.StartElement:
+		tag2 = name2string(tk.Name)
+	case xml.EndElement:
+		tag2 = name2string(tk.Name)
+	default:
+		return false
+	}
+
+	Debugln("token_same_element", tag1, tag2)
+	return tag1 == tag2
+}

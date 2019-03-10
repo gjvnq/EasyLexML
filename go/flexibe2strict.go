@@ -7,17 +7,19 @@ import (
 
 func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Prepare stuff
-	// known_ids := make(map[string]bool)
-	// cls_counter := 0
-	elem_stack := newElementStack()
-	counter_stack := newCounterStack()
-	// sec_sign := "§{}"
-	// cls_sign := "Art. {}"
-	// sub_sign := "{}."
+	label_config := labelConfig{
+		Sec: "Sec. {}",
+		Cls: "Cls. {}",
+		Sub: "¶ {}",
+	}
 
-	// Start reading XML
+	cls_counter := 0
 	next_label := "???"
 	label_pending := false
+	root := new(xmlTreeNode)
+	cursor := root
+
+	// Start reading XML
 	decoder := xml.NewDecoder(input)
 	encoder := xml.NewEncoder(output)
 	encoder.Indent("", "\t")
@@ -30,29 +32,38 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		panicIfErr(err)
 		token = sanitize_char_data(token)
 
-		Debugf("\n\n\n")
-		Debugln("[elem_stack]", elem_stack)
-		Debugln("[counter_stack]", counter_stack)
+		Debugf("\n\n")
+		Debugln("[tree_path]", cursor.PathToHere())
 		Debugln("<<<", token2string(token))
 
 		switch tk := token.(type) {
 		case xml.StartElement:
-			tag := tk.Name.Local
+			tag := name2string(tk.Name)
 
-			if tag_has_label(tag) && elem_stack.PeekTag() == "p" {
+			switch tag {
+			case "cls":
+				cls_counter++
+			case "sec":
+				major, ok := token_get_attr(tk, "major")
+				if ok && major == "true" {
+					cls_counter = 0
+				}
+			}
+
+			// Finish any pending </p>
+			if tag_has_label(tag) && cursor.PathToHere().PeekTag() == "p" {
 				tk_p := xml.StartElement{Name: xml.Name{Local: "p"}}.End()
-				elem_stack.Pop()
-				counter_stack.Pop()
+				cursor = cursor.Parent
 				Debugln(">>>", token2string(tk_p))
 				panicIfErr(encoder.EncodeToken(tk_p))
 			}
+			cursor = cursor.AddChild(tk)
 
-			elem_stack.Push(tk)
-			if elem_stack.Has("toc") {
+			if cursor.PathToHere().Has("toc") {
 				// the table of contents will be auto generated latter
 				continue
 			}
-			if elem_stack.Has("metadata") {
+			if cursor.PathToHere().Has("metadata") {
 				// ignore metadata for now
 				Debugln(">>>", token2string(tk))
 				panicIfErr(encoder.EncodeToken(tk))
@@ -61,33 +72,37 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 
 			// Set id and lexid for elements like <cls>, <sec>, <sub>
 			if tag_has_id_in_stack(tag) {
-				counter_stack.PushOrUpdate(tk)
-				lexid := counter_stack.LexId()
+				lexid := cursor.PathToHere().LexId()
 				token_set_attr(&tk, "lexid", lexid)
 				token_set_attr(&tk, "id", lexid+"_v1")
 			}
+			// Add <label>
+			if label_pending {
+				add_label(encoder, next_label)
+				label_pending = false
+			}
 			if tag_has_label(tag) {
 				label_pending = true
-				next_label = counter_stack.Label(tk)
+				next_label = cursor.PathToHere().Label(cls_counter, label_config)
 			}
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
 		case xml.CharData:
+			cursor.AddChild(tk)
 			// Ignore whitespaces
 			if is_token_empty(tk) {
 				continue
 			}
 
-			if elem_stack.Has("toc") {
+			if cursor.PathToHere().Has("toc") {
 				continue
 			}
 			// In the corpus, all text MUST be inside paragraphs
-			if elem_stack.Has("corpus") && !elem_stack.Has("p") {
+			if cursor.PathToHere().Has("corpus") && !cursor.PathToHere().Has("p") {
 				// Add <p>
 				tk_p := xml.StartElement{Name: xml.Name{Local: "p"}}
-				elem_stack.Push(tk_p)
-				counter_stack.PushOrUpdate(tk_p)
-				lexid := counter_stack.LexId()
+				cursor = cursor.AddChild(tk_p)
+				lexid := cursor.PathToHere().LexId()
 				token_set_attr(&tk_p, "lexid", lexid)
 				token_set_attr(&tk_p, "id", lexid+"_v1")
 				Debugln(">>>", token2string(tk_p))
@@ -102,27 +117,23 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
 		case xml.EndElement:
-			tag := tk.Name.Local
-			if elem_stack.Has("toc") {
+			tag := name2string(tk.Name)
+			if cursor.PathToHere().Has("toc") {
 				// the table of contents will be auto generated latter
-				elem_stack.Pop()
+				cursor = cursor.Parent
 				continue
-			}
-			if !elem_stack.Has("metadata") && tag_has_id_in_stack(tag) {
-				counter_stack.Pop()
 			}
 
 			// End all tags we might have opened
-			for tag != elem_stack.PeekTag() {
-				tk2 := elem_stack.Pop().End()
-				if tag_has_id_in_stack(name2string(tk2.Name)) {
-					counter_stack.Pop()
-				}
+			for tag != cursor.PathToHere().PeekTag() {
+				Debugln(tag, cursor.PathToHere().PeekTag())
+				tk2 := cursor.Token.(xml.StartElement).End()
+				cursor = cursor.Parent
 				Debugln(">>>", token2string(tk2))
 				panicIfErr(encoder.EncodeToken(tk2))
-				Debugln("[elem_stack]", elem_stack)
+				Debugln("[path]", cursor.PathToHere())
 			}
-			elem_stack.Pop()
+			cursor = cursor.Parent
 
 			// switch tag {
 			// case "corpus":
@@ -132,7 +143,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
 		default:
-			if elem_stack.Has("toc") {
+			if cursor.PathToHere().Has("toc") {
 				continue
 			}
 			panicIfErr(encoder.EncodeToken(tk))

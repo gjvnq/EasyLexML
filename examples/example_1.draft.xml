@@ -4,6 +4,7 @@
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
+		<label-signs sec="§{}" cls="Art. {}" sub = "{}."/>
 	</metadata>
 	<toc>
 		<bold><toc>hi</toc>fsdfds</bold>
@@ -20,6 +21,9 @@
 					</sub>
 				</cls>
 			</sec>
+		</sec>
+		<sec title="Final" major="true">
+			<cls>Final Rule</cls>
 		</sec>
 	</corpus>
 </EasyLexML>

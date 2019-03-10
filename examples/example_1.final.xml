@@ -4,7 +4,6 @@
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
-		<label-signs sec="§{} " cls="Art. {}" sub = "{}."/>
 	</metadata>
 	<toc id="toc">
 		<label>Table of Contents</label>
