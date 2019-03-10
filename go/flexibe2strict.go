@@ -41,6 +41,16 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			tag := name2string(tk.Name)
 
 			switch tag {
+			case "label-signs":
+				if sec, ok := token_get_attr(tk, "sec"); ok {
+					label_config.Sec = sec
+				}
+				if cls, ok := token_get_attr(tk, "cls"); ok {
+					label_config.Cls = cls
+				}
+				if sub, ok := token_get_attr(tk, "sub"); ok {
+					label_config.Sub = sub
+				}
 			case "cls":
 				cls_counter++
 			case "sec":
