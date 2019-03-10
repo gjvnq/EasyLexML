@@ -129,6 +129,7 @@ func (this xmlTreePath) LexId() string {
 func (this xmlTreePath) Label(cls_counter int, cfg labelConfig) string {
 	ans := ""
 	last_tag := ""
+	title := ""
 	for i, node := range this {
 		if i < 2 {
 			// Ignore the <EasyLexML> and <corpus> part
@@ -150,17 +151,19 @@ func (this xmlTreePath) Label(cls_counter int, cfg labelConfig) string {
 			}
 		}
 		if i == len(this)-1 {
-			title, _ := token_get_attr(tk, "title")
-			ans += " " + title
+			title, _ = token_get_attr(tk, "title")
 		}
+	}
+	if title != "" {
+		title = " " + title
 	}
 	switch last_tag {
 	case "cls":
-		return strings.Replace(cfg.Cls, "{}", ans, -1)
+		return strings.Replace(cfg.Cls, "{}", ans, -1) + title
 	case "sec":
-		return strings.Replace(cfg.Sec, "{}", ans, -1)
+		return strings.Replace(cfg.Sec, "{}", ans, -1) + title
 	case "sub":
-		return strings.Replace(cfg.Sub, "{}", ans, -1)
+		return strings.Replace(cfg.Sub, "{}", ans, -1) + title
 	default:
 		return ans
 	}
