@@ -18,6 +18,13 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 	cursor := root
 	data := htmlPage{}
 
+	// Prepare the template
+	tmpl_raw, err := Asset("res/standalone.html")
+	panicIfErr(err)
+	tmpl := template.New("standalone")
+	tmpl, err = tmpl.Parse(string(tmpl_raw))
+	panicIfErr(err)
+
 	// Convert XML to HTML
 	decoder := xml.NewDecoder(input)
 	corpus_buffer := new(bytes.Buffer)
@@ -145,7 +152,6 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 	// Output
 	data.Corpus = template.HTML(corpus_buffer.String())
 	data.Toc = template.HTML(toc_buffer.String())
-	tmpl := template.Must(template.ParseFiles("res/standalone.html"))
 	tmpl.Execute(output, data)
 
 	return nil

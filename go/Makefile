@@ -18,7 +18,7 @@ test: easy-lexml.a
 
 bindata.go: res/*
 	@$(ECHO) -e $(ANSI_GREEN)"["$@"] Packing bin-data..."$(ANSI_RESET)
-	go-bindata -pkg easyLexML res/
+	go-bindata -pkg easyLexML res/*
 
 easy-lexml.a: *.go bindata.go
 	@$(ECHO) -e $(ANSI_GREEN)"["$@"] Fixing imports..."$(ANSI_RESET)
