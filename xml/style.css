@@ -21,6 +21,9 @@ sec > label, toc > label {
 	font-weight: bold;
 	margin-bottom: 1rem;
 }
+p > label {
+	margin-right: 0.5rem;
+}
 cls {
 	display: block;
 	margin-bottom: 1rem;
@@ -29,7 +32,10 @@ ul {
 	display: block;
 	margin-left: 2rem;
 }
-li, p {
+li {
+	display: block;
+}
+p {
 	display: inline-block;
 }
 p > label {
@@ -44,7 +50,12 @@ metadata title {
 metadata * {
 	display: none;
 }
-
 toc {
 	display: block;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid black;
+}
+corpus {
+	display: block;
+	padding-top: 1.5rem;	
 }

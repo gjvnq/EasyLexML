@@ -1,4 +1,4 @@
 # TODO
 
-  * [ ] Generate TOC.
+  * [X] Generate TOC.
   * [ ] Generate HTML.

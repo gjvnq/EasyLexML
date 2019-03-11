@@ -4,13 +4,14 @@
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
-		<label-signs sec="§{} ٭" cls="Art. {}" sub = "{})"/>
+		<label-signs toc="Fancy Table of Contents" sec="§{} ٭" cls="Art. {}" sub = "{})"/>
 	</metadata>
 	<toc>
 		<bold><toc>hi</toc>fsdfds</bold>
 	</toc>
 	<corpus>
-		<sec title="Introduction" major="true">
+		<cls>Rule 0</cls>
+		<sec title="Introduction">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">
 				<cls>Rule <a href="https://en.wikipedia.com/2">2</a>

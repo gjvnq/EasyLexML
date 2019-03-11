@@ -11,6 +11,7 @@ type labelConfig struct {
 	Sec string
 	Cls string
 	Sub string
+	Toc string
 }
 
 type xmlTreePath []*xmlTreeNode

@@ -1,6 +1,7 @@
 package easyLexML
 
 import (
+	"bytes"
 	"encoding/xml"
 	"io"
 )
@@ -11,6 +12,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		Sec: "Sec. {}",
 		Cls: "Cls. {}",
 		Sub: "¶ {}",
+		Toc: "Table of Contents",
 	}
 
 	cls_counter := 0
@@ -18,12 +20,14 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	label_pending := false
 	root := new(xmlTreeNode)
 	cursor := root
+	toc_root := new(tocTreeNode)
+	toc_cursor := toc_root
 
-	// Start reading XML
+	// Start reading XML (step 1)
 	decoder := xml.NewDecoder(input)
-	encoder := xml.NewEncoder(output)
+	step1_output := new(bytes.Buffer)
+	encoder := xml.NewEncoder(step1_output)
 	encoder.Indent("", "\t")
-	defer encoder.Flush()
 	for {
 		token, err := decoder.RawToken()
 		if err == io.EOF {
@@ -51,8 +55,13 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				if sub, ok := token_get_attr(tk, "sub"); ok {
 					label_config.Sub = sub
 				}
+				if toc, ok := token_get_attr(tk, "toc"); ok {
+					label_config.Toc = toc
+				}
 			case "cls":
 				cls_counter++
+			case "corpus":
+				token_set_attr(&tk, "id", "corpus")
 			case "sec":
 				major, ok := token_get_attr(tk, "major")
 				if ok && major == "true" {
@@ -86,6 +95,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				token_set_attr(&tk, "lexid", lexid)
 				token_set_attr(&tk, "id", lexid+"_v1")
 			}
+
 			// Add <label>
 			if label_pending {
 				add_label(encoder, next_label)
@@ -95,6 +105,13 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				label_pending = true
 				next_label = cursor.PathToHere().Label(cls_counter, label_config)
 			}
+
+			// Add TOC entry
+			if tag == "sec" {
+				id, _ := token_get_attr(tk, "id")
+				toc_cursor = toc_cursor.AddEntry(next_label, id)
+			}
+
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
 		case xml.CharData:
@@ -133,6 +150,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				cursor = cursor.Parent
 				continue
 			}
+			if tag == "sec" {
+				toc_cursor = toc_cursor.Parent
+			}
 
 			// End all tags we might have opened
 			for tag != cursor.PathToHere().PeekTag() {
@@ -144,12 +164,6 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				Debugln("[path]", cursor.PathToHere())
 			}
 			cursor = cursor.Parent
-
-			// switch tag {
-			// case "corpus":
-			// 	in_corpus = false
-			// }
-
 			Debugln(">>>", token2string(tk))
 			panicIfErr(encoder.EncodeToken(tk))
 		default:
@@ -159,7 +173,68 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			panicIfErr(encoder.EncodeToken(tk))
 		}
 	}
-	// Finalize
+
+	// Generate TOC & finalize
+	Debugf("\n\n=====STEP 2=====\n\n")
+	encoder.Flush()
+	decoder = xml.NewDecoder(step1_output)
+	encoder = xml.NewEncoder(output)
+	encoder.Indent("", "\t")
+	Debugln(toc_root.ToXML())
+	root = new(xmlTreeNode)
+	cursor = root
+	printed_toc := false
+	for {
+		token, err := decoder.RawToken()
+		if err == io.EOF {
+			break
+		}
+		panicIfErr(err)
+		token = sanitize_char_data(token)
+
+		Debugf("\n\n")
+		Debugln("[tree_path]", cursor.PathToHere())
+		Debugln("<<<", token2string(token))
+
+		encoder.Flush()
+		switch tk := token.(type) {
+		case xml.StartElement:
+			tag := name2string(tk.Name)
+			cursor = cursor.AddChild(tk)
+			if !printed_toc && (tag == "toc" || tag == "corpus") {
+				toc_root.ToXMLWithEncoder(encoder, label_config.Toc)
+			}
+			if cursor.PathToHere().Has("toc") {
+				// the table of contents will be auto generated latter
+				continue
+			}
+			Debugln(">>>", token2string(tk))
+			panicIfErr(encoder.EncodeToken(tk))
+		case xml.CharData:
+			// Ignore whitespaces
+			if is_token_empty(tk) {
+				continue
+			}
+			if cursor.PathToHere().Has("toc") {
+				continue
+			}
+			Debugln(">>>", token2string(tk))
+			panicIfErr(encoder.EncodeToken(tk))
+		case xml.EndElement:
+			// tag := name2string(tk.Name)
+			if cursor.PathToHere().Has("toc") {
+				// the table of contents will be auto generated latter
+				cursor = cursor.Parent
+				continue
+			}
+			cursor = cursor.Parent
+			Debugln(">>>", token2string(tk))
+			panicIfErr(encoder.EncodeToken(tk))
+		default:
+			panicIfErr(encoder.EncodeToken(tk))
+		}
+	}
+	encoder.Flush()
 
 	return nil
 }

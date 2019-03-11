@@ -1,93 +1,81 @@
-<?xml version="1.0"?>
-<?xml-stylesheet href="../xml/style.css"?>
-<EasyLexML>
+<?xml version="1.0"?><?xml-stylesheet href="../xml/style.css"?><EasyLexML>
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
+		<label-signs toc="Fancy Table of Contents" sec="§{} ٭" cls="Art. {}" sub="{})"></label-signs>
 	</metadata>
 	<toc id="toc">
-		<label>Table of Contents</label>
+		<label>Fancy Table of Contents</label>
 		<ul>
 			<li>
-				<p><a href="#sec1_v1">§1 - Introduction</a></p>
+				<p>
+					<a href="#sec1_v1">§1 ٭ Introduction</a>
+				</p>
 				<ul>
-					<li><p><a href="#sec1.1_v1">§1.1 - Sub-Intro</a></p></li>
+					<li>
+						<p>
+							<a href="#sec1_sec1_v1">§1.1 ٭ Sub-Intro</a>
+						</p>
+					</li>
 				</ul>
+			</li>
+			<li>
+				<p>
+					<a href="#sec2_v1">§2 ٭ Final</a>
+				</p>
 			</li>
 		</ul>
 	</toc>
-	<corpus>
-		<sec
-			lexid="sec1"
-			id="sec1_v1"
-			title="Introduction"
-			major="true">
-			<label>§1 - Introduction</label>
-			<cls
-				lexid="sec1_cls1"
-				id="sec1_cls1_v1">
-				<p lexid="sec1_cls1_p1"
-					id="sec1_cls1_p1_v1">
-					<label>Art. 1</label>
-					Rule 1
+	<corpus id="corpus">
+		<cls lexid="cls1" id="cls1_v1">
+			<p lexid="cls1_p1" id="cls1_p1_v1">
+				<label>Art. 1</label>Rule 0
+			</p>
+		</cls>
+		<sec title="Introduction" lexid="sec1" id="sec1_v1">
+			<label>§1 ٭ Introduction</label>
+			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
+				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
+					<label>Art. 2</label>Rule 1
 				</p>
 			</cls>
-			<sec
-				lexid="sec1.1"
-				id="sec1.1_v1"
-				title="Sub-Intro">
-				<label>§1.1 - Sub-Introduction</label>
-				<cls
-					lexid="sec1.1_cls2"
-					id="sec1.1_cls2_v1">
-					<p
-						lexid="sec1.1_cls2_p1"
-						id="sec1.1_cls2_p1_v1">
-						<label>Art. 2</label>
-						Rule <a href="https://en.wikipedia.com/2">2</a>
+			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
+				<label>§1.1 ٭ Sub-Intro</label>
+				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
+					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
+						<label>Art. 3</label>Rule
+						<a href="https://en.wikipedia.com/2" lexid="sec1_sec1_cls1_p1_a1" id="sec1_sec1_cls1_p1_a1_v1">2</a>
 					</p>
-					<sub
-						lexid="sec1.1_cls2_sub1"
-						id="sec1.1_cls2_sub1_v1">
-						<p
-							lexid="sec1.1_cls2_sub1_p1"
-							id="sec1.1_cls2_sub1_p1_v1">
-							<label>1.</label>
-							Exception 1
+					<sub lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1">
+						<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
+							<label>1)</label>Exception 1
 						</p>
 					</sub>
-					<sub
-						lexid="sec1.1_cls2_sub2"
-						id="sec1.1_cls2_sub2_v1">
-						<p
-							lexid="sec1.1_cls2_sub2_p1"
-							id="sec1.1_cls2_sub2_p1_v1">
-							<label>2.</label>
-							Exception 2
+					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1">
+						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
+							<label>2)</label>Exception 2
 						</p>
-						<sub
-							lexid="sec1.1_cls2_sub2.1"
-							id="sec1.1_cls2_sub2.1_v1">
-							<p
-								lexid="sec1.1_cls2_sub2.1_p1"
-								id="sec1.1_cls2_sub2.1_p1_v1">
-								<label>2.1.</label>
-								Exception of the exception (1)
+						<sub lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1">
+							<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
+								<label>2.1)</label>Exception of the exception (1)
 							</p>
 						</sub>
-						<sub
-							lexid="sec1.1_cls2_sub2.2"
-							id="sec1.1_cls2_sub2.2_v1">
-							<p
-								lexid="sec1.1_cls2_sub2.2_p1"
-								id="sec1.1_cls2_sub2.2_p1_v1">
-								<label>2.2.</label>
-								Exception of the exception (2)
+						<sub lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1">
+							<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
+								<label>2.2)</label>Exception of the exception (2)
 							</p>
 						</sub>
 					</sub>
 				</cls>
 			</sec>
+		</sec>
+		<sec title="Final" major="true" lexid="sec2" id="sec2_v1">
+			<label>§2 ٭ Final</label>
+			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
+				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
+					<label>Art. 1</label>Final Rule
+				</p>
+			</cls>
 		</sec>
 	</corpus>
 </EasyLexML>
