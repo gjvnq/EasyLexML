@@ -25,9 +25,6 @@ sec > label, toc > label {
 	font-weight: bold;
 	margin-bottom: 1rem;
 }
-p > label {
-	margin-right: 0.5rem;
-}
 cls {
 	display: block;
 	margin-bottom: 1rem;
@@ -44,6 +41,7 @@ p {
 }
 p > label {
 	color: #AAA;
+	margin-right: 0.5rem;
 	display: inline-block;
 }
 metadata title {

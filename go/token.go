@@ -63,6 +63,17 @@ func sanitize_char_data(token xml.Token) xml.Token {
 	}
 }
 
+func sanitize_html_attrs(tk *xml.StartElement) {
+	for i := range tk.Attr {
+		attr_name := &tk.Attr[i].Name
+		tag := name2string(*attr_name)
+		if attr_name.Space != "" || tag == "id" || tag == "href" {
+			continue
+		}
+		attr_name.Local = "data-" + attr_name.Local
+	}
+}
+
 func is_token_empty(token xml.Token) bool {
 	switch tk := token.(type) {
 	case xml.CharData:

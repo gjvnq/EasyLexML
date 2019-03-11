@@ -47,6 +47,21 @@ func (this *xmlTreeNode) AddChild(token xml.Token) *xmlTreeNode {
 	return new_child
 }
 
+func (this *xmlTreeNode) Replace(token xml.Token) {
+	this.Token = token
+	this.NthChild = 1
+	this.NthChildOfElem = 1
+	for _, ptr := range this.Parent.Children {
+		if ptr == this {
+			break
+		}
+		this.NthChild++
+		if token_same_element(this.Token, ptr.Token) {
+			this.NthChildOfElem++
+		}
+	}
+}
+
 func (this *xmlTreeNode) PathToHere() xmlTreePath {
 	buf := make([]*xmlTreeNode, 0)
 	buf = xmlTreePath(this.pathToHere(buf))
@@ -77,6 +92,14 @@ func (this xmlTreePath) Peek() xml.Token {
 
 func (this xmlTreePath) PeekTag() string {
 	return name2string(this.Peek().(xml.StartElement).Name)
+}
+
+func (this xmlTreePath) PeekN(n int) xml.Token {
+	return this[len(this)-n].Token
+}
+
+func (this xmlTreePath) PeekTagN(n int) string {
+	return name2string(this.PeekN(n).(xml.StartElement).Name)
 }
 
 func (this xmlTreePath) Has(tag string) bool {

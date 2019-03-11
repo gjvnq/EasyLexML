@@ -14,7 +14,7 @@
 		<sec title="Introduction">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">
-				<cls>Rule <a href="https://en.wikipedia.com/2">2</a>
+				<cls>Rule <a href="https://en.wikipedia.org/wiki/2">2</a>
 					<sub>Exception 1</sub>
 					<sub>Exception 2
 						<sub>Exception of the exception (1)</sub>
