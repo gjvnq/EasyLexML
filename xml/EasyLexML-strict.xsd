@@ -31,6 +31,7 @@
 		<xsd:attribute name="sec" type="xsd:string" use="optional"/>
 		<xsd:attribute name="cls" type="xsd:string" use="optional"/>
 		<xsd:attribute name="sub" type="xsd:string" use="optional"/>
+		<xsd:attribute name="toc" type="xsd:string" use="optional"/>
 	</xsd:complexType>
 
 	<!-- Type: toc-type -->
@@ -45,7 +46,7 @@
 	<!-- Type: ul-toc-type -->
 	<xsd:complexType name="ul-toc-type">
 		<xsd:sequence>
-			<xsd:element name="li" minOccurs="1" type="li-toc-type"/>
+			<xsd:element name="li" minOccurs="1" maxOccurs="unbounded" type="li-toc-type"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -84,6 +85,7 @@
 				</xsd:restriction>
 			</xsd:simpleType>
 		</xsd:attribute>
+		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
 	</xsd:complexType>
 
 	<!-- Type: corpus-type -->
@@ -128,9 +130,10 @@
 	<xsd:complexType name="sec-type">
 		<xsd:sequence>
 			<xsd:element name="label" minOccurs="1" maxOccurs="1" type="xsd:string"/>
-			<xsd:choice maxOccurs="unbounded">
-				<xsd:element name="cls" minOccurs="0" type="cls-type"/>
-				<xsd:element name="sec" minOccurs="0" type="sec-type"/>
+			<!-- FIXME: Some thing here is wrong and I don't know what -->
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="cls" minOccurs="0" maxOccurs="unbounded" type="cls-type"/>
+				<xsd:element name="sec" minOccurs="0" maxOccurs="unbounded" type="sec-type"/>
 			</xsd:choice>
 		</xsd:sequence>
 		<xsd:attributeGroup ref="attr-group-lexid-basics"/>
