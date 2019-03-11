@@ -1,10 +1,14 @@
 EasyLexML {
-	max-width: 42rem;
-	margin-left: calc(50% - 21rem);
 	margin-top: 2rem;
 	font-family: sans-serif;
 	font-size: 12pt;
 	font-variant-numeric: tabular-nums;
+}
+@media (min-width: 42em) {
+	EasyLexML {
+		width: 42em;
+		margin-left: calc(50% - 21rem);
+	}
 }
 metadata, sub {
 	display: block;
