@@ -24,9 +24,14 @@
 			h1, h2, h3, h4, h5, h6 {
 				text-align: center;
 			}
-			span.label {
+			h3 a.label, h3 a.label:visited {
+				color: #000;
+				text-decoration: none;
+			}
+			p a.label, p a.label:visited {
 				color: #AAA;
 				margin-right: 0.5rem;
+				text-decoration: none;
 			}
 			p {
 				margin: 0;
@@ -52,7 +57,7 @@
 				overflow-wrap: break-word;
 				color: blue;
 			}
-			a:hover, a:active {
+			p a:hover, p a:active, h3 a:hover, h3 a:active {
 				text-decoration: underline;
 			}
 		</style>
@@ -87,53 +92,59 @@
 		<hr></hr>
 		</section>
 		<section id="corpus">
-					<section lexid="cls1" id="cls1_v1" class="cls">
-			<p lexid="cls1_p1" id="cls1_p1_v1">
-				<span class="label">Art. 1</span>Rule 0
+					<section data-lexid="cls1" id="cls1_v1" class="cls">
+			<p data-lexid="cls1_p1" id="cls1_p1_v1">
+				<a class="label" href="#cls1_p1_v1">Art. 1</a>Rule 0
 			</p>
 		</section>
-		<section title="Introduction" lexid="sec1" id="sec1_v1" class="sec">
-			<h3>§1 ٭ Introduction</h3>
-			<section lexid="sec1_cls1" id="sec1_cls1_v1" class="cls">
-				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
-					<span class="label">Art. 2</span>Rule 1
+		<section data-title="Introduction" data-lexid="sec1" id="sec1_v1" class="sec">
+			<h3>
+				<a class="label" href="#sec1_v1">§1 ٭ Introduction</a>
+			</h3>
+			<section data-lexid="sec1_cls1" id="sec1_cls1_v1" class="cls">
+				<p data-lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
+					<a class="label" href="#sec1_cls1_p1_v1">Art. 2</a>Rule 1
 				</p>
 			</section>
-			<section title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1" class="sec">
-				<h3>§1.1 ٭ Sub-Intro</h3>
-				<section lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" class="cls">
-					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
-						<span class="label">Art. 3</span>Rule
-						<a href="https://en.wikipedia.org/wiki/2" lexid="sec1_sec1_cls1_p1_a1" id="sec1_sec1_cls1_p1_a1_v1">2</a>
+			<section data-title="Sub-Intro" data-lexid="sec1_sec1" id="sec1_sec1_v1" class="sec">
+				<h3>
+					<a class="label" href="#sec1_sec1_v1">§1.1 ٭ Sub-Intro</a>
+				</h3>
+				<section data-lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" class="cls">
+					<p data-lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
+						<a class="label" href="#sec1_sec1_cls1_p1_v1">Art. 3</a>Rule
+						<a href="https://en.wikipedia.org/wiki/2" data-lexid="sec1_sec1_cls1_p1_a1" id="sec1_sec1_cls1_p1_a1_v1">2</a>
 					</p>
-					<section lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" class="sub">
-						<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
-							<span class="label">1)</span>Exception 1
+					<section data-lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" class="sub">
+						<p data-lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
+							<a class="label" href="#sec1_sec1_cls1_sub1_p1_v1">1)</a>Exception 1
 						</p>
 					</section>
-					<section lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" class="sub">
-						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
-							<span class="label">2)</span>Exception 2
+					<section data-lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" class="sub">
+						<p data-lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
+							<a class="label" href="#sec1_sec1_cls1_sub2_p1_v1">2)</a>Exception 2
 						</p>
-						<section lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" class="sub">
-							<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
-								<span class="label">2.1)</span>Exception of the exception (1)
+						<section data-lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" class="sub">
+							<p data-lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
+								<a class="label" href="#sec1_sec1_cls1_sub2_sub1_p1_v1">2.1)</a>Exception of the exception (1)
 							</p>
 						</section>
-						<section lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" class="sub">
-							<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
-								<span class="label">2.2)</span>Exception of the exception (2)
+						<section data-lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" class="sub">
+							<p data-lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
+								<a class="label" href="#sec1_sec1_cls1_sub2_sub2_p1_v1">2.2)</a>Exception of the exception (2)
 							</p>
 						</section>
 					</section>
 				</section>
 			</section>
 		</section>
-		<section title="Final" major="true" lexid="sec2" id="sec2_v1" class="sec">
-			<h3>§2 ٭ Final</h3>
-			<section lexid="sec2_cls1" id="sec2_cls1_v1" class="cls">
-				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
-					<span class="label">Art. 1</span>Final Rule
+		<section data-title="Final" data-major="true" data-lexid="sec2" id="sec2_v1" class="sec">
+			<h3>
+				<a class="label" href="#sec2_v1">§2 ٭ Final</a>
+			</h3>
+			<section data-lexid="sec2_cls1" id="sec2_cls1_v1" class="cls">
+				<p data-lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
+					<a class="label" href="#sec2_cls1_p1_v1">Art. 1</a>Final Rule
 				</p>
 			</section>
 		</section>

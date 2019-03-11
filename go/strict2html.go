@@ -42,6 +42,7 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 		switch tk := token.(type) {
 		case xml.StartElement:
 			tag := name2string(tk.Name)
+			sanitize_html_attrs(&tk)
 			cursor = cursor.AddChild(tk)
 			path := cursor.PathToHere()
 			switch {
@@ -63,12 +64,16 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 				token_set_attr(&tk, "class", tag)
 			case tag == "label":
 				class, _ := token_get_attr(path.PeekN(2).(xml.StartElement), "class")
+				id, _ := token_get_attr(path.PeekN(2).(xml.StartElement), "id")
 				if class == "sec" {
 					tk.Name.Local = "h3"
-				} else {
-					tk.Name.Local = "span"
-					token_set_attr(&tk, "class", "label")
+					cursor.Replace(tk)
+					Debugln(">>>", token2string(tk))
+					panicIfErr(corpus_encoder.EncodeToken(tk))
 				}
+				tk.Name.Local = "a"
+				token_set_attr(&tk, "class", "label")
+				token_set_attr(&tk, "href", "#"+id)
 			}
 			cursor.Replace(tk)
 			Debugln(">>>", token2string(tk))
@@ -119,11 +124,16 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 				tk.Name.Local = "section"
 			case tag == "label":
 				class, _ := token_get_attr(path.PeekN(2).(xml.StartElement), "class")
+				tk.Name.Local = "a"
+				Debugln(">>>", token2string(tk))
+				panicIfErr(corpus_encoder.EncodeToken(tk))
 				if class == "sec" {
-					tk.Name.Local = "h3"
-				} else {
-					tk.Name.Local = "span"
+					tk_h3 := xml.StartElement{
+						Name: xml.Name{Local: "h3"}}.End()
+					Debugln(">>>", token2string(tk_h3))
+					panicIfErr(corpus_encoder.EncodeToken(tk_h3))
 				}
+				continue
 			}
 			Debugln(">>>", token2string(tk))
 			panicIfErr(corpus_encoder.EncodeToken(tk))
