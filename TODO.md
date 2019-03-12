@@ -1,6 +1,7 @@
 # TODO
 
 * [ ] Support reading from STDIN.
+* [ ] Fix bug with empty sections.
 * [ ] Support code syntax highlight.
 * [ ] Support version control/diff.
 * [ ] Support images.
