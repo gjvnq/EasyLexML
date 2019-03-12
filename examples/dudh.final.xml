@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?><EasyLexML>
+	<metadata>
+		<title>Declaração Universal dos Direitos Humanos</title>
+		<label-signs cls="Art. {}" sub="{})" sec="§ {}" toc="Sumário"></label-signs>
+	</metadata>
+	<corpus id="corpus">
+		<sec title="Preâmbulo" label-style="" lexid="sec1" id="sec1_v1">
+			<label> Preâmbulo</label>
+			<cls label-style="({})" lexid="sec1_cls1" id="sec1_cls1_v1">
+				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
+					<label>(1)</label> Considerando que o reconhecimento da dignidade inerente a todos os membros da família humana e dos seus direitos iguais e inalienáveis constitui o fundamento da liberdade, da justiça e da paz no mundo; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls2" id="sec1_cls2_v1">
+				<p lexid="sec1_cls2_p1" id="sec1_cls2_p1_v1">
+					<label>(2)</label> Considerando que o desconhecimento e o desprezo dos direitos do Homem conduziram a atos de barbárie que revoltam a consciência da Humanidade e que o advento de um mundo em que os seres humanos sejam livres de falar e de crer, libertos do terror e da miséria, foi proclamado como a mais alta inspiração do Homem; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls3" id="sec1_cls3_v1">
+				<p lexid="sec1_cls3_p1" id="sec1_cls3_p1_v1">
+					<label>(3)</label> Considerando que é essencial a proteção dos direitos do Homem através de um regime de direito, para que o Homem não seja compelido, em supremo recurso, à revolta contra a tirania e a opressão; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls4" id="sec1_cls4_v1">
+				<p lexid="sec1_cls4_p1" id="sec1_cls4_p1_v1">
+					<label>(4)</label> Considerando que é essencial encorajar o desenvolvimento de relações amistosas entre as nações; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls5" id="sec1_cls5_v1">
+				<p lexid="sec1_cls5_p1" id="sec1_cls5_p1_v1">
+					<label>(5)</label> Considerando que, na Carta, os povos das Nações Unidas proclamam, de novo, a sua fé nos direitos fundamentais do Homem, na dignidade e no valor da pessoa humana, na igualdade de direitos dos homens e das mulheres e se declaram resolvidos a favorecer o progresso social e a instaurar melhores condições de vida dentro de uma liberdade mais ampla; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls6" id="sec1_cls6_v1">
+				<p lexid="sec1_cls6_p1" id="sec1_cls6_p1_v1">
+					<label>(6)</label> Considerando que os Estados membros se comprometeram a promover, em cooperação com a Organização das Nações Unidas, o respeito universal e efetivo dos direitos do Homem e das liberdades fundamentais; 
+				</p>
+			</cls>
+			<cls label-style="({})" lexid="sec1_cls7" id="sec1_cls7_v1">
+				<p lexid="sec1_cls7_p1" id="sec1_cls7_p1_v1">
+					<label>(7)</label> Considerando que uma concepção comum destes direitos e liberdades é da mais alta importância para dar plena satisfação a tal compromisso: 
+				</p>
+			</cls>
+			<cls label-style="" lexid="sec1_cls8" id="sec1_cls8_v1">
+				<p lexid="sec1_cls8_p1" id="sec1_cls8_p1_v1">A Assembleia Geral proclama a presente Declaração Universal dos Direitos Humanos como ideal comum a atingir por todos os povos e todas as nações, a fim de que todos os indivíduos e todos os órgãos da sociedade, tendo-a constantemente no espírito, se esforcem, pelo ensino e pela educação, por desenvolver o respeito desses direitos e liberdades e por promover, por medidas progressivas de ordem nacional e internacional, o seu reconhecimento e a sua aplicação universais e efetivos tanto entre as populações dos próprios Estados membros como entre as dos territórios colocados sob a sua jurisdição.</p>
+			</cls>
+		</sec>
+		<cls lexid="cls1" id="cls1_v1">
+			<p lexid="cls1_p1" id="cls1_p1_v1">
+				<label>Art. 1</label> Todos os seres humanos nascem livres e iguais em dignidade e em direitos. Dotados de razão e de consciência, devem agir uns para com os outros em espírito de fraternidade. 
+			</p>
+		</cls>
+		<cls lexid="cls2" id="cls2_v1">
+			<p lexid="cls2_p1" id="cls2_p1_v1">
+				<label>Art. 2</label> Todos os seres humanos podem invocar os direitos e as liberdades proclamados na presente Declaração, sem distinção alguma, nomeadamente de raça, de cor, de sexo, de língua, de religião, de opinião política ou outra, de origem nacional ou social, de fortuna, de nascimento ou de qualquer outra situação. Além disso, não será feita nenhuma distinção fundada no estatuto político, jurídico ou internacional do país ou do território da naturalidade da pessoa, seja esse país ou território independente, sob tutela, autônomo ou sujeito a alguma limitação de soberania. 
+			</p>
+		</cls>
+		<cls lexid="cls3" id="cls3_v1">
+			<p lexid="cls3_p1" id="cls3_p1_v1">
+				<label>Art. 3</label> Todo indivíduo tem direito à vida, à liberdade e à segurança pessoal. 
+			</p>
+		</cls>
+		<cls lexid="cls4" id="cls4_v1">
+			<p lexid="cls4_p1" id="cls4_p1_v1">
+				<label>Art. 4</label> Ninguém será mantido em escravatura ou em servidão; a escravatura e o trato dos escravos, sob todas as formas, são proibidos. 
+			</p>
+		</cls>
+		<cls lexid="cls5" id="cls5_v1">
+			<p lexid="cls5_p1" id="cls5_p1_v1">
+				<label>Art. 5</label> Ninguém será submetido a tortura nem a penas ou tratamentos cruéis, desumanos ou degradantes. 
+			</p>
+		</cls>
+		<cls lexid="cls6" id="cls6_v1">
+			<p lexid="cls6_p1" id="cls6_p1_v1">
+				<label>Art. 6</label> Todos os indivíduos têm direito ao reconhecimento, em todos os lugares, da sua personalidade jurídica. 
+			</p>
+		</cls>
+		<cls lexid="cls7" id="cls7_v1">
+			<p lexid="cls7_p1" id="cls7_p1_v1">
+				<label>Art. 7</label> Todos são iguais perante a lei e, sem distinção, têm direito a igual proteção da lei. Todos têm direito a proteção igual contra qualquer discriminação que viole a presente Declaração e contra qualquer incitamento a tal discriminação. 
+			</p>
+		</cls>
+		<cls lexid="cls8" id="cls8_v1">
+			<p lexid="cls8_p1" id="cls8_p1_v1">
+				<label>Art. 8</label> Toda a pessoa tem direito a recurso efetivo para as jurisdições nacionais competentes contra os atos que violem os direitos fundamentais reconhecidos pela Constituição ou pela lei. 
+			</p>
+		</cls>
+		<cls lexid="cls9" id="cls9_v1">
+			<p lexid="cls9_p1" id="cls9_p1_v1">
+				<label>Art. 9</label> Ninguém pode ser arbitrariamente preso, detido ou exilado. 
+			</p>
+		</cls>
+		<cls lexid="cls10" id="cls10_v1">
+			<p lexid="cls10_p1" id="cls10_p1_v1">
+				<label>Art. 10</label> Toda a pessoa tem direito, em plena igualdade, a que a sua causa seja equitativa e publicamente julgada por um tribunal independente e imparcial que decida dos seus direitos e obrigações ou das razões de qualquer acusação em matéria penal que contra ela seja deduzida. 
+			</p>
+		</cls>
+		<cls lexid="cls11" id="cls11_v1">
+			<label>Art. 11</label>
+			<sub lexid="cls11_sub1" id="cls11_sub1_v1">
+				<p lexid="cls11_sub1_p1" id="cls11_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa acusada de um ato delituoso presume-se inocente até que a sua culpabilidade fique legalmente provada no decurso de um processo público em que todas as garantias necessárias de defesa lhe sejam asseguradas. 
+				</p>
+			</sub>
+			<sub lexid="cls11_sub2" id="cls11_sub2_v1">
+				<p lexid="cls11_sub2_p1" id="cls11_sub2_p1_v1">
+					<label>2)</label> Ninguém será condenado por ações ou omissões que, no momento da sua prática, não constituíam ato delituoso à face do direito interno ou internacional. Do mesmo modo, não será infligida pena mais grave do que a que era aplicável no momento em que o ato delituoso foi cometido. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls12" id="cls12_v1">
+			<p lexid="cls12_p1" id="cls12_p1_v1">
+				<label>Art. 12</label> Ninguém sofrerá intromissões arbitrárias na sua vida privada, na sua família, no seu domicílio ou na sua correspondência, nem ataques à sua honra e reputação. Contra tais intromissões ou ataques toda a pessoa tem direito a proteção da lei. 
+			</p>
+		</cls>
+		<cls lexid="cls13" id="cls13_v1">
+			<label>Art. 13</label>
+			<sub lexid="cls13_sub1" id="cls13_sub1_v1">
+				<p lexid="cls13_sub1_p1" id="cls13_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem o direito de livremente circular e escolher a sua residência no interior de um Estado. 
+				</p>
+			</sub>
+			<sub lexid="cls13_sub2" id="cls13_sub2_v1">
+				<p lexid="cls13_sub2_p1" id="cls13_sub2_p1_v1">
+					<label>2)</label> Toda a pessoa tem o direito de abandonar o país em que se encontra, incluindo o seu, e o direito de regressar ao seu país. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls14" id="cls14_v1">
+			<label>Art. 14</label>
+			<sub lexid="cls14_sub1" id="cls14_sub1_v1">
+				<p lexid="cls14_sub1_p1" id="cls14_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa sujeita a perseguição tem o direito de procurar e de beneficiar de asilo em outros países. 
+				</p>
+			</sub>
+			<sub lexid="cls14_sub2" id="cls14_sub2_v1">
+				<p lexid="cls14_sub2_p1" id="cls14_sub2_p1_v1">
+					<label>2)</label> Este direito não pode, porém, ser invocado no caso de processo realmente existente por crime de direito comum ou por atividades contrárias aos fins e aos princípios das Nações Unidas. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls15" id="cls15_v1">
+			<label>Art. 15</label>
+			<sub lexid="cls15_sub1" id="cls15_sub1_v1">
+				<p lexid="cls15_sub1_p1" id="cls15_sub1_p1_v1">
+					<label>1)</label> Todo o indivíduo tem direito a ter uma nacionalidade. 
+				</p>
+			</sub>
+			<sub lexid="cls15_sub2" id="cls15_sub2_v1">
+				<p lexid="cls15_sub2_p1" id="cls15_sub2_p1_v1">
+					<label>2)</label> Ninguém pode ser arbitrariamente privado da sua nacionalidade nem do direito de mudar de nacionalidade. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls16" id="cls16_v1">
+			<label>Art. 16</label>
+			<sub lexid="cls16_sub1" id="cls16_sub1_v1">
+				<p lexid="cls16_sub1_p1" id="cls16_sub1_p1_v1">
+					<label>1)</label> A partir da idade núbil, o homem e a mulher têm o direito de casar e de constituir família, sem restrição alguma de raça, nacionalidade ou religião. Durante o casamento e na altura da sua dissolução, ambos têm direitos iguais. 
+				</p>
+			</sub>
+			<sub lexid="cls16_sub2" id="cls16_sub2_v1">
+				<p lexid="cls16_sub2_p1" id="cls16_sub2_p1_v1">
+					<label>2)</label> O casamento não pode ser celebrado sem o livre e pleno consentimento dos futuros esposos. 
+				</p>
+			</sub>
+			<sub lexid="cls16_sub3" id="cls16_sub3_v1">
+				<p lexid="cls16_sub3_p1" id="cls16_sub3_p1_v1">
+					<label>3)</label> A família é o elemento natural e fundamental da sociedade e tem direito à proteção desta e do Estado. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls17" id="cls17_v1">
+			<label>Art. 17</label>
+			<sub lexid="cls17_sub1" id="cls17_sub1_v1">
+				<p lexid="cls17_sub1_p1" id="cls17_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa, individual ou colectiva, tem direito à propriedade. 
+				</p>
+			</sub>
+			<sub lexid="cls17_sub2" id="cls17_sub2_v1">
+				<p lexid="cls17_sub2_p1" id="cls17_sub2_p1_v1">
+					<label>2)</label> Ninguém pode ser arbitrariamente privado da sua propriedade. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls18" id="cls18_v1">
+			<p lexid="cls18_p1" id="cls18_p1_v1">
+				<label>Art. 18</label> Toda a pessoa tem direito à liberdade de pensamento, de consciência e de religião; este direito implica a liberdade de mudar de religião ou de convicção, assim como a liberdade de manifestar a religião ou convicção, sozinho ou em comum, tanto em público como em privado, pelo ensino, pela prática, pelo culto e pelos ritos. 
+			</p>
+		</cls>
+		<cls lexid="cls19" id="cls19_v1">
+			<p lexid="cls19_p1" id="cls19_p1_v1">
+				<label>Art. 19</label> Todo o indivíduo tem direito à liberdade de opinião e de expressão, o que implica o direito de não ser inquietado pelas suas opiniões e o de procurar, receber e difundir, sem consideração de fronteiras, informações e ideias por qualquer meio de expressão. 
+			</p>
+		</cls>
+		<cls lexid="cls20" id="cls20_v1">
+			<label>Art. 20</label>
+			<sub lexid="cls20_sub1" id="cls20_sub1_v1">
+				<p lexid="cls20_sub1_p1" id="cls20_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem direito à liberdade de reunião e de associação pacíficas. 
+				</p>
+			</sub>
+			<sub lexid="cls20_sub2" id="cls20_sub2_v1">
+				<p lexid="cls20_sub2_p1" id="cls20_sub2_p1_v1">
+					<label>2)</label> Ninguém pode ser obrigado a fazer parte de uma associação. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls21" id="cls21_v1">
+			<label>Art. 21</label>
+			<sub lexid="cls21_sub1" id="cls21_sub1_v1">
+				<p lexid="cls21_sub1_p1" id="cls21_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem o direito de tomar parte na direção dos negócios, públicos do seu país, quer diretamente, quer por intermédio de representantes livremente escolhidos. 
+				</p>
+			</sub>
+			<sub lexid="cls21_sub2" id="cls21_sub2_v1">
+				<p lexid="cls21_sub2_p1" id="cls21_sub2_p1_v1">
+					<label>2)</label> Toda a pessoa tem direito de acesso, em condições de igualdade, às funções públicas do seu país. 
+				</p>
+			</sub>
+			<sub lexid="cls21_sub3" id="cls21_sub3_v1">
+				<p lexid="cls21_sub3_p1" id="cls21_sub3_p1_v1">
+					<label>3)</label> A vontade do povo é o fundamento da autoridade dos poderes públicos: e deve exprimir-se através de eleições honestas a realizar periodicamente por sufrágio universal e igual, com voto secreto ou segundo processo equivalente que salvaguarde a liberdade de voto. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls22" id="cls22_v1">
+			<p lexid="cls22_p1" id="cls22_p1_v1">
+				<label>Art. 22</label> Toda a pessoa, como membro da sociedade, tem direito à segurança social; e pode legitimamente exigir a satisfação dos direitos econômicos, sociais e culturais indispensáveis, graças ao esforço nacional e à cooperação internacional, de harmonia com a organização e os recursos de cada país. 
+			</p>
+		</cls>
+		<cls lexid="cls23" id="cls23_v1">
+			<label>Art. 23</label>
+			<sub lexid="cls23_sub1" id="cls23_sub1_v1">
+				<p lexid="cls23_sub1_p1" id="cls23_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem direito ao trabalho, à livre escolha do trabalho, a condições equitativas e satisfatórias de trabalho e à proteção contra o desemprego. 
+				</p>
+			</sub>
+			<sub lexid="cls23_sub2" id="cls23_sub2_v1">
+				<p lexid="cls23_sub2_p1" id="cls23_sub2_p1_v1">
+					<label>2)</label> Todos têm direito, sem discriminação alguma, a salário igual por trabalho igual. 
+				</p>
+			</sub>
+			<sub lexid="cls23_sub3" id="cls23_sub3_v1">
+				<p lexid="cls23_sub3_p1" id="cls23_sub3_p1_v1">
+					<label>3)</label> Quem trabalha tem direito a uma remuneração equitativa e satisfatória, que lhe permita e à sua família uma existência conforme com a dignidade humana, e completada, se possível, por todos os outros meios de proteção social. 
+				</p>
+			</sub>
+			<sub lexid="cls23_sub4" id="cls23_sub4_v1">
+				<p lexid="cls23_sub4_p1" id="cls23_sub4_p1_v1">
+					<label>4)</label> Toda a pessoa tem o direito de fundar com outras pessoas sindicatos e de se filiar em sindicatos para defesa dos seus interesses. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls24" id="cls24_v1">
+			<p lexid="cls24_p1" id="cls24_p1_v1">
+				<label>Art. 24</label> Toda a pessoa tem direito ao repouso e aos lazeres, especialmente, a uma limitação razoável da duração do trabalho e as férias periódicas pagas. 
+			</p>
+		</cls>
+		<cls lexid="cls25" id="cls25_v1">
+			<label>Art. 25</label>
+			<sub lexid="cls25_sub1" id="cls25_sub1_v1">
+				<p lexid="cls25_sub1_p1" id="cls25_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem direito a um nível de vida suficiente para lhe assegurar e à sua família a saúde e o bem-estar, principalmente quanto à alimentação, ao vestuário, ao alojamento, à assistência médica e ainda quanto aos serviços sociais necessários, e tem direito à segurança no desemprego, na doença, na invalidez, na viuvez, na velhice ou noutros casos de perda de meios de subsistência por circunstâncias independentes da sua vontade. 
+				</p>
+			</sub>
+			<sub lexid="cls25_sub2" id="cls25_sub2_v1">
+				<p lexid="cls25_sub2_p1" id="cls25_sub2_p1_v1">
+					<label>2)</label> A maternidade e a infância têm direito a ajuda e a assistência especiais. Todas as crianças, nascidas dentro ou fora do matrimônio, gozam da mesma proteção social. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls26" id="cls26_v1">
+			<label>Art. 26</label>
+			<sub lexid="cls26_sub1" id="cls26_sub1_v1">
+				<p lexid="cls26_sub1_p1" id="cls26_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem direito à educação. A educação deve ser gratuita, pelo menos a correspondente ao ensino elementar fundamental. O ensino elementar é obrigatório. O ensino técnico e profissional dever ser generalizado; o acesso aos estudos superiores deve estar aberto a todos em plena igualdade, em função do seu mérito. 
+				</p>
+			</sub>
+			<sub lexid="cls26_sub2" id="cls26_sub2_v1">
+				<p lexid="cls26_sub2_p1" id="cls26_sub2_p1_v1">
+					<label>2)</label> A educação deve visar à plena expansão da personalidade humana e ao reforço dos direitos do Homem e das liberdades fundamentais e deve favorecer a compreensão, a tolerância e a amizade entre todas as nações e todos os grupos raciais ou religiosos, bem como o desenvolvimento das atividades das Nações Unidas para a manutenção da paz. 
+				</p>
+			</sub>
+			<sub lexid="cls26_sub3" id="cls26_sub3_v1">
+				<p lexid="cls26_sub3_p1" id="cls26_sub3_p1_v1">
+					<label>3)</label> Aos pais pertence a prioridade do direito de escolher o gênero de educação a dar aos filhos. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls27" id="cls27_v1">
+			<label>Art. 27</label>
+			<sub lexid="cls27_sub1" id="cls27_sub1_v1">
+				<p lexid="cls27_sub1_p1" id="cls27_sub1_p1_v1">
+					<label>1)</label> Toda a pessoa tem o direito de tomar parte livremente na vida cultural da comunidade, de fruir as artes e de participar no progresso científico e nos benefícios que deste resultam. 
+				</p>
+			</sub>
+			<sub lexid="cls27_sub2" id="cls27_sub2_v1">
+				<p lexid="cls27_sub2_p1" id="cls27_sub2_p1_v1">
+					<label>2)</label> Todos têm direito à proteção dos interesses morais e materiais ligados a qualquer produção científica, literária ou artística da sua autoria. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls28" id="cls28_v1">
+			<p lexid="cls28_p1" id="cls28_p1_v1">
+				<label>Art. 28</label> Toda a pessoa tem direito a que reine, no plano social e no plano internacional, uma ordem capaz de tornar plenamente efetivos os direitos e as liberdades enunciadas na presente Declaração. 
+			</p>
+		</cls>
+		<cls lexid="cls29" id="cls29_v1">
+			<label>Art. 29</label>
+			<sub lexid="cls29_sub1" id="cls29_sub1_v1">
+				<p lexid="cls29_sub1_p1" id="cls29_sub1_p1_v1">
+					<label>1)</label> O indivíduo tem deveres para com a comunidade, fora da qual não é possível o livre e pleno desenvolvimento da sua personalidade. 
+				</p>
+			</sub>
+			<sub lexid="cls29_sub2" id="cls29_sub2_v1">
+				<p lexid="cls29_sub2_p1" id="cls29_sub2_p1_v1">
+					<label>2)</label> No exercício deste direito e no gozo destas liberdades ninguém está sujeito senão às limitações estabelecidas pela lei com vista exclusivamente a promover o reconhecimento e o respeito dos direitos e liberdades dos outros e a fim de satisfazer as justas exigências da moral, da ordem pública e do bem-estar numa sociedade democrática. 
+				</p>
+			</sub>
+			<sub lexid="cls29_sub3" id="cls29_sub3_v1">
+				<p lexid="cls29_sub3_p1" id="cls29_sub3_p1_v1">
+					<label>3)</label> Em caso algum estes direitos e liberdades poderão ser exercidos contrariamente e aos fins e aos princípios das Nações Unidas. 
+				</p>
+			</sub>
+		</cls>
+		<cls lexid="cls30" id="cls30_v1">
+			<p lexid="cls30_p1" id="cls30_p1_v1">
+				<label>Art. 30</label> Nenhuma disposição da presente Declaração pode ser interpretada de maneira a envolver para qualquer Estado, agrupamento ou indivíduo o direito de se entregar a alguma atividade ou de praticar algum ato destinado a destruir os direitos e liberdades aqui enunciados. 
+			</p>
+		</cls>
+	</corpus>
+</EasyLexML>
