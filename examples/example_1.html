@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Example 1</title>
 		<style>
 			body {
@@ -8,6 +9,8 @@
 				font-family: sans-serif;
 				font-size: 12pt;
 				font-variant-numeric: tabular-nums;
+				text-align: justify;
+				text-rendering: optimizeLegibility;
 			}
 			@media (min-width: 42rem) {
 				body {
@@ -28,16 +31,19 @@
 				color: #000;
 				text-decoration: none;
 			}
-			p a.label, p a.label:visited {
+			p a.label, p a.label:visited, section > a.label, section > a.label:visited {
 				color: #AAA;
 				margin-right: 0.5rem;
 				text-decoration: none;
 			}
 			p {
 				margin: 0;
-				margin-top: 0.2rem;
-				margin-bottom: 0.2rem;
+				margin-top: 1rem;
+				margin-bottom: 1rem;
 			}
+			section#corpus section.cls > section {
+				margin-left: 1rem;
+			} 
 			hr {
 				margin-top: 1rem;
 				margin-bottom: 1rem;
