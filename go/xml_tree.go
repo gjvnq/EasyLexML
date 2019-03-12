@@ -35,13 +35,15 @@ func (this *xmlTreeNode) AddChild(token xml.Token) *xmlTreeNode {
 	new_child.NthChildOfElem = 1
 
 	// Find NthChildOfElem
-	for i := len(this.Children) - 1; i >= 0; i-- {
-		child := this.Children[i]
+	for _, child := range this.Children {
 		if token_same_element(new_child.Token, child.Token) {
-			new_child.NthChildOfElem = child.NthChildOfElem + 1
+			new_child.NthChildOfElem++
 		}
 	}
 
+	if _, ok := token.(xml.StartElement); ok {
+		Debugln("AddChild:", token2string(token), fmt.Sprintf("(%d|%d)", new_child.NthChild, new_child.NthChildOfElem))
+	}
 	this.Children = append(this.Children, new_child)
 
 	return new_child
