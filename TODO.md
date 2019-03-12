@@ -1,13 +1,14 @@
 # TODO
 
-* [ ] Support reading from STDIN.
+* [ ] Support abstracts.
 * [ ] Fix bug with empty sections.
-* [ ] Support code syntax highlight.
-* [ ] Support version control/diff.
+* [ ] Add code syntax highlight.
+* [ ] Add version control/diff.
 * [ ] Support images.
 * [ ] Better metadata.
-* [ ] Support in force dates.
+* [ ] Support "in force" dates.
 * [ ] Generate TXT.
+* [X] Support reading from STDIN.
 * [X] Support custom labels.
 * [X] Generate TOC.
 * [X] Generate HTML.
