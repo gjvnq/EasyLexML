@@ -22,6 +22,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	cursor := root
 	toc_root := new(tocTreeNode)
 	toc_cursor := toc_root
+	make_toc := true
 
 	// Start reading XML (step 1)
 	decoder := xml.NewDecoder(input)
@@ -62,10 +63,15 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 				cls_counter++
 			case "corpus":
 				token_set_attr(&tk, "id", "corpus")
-			case "sec":
-				major, ok := token_get_attr(tk, "major")
-				if ok && major == "true" {
-					cls_counter = 0
+			case "reset-cls-counter":
+				cls_counter = 0
+				continue
+			case "option":
+				key, _ := token_get_attr(tk, "key")
+				switch key {
+				case "no-toc":
+					make_toc = false
+					continue
 				}
 			}
 
@@ -104,6 +110,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			if tag_has_label(tag) {
 				label_pending = true
 				next_label = cursor.PathToHere().Label(cls_counter, label_config)
+				if next_label == "" {
+					label_pending = false
+				}
 			}
 
 			// Add TOC entry
@@ -148,6 +157,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 			if cursor.PathToHere().Has("toc") {
 				// the table of contents will be auto generated latter
 				cursor = cursor.Parent
+				continue
+			}
+			if tag == "reset-cls-counter" || tag == "option" {
 				continue
 			}
 			if tag == "sec" {
@@ -201,7 +213,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		case xml.StartElement:
 			tag := name2string(tk.Name)
 			cursor = cursor.AddChild(tk)
-			if !printed_toc && (tag == "toc" || tag == "corpus") {
+			if make_toc && !printed_toc && (tag == "toc" || tag == "corpus") {
 				toc_root.ToXMLWithEncoder(encoder, label_config.Toc)
 			}
 			if cursor.PathToHere().Has("toc") {
