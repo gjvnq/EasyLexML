@@ -54,9 +54,8 @@ func token2string(token xml.Token) string {
 func sanitize_char_data(token xml.Token) xml.Token {
 	switch tk := token.(type) {
 	case xml.CharData:
-		tmp := strings.TrimSpace(string(tk))
 		re_internal_whitespace := regexp.MustCompile(`[\s\p{Zs}]+`)
-		ans := re_internal_whitespace.ReplaceAllString(tmp, " ")
+		ans := re_internal_whitespace.ReplaceAllString(string(tk), " ")
 		return xml.CharData(ans)
 	default:
 		return token
