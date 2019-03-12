@@ -4,9 +4,9 @@ EasyLexML {
 	font-size: 12pt;
 	font-variant-numeric: tabular-nums;
 }
-@media (min-width: 42em) {
+@media (min-width: 42rem) {
 	EasyLexML {
-		width: 42em;
+		width: 42rem;
 		margin-left: calc(50% - 21rem);
 	}
 }
@@ -60,4 +60,13 @@ toc {
 corpus {
 	display: block;
 	padding-top: 1.5rem;	
+}
+:target {
+	animation-name: highlight;
+	animation-duration: 2s;
+}
+@keyframes highlight {
+	0% {background-color: #ffa;}
+	75% {background-color: #ffa;}
+	100% {background-color: none;}
 }
