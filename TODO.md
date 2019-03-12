@@ -5,8 +5,9 @@
 * [ ] Support code syntax highlight.
 * [ ] Support version control/diff.
 * [ ] Support images.
-* [ ] Better metadada.
+* [ ] Better metadata.
 * [ ] Support in force dates.
 * [ ] Generate TXT.
+* [X] Support custom labels.
 * [X] Generate TOC.
 * [X] Generate HTML.

@@ -156,6 +156,7 @@ func (this xmlTreePath) Label(cls_counter int, cfg labelConfig) string {
 	ans := ""
 	last_tag := ""
 	title := ""
+	var last_token xml.StartElement
 	for i, node := range this {
 		if i < 2 {
 			// Ignore the <EasyLexML> and <corpus> part
@@ -167,6 +168,7 @@ func (this xmlTreePath) Label(cls_counter int, cfg labelConfig) string {
 		}
 		tag := name2string(tk.Name)
 		last_tag = tag
+		last_token = tk
 		ans += strconv.Itoa(node.NthChildOfElem)
 		if tag == "cls" {
 			ans = ""
@@ -183,6 +185,11 @@ func (this xmlTreePath) Label(cls_counter int, cfg labelConfig) string {
 	if title != "" {
 		title = " " + title
 	}
+
+	if style, ok := token_get_attr(last_token, "label-style"); ok {
+		return strings.Replace(style, "{}", ans, -1) + title
+	}
+
 	switch last_tag {
 	case "cls":
 		return strings.Replace(cfg.Cls, "{}", ans, -1) + title

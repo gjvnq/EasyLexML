@@ -27,9 +27,9 @@
 		</ul>
 	</toc>
 	<corpus id="corpus">
-		<cls lexid="cls1" id="cls1_v1">
+		<cls label-style="({})" lexid="cls1" id="cls1_v1">
 			<p lexid="cls1_p1" id="cls1_p1_v1">
-				<label>Art. 1</label>Rule 0
+				<label>(1)</label>Rule 0 (see custom label style)
 			</p>
 		</cls>
 		<sec title="Introduction" lexid="sec1" id="sec1_v1">

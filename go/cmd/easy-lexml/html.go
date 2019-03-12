@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"os"
 
 	"github.com/gjvnq/EasyLexML/go"
@@ -14,6 +15,7 @@ var htmlCmd = &cobra.Command{
 	Args:  cobra.RangeArgs(1, 2),
 	Run: func(cmd *cobra.Command, args []string) {
 		var err error
+		var input_reader io.Reader
 
 		// Get arguments
 		input_path := args[0]
@@ -26,9 +28,14 @@ var htmlCmd = &cobra.Command{
 		}
 
 		// Open input
-		input_file, err := os.Open(input_path)
-		panicIfErr(err)
-		defer input_file.Close()
+		if input_path != "-" {
+			input_file, err := os.Open(input_path)
+			panicIfErr(err)
+			defer input_file.Close()
+			input_reader = input_file
+		} else {
+			input_reader = os.Stdin
+		}
 
 		// Delete and open output file if needed
 		if output_path != "" {
@@ -39,11 +46,11 @@ var htmlCmd = &cobra.Command{
 			defer output_file.Close()
 
 			// Run
-			err = easyLexML.Strict2HTML(input_file, output_file)
+			err = easyLexML.Strict2HTML(input_reader, output_file)
 			panicIfErr(err)
 		} else {
 			// Run
-			err = easyLexML.Strict2HTML(input_file, os.Stdout)
+			err = easyLexML.Strict2HTML(input_reader, os.Stdout)
 			panicIfErr(err)
 		}
 	},
