@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="../xml/style.css"?>
+<EasyLexML>
+	<metadata>
+		<title>CHARTER OF FUNDAMENTAL RIGHTS OF THE EUROPEAN UNION</title>
+		<author>European Parliament</author>
+		<author>European Council</author>
+		<author>European Commission</author>
+	</metadata>
+	<corpus>
+		<sec label-style="" title="Preamble">
+			<label-style cls="Article {num}\n{title}">
+			<cls>The peoples of Europe, in creating an ever closer union among them, are resolved to share a peaceful future based on common values.</cls>
+			<cls>Conscious of its spiritual and moral heritage, the Union is founded on the indivisible, universal values of human dignity, freedom, equality and solidarity; it is based on the principles of democracy and the rule of law. It places the individual at the heart of its activities, by establishing the citizenship of the Union and by creating an area of freedom, security and justice.</cls>
+			<cls>The Union contributes to the preservation and to the development of these common values while respecting the diversity of the cultures and traditions of the peoples of Europe as well as the national identities of the Member States and the organisation of their public authorities at national, regional and local levels; it seeks to promote balanced and sustainable development and ensures free movement of persons, goods, services and capital, and the freedom of establishment.</cls>
+		</sec>
+		<label-style toc="Fancy Table of Contents" sec="CHAPTER {num}\n{title}" sec-num="upper-roman" cls="Article {num}\n{title}" sub="{}."/>
+		<sec title="DIGNITY">
+			<cls title="Human dignity">
+				Human dignity is inviolable. It must be respected and protected.
+			</cls>
+			<cls title="Right to life">
+				<sub>Everyone has the right to life.</sub>
+				<sub>No one shall be condemned to the death penalty, or executed.</sub>
+			</cls>
+			<cls title="Right to the integrity of the person">
+				<sub>Everyone has the right to respect for his or her physical and mental integrity.</sub>
+				<sub>In the fields of medicine and biology, the following must be respected in particular:
+					<label-style sub="⸺"/>
+					<sub>the free and informed consent of the person concerned, according to the procedures laid down by law,</sub>
+					<sub>the prohibition of eugenic practices, in particular those aiming at the selection of persons,</sub>
+					<sub>the prohibition on making the human body and its parts as such a source of financial gain,</sub>
+					<sub>the prohibition of the reproductive cloning of human beings.</sub>
+				</sub>
+			</cls>
+			<cls title="Prohibition of torture and inhuman or degrading treatment or punishment">
+				No one shall be subjected to torture or to inhuman or degrading treatment or punishment.
+			</cls>
+			<cls title="Prohibition of slavery and forced labour">
+				<sub>No one shall be held in slavery or servitude.</sub>
+				<sub>No one shall be required to perform forced or compulsory labour.</sub>
+				<sub>Trafficking in human beings is prohibited.</sub>
+			</cls>
+		</sec>
+		<sec title="FREEDOMS">
+			<cls title="Equality before the law">
+				Everyone is equal before the law.
+			</cls>
+			<cls title="Non-discrimination">
+				<sub>Any discrimination based on any ground such as sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age or sexual orientation shall be prohibited.</sub>
+				<sub>Within the scope of application of the Treaty establishing the European Community and of the Treaty on European Union, and without prejudice to the special provisions of those Treaties, any discrimination on grounds of nationality shall be prohibited.</sub>
+			</cls>
+			<cls title="Cultural, religious and linguistic diversity">
+				The Union shall respect cultural, religious and linguistic diversity.
+			</cls>
+			<cls title="Equality between men and women">
+				<sub>Equality between men and women must be ensured in all areas, including employment, work and pay.</sub>
+				<sub>The principle of equality shall not prevent the maintenance or adoption of measures providing for specific advantages in favour of the under-represented sex.</sub>
+			</cls>
+			<cls title="The rights of the child">
+				<sub></sub>
+			</cls>
+			<cls title="Right to liberty and security">
+				Everyone has the right to liberty and security of person.
+			</cls>
+			<cls title="Protection of personal data">
+				<sub>Everyone has the right to the protection of personal data concerning him or her.</sub>
+				<sub>Such data must be processed fairly for specified purposes and on the basis of the consent of the person concerned or some other legitimate basis laid down by law. Everyone has the right of access to data which has been collected concerning him or her, and the right to have it rectified.</sub>
+				<sub>Compliance with these rules shall be subject to control by an independent authority.</sub>
+			</cls>
+			<cls title="Right to marry and right to found a family">
+				The right to marry and the right to found a family shall be guaranteed in accordance with the national laws governing the exercise of these rights.
+			</cls>
+			<cls title="Freedom of thought, conscience and religion">
+				<sub>Everyone has the right to freedom of thought, conscience and religion. This right includes freedom to change religion or belief and freedom, either alone or in community with others and in public or in private, to manifest religion or belief, in worship, teaching, practice and observance.</sub>
+				<sub>The right to conscientious objection is recognised, in accordance with the national laws governing the exercise of this right.</sub>
+			</cls>
+			<cls title="Freedom of expression and information">
+				<sub>Everyone has the right to freedom of expression. This right shall include freedom to hold opinions and to receive and impart information and ideas without interference by public authority and regardless of frontiers.</sub>
+				<sub>The freedom and pluralism of the media shall be respected.</sub>
+			</cls>
+			<cls title="Freedom of assembly and of association">
+				<sub>Everyone has the right to freedom of peaceful assembly and to freedom of association at all levels, in particular in political, trade union and civic matters, which implies the right of everyone to form and to join trade unions for the protection of his or her interests.</sub>
+				<sub>Political parties at Union level contribute to expressing the political will of the citizens of the Union.</sub>
+			</cls>
+			<cls title="Freedom of the arts and sciences">
+				<sub>The arts and scientific research shall be free of constraint. Academic freedom shall be respected.</sub>
+			</cls>
+			<cls title="Right to education">
+				<sub>Everyone has the right to education and to have access to vocational and continuing training.</sub>
+				<sub>This right includes the possibility to receive free compulsory education.</sub>
+				<sub>The freedom to found educational establishments with due respect for democratic principles and the right of parents to ensure the education and teaching of their children in conformity with their religious, philosophical and pedagogical convictions shall be respected, in accordance with the national laws governing the exercise of such freedom and right.</sub>
+			</cls>
+			<cls title="Freedom to choose an occupation and right to engage in work">
+				<sub>Everyone has the right to engage in work and to pursue a freely chosen or accepted occupation.</sub>
+				<sub>Every citizen of the Union has the freedom to seek employment, to work, to exercise the right of establishment and to provide services in any Member State.</sub>
+				<sub>Nationals of third countries who are authorised to work in the territories of the Member States are entitled to working conditions equivalent to those of citizens of the Union.</sub>
+			</cls>
+			<cls title="Freedom to conduct a business">
+				<sub>The freedom to conduct a business in accordance with Community law and national laws and practices is recognised.</sub>
+			</cls>
+			<cls title="Right to property">
+				<sub>Everyone has the right to own, use, dispose of and bequeath his or her lawfully acquired possessions. No one may be deprived of his or her possessions, except in the public interest and in the cases and under the conditions provided for by law, subject to fair compensation being paid in good time for their loss. The use of property may be regulated by law in so far as is necessary for the general interest.</sub>
+				<sub>Intellectual property shall be protected.</sub>
+			</cls>
+			<cls title="Right to asylum">
+				<sub>The right to asylum shall be guaranteed with due respect for the rules of the Geneva Convention of 28 July 1951 and the Protocol of 31 January 1967 relating to the status of refugees and in accordance with the Treaty establishing the European Community.</sub>
+			</cls>
+			<cls title="Protection in the event of removal, expulsion or extradition">
+				<sub>Collective expulsions are prohibited.</sub>
+				<sub>No one may be removed, expelled or extradited to a State where there is a serious risk that he or she would be subjected to the death penalty, torture or other inhuman or degrading treatment or punishment.</sub>
+			</cls>
+		</sec>
+		<sec title="EQUALITY">
+			<cls title="Equality before the law">
+				Everyone is equal before the law.
+			</cls>
+			<cls title="Non-discrimination">
+				<sub>Any discrimination based on any ground such as sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age or sexual orientation shall be prohibited.</sub>
+				<sub>Within the scope of application of the Treaty establishing the European Community and of the Treaty on European Union, and without prejudice to the special provisions of those Treaties, any discrimination on grounds of nationality shall be prohibited.</sub>
+			</cls>
+			<cls title="Cultural, religious and linguistic diversity">
+				The Union shall respect cultural, religious and linguistic diversity.
+			</cls>
+			<cls title="Equality between men and women">
+				<label-style sub=""/>
+				<sub>Equality between men and women must be ensured in all areas, including employment, work and pay.</sub>
+				<sub>The principle of equality shall not prevent the maintenance or adoption of measures providing for specific advantages in favour of the under-represented sex.</sub>
+			</cls>
+			<cls title="The rights of the child">
+				<sub>Children shall have the right to such protection and care as is necessary for their well-being. They may express their views freely. Such views shall be taken into consideration on matters which concern them in accordance with their age and maturity.</sub>
+				<sub>In all actions relating to children, whether taken by public authorities or private institutions, the child’s best interests must be a primary consideration.</sub>
+				<sub>Every child shall have the right to maintain on a regular basis a personal relationship and direct contact with both his or her parents, unless that is contrary to his or her interests.</sub>
+			</cls>
+			<cls title="The rights of the elderly">
+				The Union recognises and respects the rights of the elderly to lead a life of dignity and independence and to participate in social and cultural life.
+			</cls>
+			<cls title="Integration of persons with disabilities">
+				The Union recognises and respects the right of persons with disabilities to benefit from measures designed to ensure their independence, social and occupational integration and participation in the life of the community.
+			</cls>
+		</sec>
+		<sec title="SOLIDARITY">
+			<cls title="Workers’ right to information and consultation within the undertaking">
+				Workers or their representatives must, at the appropriate levels, be guaranteed information and consultation in good time in the cases and under the conditions provided for by Community law and national laws and practices.
+			</cls>
+			<cls title="Right of collective bargaining and action">
+				Workers and employers, or their respective organisations, have, in accordance with Community law and national laws and practices, the right to negotiate and conclude collective agreements at the appropriate levels and, in cases of conflicts of interest, to take collective action to defend their interests, including strike action.
+			</cls>
+			<cls title="Right of access to placement services">
+				Everyone has the right of access to a free placement service.
+			</cls>
+			<cls title="Protection in the event of unjustified dismissal">
+				Every worker has the right to protection against unjustified dismissal, in accordance with Community law and national laws and practices.
+			</cls>
+			<cls title="Fair and just working conditions">
+				<sub>Every worker has the right to working conditions which respect his or her health, safety and dignity.</sub>
+				<sub>Every worker has the right to limitation of maximum working hours, to daily and weekly rest periods and to an annual period of paid leave.</sub>
+			</cls>
+			<cls title="Prohibition of child labour and protection of young people at work">
+				<label-style sub=""/>
+				<sub>The employment of children is prohibited. The minimum age of admission to employment may not be lower than the minimum school-leaving age, without prejudice to such rules as may be more favourable to young people and except for limited derogations.</sub>
+				<sub>Young people admitted to work must have working conditions appropriate to their age and be protected against economic exploitation and any work likely to harm their safety, health or physical, mental, moral or social development or to interfere with their education.</sub>
+			</cls>
+			<cls title="Family and professional life">
+				<sub>The family shall enjoy legal, economic and social protection.</sub>
+				<sub>To reconcile family and professional life, everyone shall have the right to protection from dismissal for a reason connected with maternity and the right to paid maternity leave and to parental leave following the birth or adoption of a child.</sub>
+			</cls>
+			<cls title="Social security and social assistance">
+				<sub>The Union recognises and respects the entitlement to social security benefits and social services providing protection in cases such as maternity, illness, industrial accidents, dependency or old age, and in the case of loss of employment, in accordance with the rules laid down by Community law and national laws and practices.</sub>
+				<sub>Everyone residing and moving legally within the European Union is entitled to social security benefits and social advantages in accordance with Community law and national laws and practices.</sub>
+				<sub>In order to combat social exclusion and poverty, the Union recognises and respects the right to social and housing assistance so as to ensure a decent existence for all those who lack sufficient resources, in accordance with the rules laid down by Community law and national laws and practices.</sub>
+			</cls>
+			<cls title="Health care">
+				Everyone has the right of access to preventive health care and the right to benefit from medical treatment under the conditions established by national laws and practices. A high level of human health protection shall be ensured in the definition and implementation of all Union policies and activities.
+			</cls>
+		</sec>
+	</corpus>
+</EasyLexML>
