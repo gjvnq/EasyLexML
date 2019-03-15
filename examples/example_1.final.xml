@@ -51,6 +51,10 @@
 							<label>1)</label>Exception 1
 						</p>
 					</sub>
+					<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1">
+						<label>Note 1</label>
+						<p>I'm just an explanatory note.</p>
+					</note>
 					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1">
 						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
 							<label>2)</label>Exception 2

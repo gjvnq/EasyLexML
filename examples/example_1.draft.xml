@@ -7,8 +7,12 @@
 		<label-signs toc="Fancy Table of Contents" sec="§{} ٭" cls="Art. {}" sub = "{})"/>
 	</metadata>
 	<toc>
+		<!-- This whole thing will be deleted when we convert this document to its strict form -->
 		<bold><toc>hi</toc>fsdfds</bold>
 	</toc>
+	<abstract>
+		Just a simple example of EasyLexML.
+	</abstract>
 	<corpus>
 		<cls label-style="({})">Rule 0 (see custom label style)</cls>
 		<sec title="Introduction">
@@ -16,6 +20,7 @@
 			<sec title="Sub-Intro">
 				<cls>Rule <a href="https://en.wikipedia.org/wiki/2">2</a>
 					<sub>Exception 1</sub>
+					<note>I'm just an explanatory note.</note>
 					<sub>Exception 2
 						<sub>Exception of the exception (1)</sub>
 						<sub>Exception of the exception (2)</sub>
@@ -23,6 +28,7 @@
 				</cls>
 			</sec>
 		</sec>
+		
 		<sec title="Final" major="true">
 			<cls>Final Rule</cls>
 		</sec>
