@@ -93,8 +93,26 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 	}
 	ans = parent.GetAttrWithDefault("label-style", ans)
 
-	num := strconv.Itoa(cls_counter)
-	if tag != "cls" {
+	num := ""
+	switch tag {
+	case "cls":
+		num = strconv.Itoa(cls_counter)
+	case "sec":
+		tmp := make([]string, 0)
+		cursor := parent
+		for cursor != nil {
+			if cursor.Data == "sec" {
+				tmp = append(tmp, strconv.Itoa(parent.NthChildOfElem()+1))
+			}
+			cursor = cursor.Parent
+		}
+		for i := len(tmp) - 1; i >= 0; i-- {
+			if len(num) > 0 {
+				num += "."
+			}
+			num += tmp[i]
+		}
+	default:
 		num = strconv.Itoa(parent.NthChildOfElem() + 1)
 	}
 	ans = strings.Replace(ans, "{num}", num, -1)

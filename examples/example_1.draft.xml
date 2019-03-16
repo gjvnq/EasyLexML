@@ -48,6 +48,12 @@
 			<cls title="Fancyness">
 				Fancy article with title
 			</cls>
+			<sec title="Recursion 1">
+				<sec title="Recursion 2">
+					<sec title="Recursion 3">
+					</sec>
+				</sec>
+			</sec>
 		</sec>
 	</corpus>
 </EasyLexML>
