@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="../xml/style.css"?>
 <EasyLexML>
+	<set-meta key="toc-title" val="𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘"/>
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
-		<label-signs toc="Fancy Table of Contents" sec="§{} ٭" cls="Art. {}" sub = "{})"/>
 	</metadata>
 	<toc>
 		<!-- This whole thing will be deleted when we convert this document to its strict form -->
@@ -14,7 +14,10 @@
 		Just a simple example of EasyLexML.
 	</abstract>
 	<corpus>
-		<cls label-style="({})">Rule 0 (see custom label style)</cls>
+		<set-meta key="SecLabel" val="§{num} ٭ {title}"/>
+		<set-meta key="ArtLabel" val="Art. {num}"/>
+		<set-meta key="SubLabel" val="{num})"/>
+		<cls label-style="({})">Rule 0 (<b>see custom label style)</b>)</cls>
 		<sec title="Introduction">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">
@@ -28,9 +31,20 @@
 				</cls>
 			</sec>
 		</sec>
-		
-		<sec title="Final" major="true">
-			<cls>Final Rule</cls>
+		<set key="ClsCounter" val="0"/>
+		<sec title="Final">
+			<cls>
+				Final Rule
+				<sub num="1">
+					Exception 1
+				</sub>
+				<sub>
+					Exception 3 (we added it latter)
+				</sub>
+				<sub num="2">
+					Exception 2
+				</sub>
+			</cls>
 		</sec>
 	</corpus>
 </EasyLexML>

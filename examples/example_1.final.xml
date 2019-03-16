@@ -1,84 +1,99 @@
-<?xml version="1.0"?><?xml-stylesheet href="../xml/style.css"?><EasyLexML>
+<?xml version="1.0"?>
+<?xml-stylesheet href="../xml/style.css"?>
+<EasyLexML>
 	<metadata>
-		<title>Example 1</title>
-		<author>gjvnq</author>
-		<label-signs toc="Fancy Table of Contents" sec="§{} ٭" cls="Art. {}" sub="{})"></label-signs>
+		<title>
+			Example 1
+		</title>
+		<author>
+			gjvnq
+		</author>
 	</metadata>
-	<toc id="toc">
-		<label>Fancy Table of Contents</label>
-		<ul>
-			<li>
-				<p>
-					<a href="#sec1_v1">§1 ٭ Introduction</a>
-				</p>
-				<ul>
-					<li>
-						<p>
-							<a href="#sec1_sec1_v1">§1.1 ٭ Sub-Intro</a>
-						</p>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<p>
-					<a href="#sec2_v1">§2 ٭ Final</a>
-				</p>
-			</li>
-		</ul>
-	</toc>
-	<corpus id="corpus">
-		<cls label-style="({})" lexid="cls1" id="cls1_v1">
-			<p lexid="cls1_p1" id="cls1_p1_v1">
-				<label>(1)</label>Rule 0 (see custom label style)
+	<abstract>
+		 Just a simple example of EasyLexML. 
+	</abstract>
+	<corpus>
+		<cls label-style="({})">
+			<p>
+				<label/>
+				Rule 0 (
+				<b>
+					see custom label style)
+				</b>
+				)
 			</p>
 		</cls>
-		<sec title="Introduction" lexid="sec1" id="sec1_v1">
-			<label>§1 ٭ Introduction</label>
-			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
-				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
-					<label>Art. 2</label>Rule 1
+		<sec title="Introduction">
+			<cls>
+				<p>
+					<label/>
+					Rule 1
 				</p>
 			</cls>
-			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
-				<label>§1.1 ٭ Sub-Intro</label>
-				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
-					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
-						<label>Art. 3</label>Rule
-						<a href="https://en.wikipedia.org/wiki/2" lexid="sec1_sec1_cls1_p1_a1" id="sec1_sec1_cls1_p1_a1_v1">2</a>
+			<sec title="Sub-Intro">
+				<cls>
+					<p>
+						<label/>
+						Rule 
+						<a href="https://en.wikipedia.org/wiki/2">
+							2
+						</a>
 					</p>
-					<sub lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1">
-						<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
-							<label>1)</label>Exception 1
+					<sub>
+						<p>
+							<label/>
+							Exception 1
 						</p>
 					</sub>
-					<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1">
-						<label>Note 1</label>
-						<p>I'm just an explanatory note.</p>
+					<note>
+						I'm just an explanatory note.
 					</note>
-					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1">
-						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
-							<label>2)</label>Exception 2
+					<sub>
+						<p>
+							<label/>
+							Exception 2 
 						</p>
-						<sub lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1">
-							<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
-								<label>2.1)</label>Exception of the exception (1)
+						<sub>
+							<p>
+								<label/>
+								Exception of the exception (1)
 							</p>
 						</sub>
-						<sub lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1">
-							<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
-								<label>2.2)</label>Exception of the exception (2)
+						<sub>
+							<p>
+								<label/>
+								Exception of the exception (2)
 							</p>
 						</sub>
 					</sub>
 				</cls>
 			</sec>
 		</sec>
-		<sec title="Final" major="true" lexid="sec2" id="sec2_v1">
-			<label>§2 ٭ Final</label>
-			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
-				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
-					<label>Art. 1</label>Final Rule
+		<set key="ClsCounter" val="0"/>
+		<sec title="Final">
+			<cls>
+				<p>
+					<label/>
+					 Final Rule 
 				</p>
+				<sub num="1">
+					<p>
+						<label/>
+						 Exception 1 
+					</p>
+				</sub>
+				<sub>
+					<p>
+						<label/>
+						 Exception 3 (we added it latter) 
+					</p>
+				</sub>
+				<sub num="2">
+					<p>
+						<label/>
+						 Exception 2 
+					</p>
+				</sub>
 			</cls>
 		</sec>
 	</corpus>

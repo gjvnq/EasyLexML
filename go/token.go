@@ -51,6 +51,15 @@ func token2string(token xml.Token) string {
 	}
 }
 
+func remove_double_whitespace(str string) string {
+	re_internal_whitespace := regexp.MustCompile(`[\s\p{Zs}]+`)
+	ans := re_internal_whitespace.ReplaceAllString(str, " ")
+	if ans == " " {
+		return ""
+	}
+	return ans
+}
+
 func sanitize_char_data(token xml.Token) xml.Token {
 	switch tk := token.(type) {
 	case xml.CharData:
