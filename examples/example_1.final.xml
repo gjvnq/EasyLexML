@@ -13,68 +13,73 @@
 		 Just a simple example of EasyLexML. 
 	</abstract>
 	<corpus id="corpus">
-		<cls label-style="({})" lexid="cls1">
-			<p lexid="cls1_p1">
-				<label lexid="cls1_p1_label1">
-					Cls. {num}
+		<cls label-style="({num})" lexid="cls1" id="cls1_v1">
+			<p lexid="cls1_p1" id="cls1_p1_v1">
+				<label href="cls1_v1">
+					(1)
 				</label>
 				Rule 0 (
-				<b lexid="cls1_p1_b1">
+				<b>
 					see custom label style)
 				</b>
 				)
 			</p>
 		</cls>
-		<sec title="Introduction" lexid="sec1">
-			<cls lexid="sec1_cls1">
-				<p lexid="sec1_cls1_p1">
-					<label lexid="sec1_cls1_p1_label1">
-						Cls. {num}
+		<sec title="Introduction" lexid="sec1" id="sec1_v1">
+			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
+				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
+					<label href="sec1_cls1_v1">
+						Cls. 2
 					</label>
 					Rule 1
 				</p>
 			</cls>
-			<sec title="Sub-Intro" lexid="sec1_sec1">
-				<cls lexid="sec1_sec1_cls1">
-					<p lexid="sec1_sec1_cls1_p1">
-						<label lexid="sec1_sec1_cls1_p1_label1">
-							Cls. {num}
+			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
+				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
+					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
+						<label href="sec1_sec1_cls1_v1">
+							Cls. 3
 						</label>
 						Rule 
-						<a href="https://en.wikipedia.org/wiki/2" lexid="sec1_sec1_cls1_p1_a1">
+						<a href="https://en.wikipedia.org/wiki/2">
 							2
 						</a>
 					</p>
-					<sub lexid="sec1_sec1_cls1_sub1">
-						<p lexid="sec1_sec1_cls1_sub1_p1">
-							<label lexid="sec1_sec1_cls1_sub1_p1_label1">
-								{num})
+					<sub lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1">
+						<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
+							<label href="sec1_sec1_cls1_sub1_v1">
+								1)
 							</label>
 							Exception 1
 						</p>
 					</sub>
-					<note lexid="sec1_sec1_cls1_note1">
-						I'm just an explanatory note.
+					<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1">
+						<p lexid="sec1_sec1_cls1_note1_p1" id="sec1_sec1_cls1_note1_p1_v1">
+							<label href="sec1_sec1_cls1_note1_v1">
+								Note 1 —
+							</label>
+							I'm just an explanatory note.
+						</p>
 					</note>
-					<sub lexid="sec1_sec1_cls1_sub2">
-						<p lexid="sec1_sec1_cls1_sub2_p1">
-							<label lexid="sec1_sec1_cls1_sub2_p1_label1">
-								{num})
+					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1">
+						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
+							<label href="sec1_sec1_cls1_sub2_v1">
+								2)
 							</label>
 							Exception 2 
 						</p>
-						<sub lexid="sec1_sec1_cls1_sub2_sub1">
-							<p lexid="sec1_sec1_cls1_sub2_sub1_p1">
-								<label lexid="sec1_sec1_cls1_sub2_sub1_p1_label1">
-									{num})
+						<sub lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1">
+							<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
+								<label href="sec1_sec1_cls1_sub2_sub1_v1">
+									—
 								</label>
 								Exception of the exception (1)
 							</p>
 						</sub>
-						<sub lexid="sec1_sec1_cls1_sub2_sub2">
-							<p lexid="sec1_sec1_cls1_sub2_sub2_p1">
-								<label lexid="sec1_sec1_cls1_sub2_sub2_p1_label1">
-									{num})
+						<sub lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1">
+							<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
+								<label href="sec1_sec1_cls1_sub2_sub2_v1">
+									—
 								</label>
 								Exception of the exception (2)
 							</p>
@@ -83,35 +88,34 @@
 				</cls>
 			</sec>
 		</sec>
-		<set key="ClsCounter" val="0" lexid="set1"/>
-		<sec title="Final" lexid="sec2">
-			<cls lexid="sec2_cls1">
-				<p lexid="sec2_cls1_p1">
-					<label lexid="sec2_cls1_p1_label1">
-						Cls. {num}
+		<sec title="Final" lexid="sec2" id="sec2_v1">
+			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
+				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
+					<label href="sec2_cls1_v1">
+						Cls. 1
 					</label>
 					 Final Rule 
 				</p>
-				<sub num="1" lexid="sec2_cls1_sub1">
-					<p lexid="sec2_cls1_sub1_p1">
-						<label lexid="sec2_cls1_sub1_p1_label1">
-							{num})
+				<sub lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1">
+					<p lexid="sec2_cls1_sub1_p1" id="sec2_cls1_sub1_p1_v1">
+						<label href="sec2_cls1_sub1_v1">
+							1)
 						</label>
 						 Exception 1 
 					</p>
 				</sub>
-				<sub lexid="sec2_cls1_sub2">
-					<p lexid="sec2_cls1_sub2_p1">
-						<label lexid="sec2_cls1_sub2_p1_label1">
-							{num})
+				<sub lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1">
+					<p lexid="sec2_cls1_sub2_p1" id="sec2_cls1_sub2_p1_v1">
+						<label href="sec2_cls1_sub2_v1">
+							2)
 						</label>
 						 Exception 3 (we added it latter) 
 					</p>
 				</sub>
-				<sub num="2" lexid="sec2_cls1_sub3">
-					<p lexid="sec2_cls1_sub3_p1">
-						<label lexid="sec2_cls1_sub3_p1_label1">
-							{num})
+				<sub lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1">
+					<p lexid="sec2_cls1_sub3_p1" id="sec2_cls1_sub3_p1_v1">
+						<label href="sec2_cls1_sub3_v1">
+							3)
 						</label>
 						 Exception 2 
 					</p>

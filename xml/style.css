@@ -40,7 +40,6 @@ note > p {
 }
 cls {
 	display: block;
-	margin-bottom: 1rem;
 }
 ul {
 	display: block;
@@ -51,6 +50,8 @@ li {
 }
 p {
 	display: inline-block;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 p > label {
 	color: #AAA;

@@ -1,7 +1,6 @@
 package easyLexML
 
 import (
-	"encoding/xml"
 	"fmt"
 	"io"
 	"strconv"
@@ -33,9 +32,10 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	ctx.SecLabel = "§ {num}"
 	ctx.ClsLabel = "Cls. {num}"
 	ctx.SubLabel = "{num})"
-	ctx.ClsCounter = 0
+	ctx.NoteLabel = "Note {num} —"
+	cls_counter := 0
 	corpus.Info = ctx
-	process_ids_and_labels(corpus)
+	process_ids_and_labels(corpus, &cls_counter)
 	corpus.SetAttr("id", "corpus")
 
 	// Get TocTitle
@@ -58,47 +58,52 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	return nil
 }
 
-func add_label(encoder *xml.Encoder, next_label string) {
-	tk_lbl := xml.StartElement{Name: xml.Name{Local: "label"}}
-	Debugln(">>>", token2string(tk_lbl))
-	panicIfErr(encoder.EncodeToken(tk_lbl))
+var depth = 0
 
-	tk_txt := xml.CharData(next_label)
-	Debugln(">>>", token2string(tk_txt))
-	panicIfErr(encoder.EncodeToken(tk_txt))
+func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
+	prefix := ""
+	for i := 0; i < depth; i++ {
+		prefix += "  "
+	}
 
-	Debugln(">>>", token2string(tk_lbl.End()))
-	panicIfErr(encoder.EncodeToken(tk_lbl.End()))
-
-	tk_space := xml.CharData(" ")
-	Debugln(">>>", token2string(tk_space))
-	panicIfErr(encoder.EncodeToken(tk_space))
-}
-
-func process_ids_and_labels(node *xmlquery.Node) {
 	if node.Type != xmlquery.ElementNode {
 		return
 	}
 
-	fmt.Println(node)
 	ctx := node.Info.(*context)
-	lexid := gen_lexid(node)
-	if lexid != "" {
-		node.SetAttr("lexid", lexid)
+	// Set lexid and id if they areno not set yet
+	lexid, _ := node.GetAttr("lexid")
+	id, _ := node.GetAttr("id")
+	if tag_has_lexid(node.Data) && lexid == "" {
+		node.SetAttr("lexid", gen_lexid(node))
 	}
+	if tag_has_lexid(node.Data) && id == "" {
+		lexid, _ = node.GetAttr("lexid")
+		node.SetAttr("id", lexid+"_v1")
+	}
+
+	// Update variables
 	ctx.Update(node)
-	fmt.Println(ctx)
+	update_cls_counter(node, cls_counter)
 
+	// Fill labels
 	if node.Data == "label" {
-		node.AddChild(new_node_text(ctx.GetLabel(node)))
+		txt, href := gen_label(node, *cls_counter)
+		node.AddChild(new_node_text(txt))
+		if href != "" {
+			node.SetAttr("href", href)
+		}
 	}
 
+	// Take care of the children
 	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		ctx.Update(child)
+		fmt.Println(prefix, child, ctx)
 		child.Info = ctx.Copy()
-		process_ids_and_labels(child)
-		ctx.Update(node)
+		depth++
+		process_ids_and_labels(child, cls_counter)
+		depth--
 	}
-	fmt.Println(ctx)
 }
 
 func gen_lexid(node *xmlquery.Node) string {
@@ -194,7 +199,7 @@ func envelop_text(root *xmlquery.Node) {
 func requires_p(node *xmlquery.Node) bool {
 	if node.Type == xmlquery.ElementNode {
 		tag := node.Data
-		return tag_has_label(tag)
+		return tag_has_label(tag) || tag == "set-meta"
 	}
 	return node.Type == xmlquery.TextNode
 }

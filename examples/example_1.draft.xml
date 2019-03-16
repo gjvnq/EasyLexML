@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="../xml/style.css"?>
 <EasyLexML>
-	<set-meta key="toc-title" val="𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘"/>
+	<set-meta TocTitle="𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘"/>
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>
@@ -14,10 +14,8 @@
 		Just a simple example of EasyLexML.
 	</abstract>
 	<corpus>
-		<set-meta key="SecLabel" val="§{num} ٭ {title}"/>
-		<set-meta key="ArtLabel" val="Art. {num}"/>
-		<set-meta key="SubLabel" val="{num})"/>
-		<cls label-style="({})">Rule 0 (<b>see custom label style)</b>)</cls>
+		<set-meta SecLabel="§{num} ٭ {title}" ArtLabel="Art. {num}" SubLabel="{num})"/>
+		<cls label-style="({num})">Rule 0 (<b>see custom label style)</b>)</cls>
 		<sec title="Introduction">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">
@@ -25,23 +23,24 @@
 					<sub>Exception 1</sub>
 					<note>I'm just an explanatory note.</note>
 					<sub>Exception 2
+						<set-meta SubLabel="—"/>
 						<sub>Exception of the exception (1)</sub>
 						<sub>Exception of the exception (2)</sub>
 					</sub>
 				</cls>
 			</sec>
 		</sec>
-		<set key="ClsCounter" val="0"/>
+		<set-meta ClsCounter="0"/>
 		<sec title="Final">
 			<cls>
 				Final Rule
-				<sub num="1">
+				<sub>
 					Exception 1
 				</sub>
 				<sub>
 					Exception 3 (we added it latter)
 				</sub>
-				<sub num="2">
+				<sub>
 					Exception 2
 				</sub>
 			</cls>

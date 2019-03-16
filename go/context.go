@@ -10,45 +10,34 @@ import (
 )
 
 type context struct {
-	SecLabel   string
-	ClsLabel   string
-	SubLabel   string
-	ClsCounter int
+	SecLabel  string
+	ClsLabel  string
+	SubLabel  string
+	NoteLabel string
 }
 
-func (this *context) Update(node *xmlquery.Node) error {
-	var err error
-
-	if node.Data == "cls" {
-		this.ClsCounter++
-		return nil
-	}
-
+func (this *context) Update(node *xmlquery.Node) {
 	if node.Data != "set-meta" {
-		return nil
+		return
 	}
 
 	for _, attr := range node.Attr {
 		tag := name2string(attr.Name)
 		switch tag {
-		case "ClsCounter":
-			this.ClsCounter, err = strconv.Atoi(attr.Value)
 		case "SecLabel":
 			this.SecLabel = attr.Value
 		case "ClsLabel":
 			this.ClsLabel = attr.Value
 		case "SubLabel":
 			this.SubLabel = attr.Value
+		case "NoteLabel":
+			this.NoteLabel = attr.Value
 		}
-		panicIfErr(err)
 	}
-
-	return err
 }
 
 func (this *context) String() string {
-	return fmt.Sprintf("context{%d %q %q %q}",
-		this.ClsCounter,
+	return fmt.Sprintf("context{%q %q %q}",
 		this.SecLabel,
 		this.ClsLabel,
 		this.SubLabel,
@@ -61,7 +50,7 @@ func (this *context) Copy() *context {
 	return ans
 }
 
-func (this *context) GetLabel(node *xmlquery.Node) string {
+func gen_label(node *xmlquery.Node, cls_counter int) (string, string) {
 	// Find teh "real" parent
 	parent := node.Parent
 	for !tag_has_label(parent.Data) {
@@ -69,20 +58,52 @@ func (this *context) GetLabel(node *xmlquery.Node) string {
 	}
 
 	tag := parent.Data
+	ctx := parent.Info.(*context)
 	ans := ""
 	switch tag {
 	case "sec":
-		ans = this.SecLabel
+		ans = ctx.SecLabel
 	case "cls":
-		ans = strings.Replace(this.ClsLabel, "{num}", strconv.Itoa(this.ClsCounter), 0)
+		ans = ctx.ClsLabel
 	case "sub":
-		ans = this.SubLabel
+		ans = ctx.SubLabel
+	case "note":
+		ans = ctx.NoteLabel
+	default:
+		ans = "{lexid}"
 	}
-	ans = strings.Replace(ans, "{num}", strconv.Itoa(parent.NthChildOfElem()), 0)
+	ans = parent.GetAttrWithDefault("label-style", ans)
 
-	return ans
+	num := strconv.Itoa(cls_counter)
+	if tag != "cls" {
+		num = strconv.Itoa(parent.NthChildOfElem() + 1)
+	}
+	ans = strings.Replace(ans, "{num}", num, -1)
+	ans = strings.Replace(ans, "{id}", parent.GetAttrWithDefault("id", ""), -1)
+	ans = strings.Replace(ans, "{lexid}", parent.GetAttrWithDefault("lexid", ""), -1)
+
+	return ans, parent.GetAttrWithDefault("id", "")
 }
 
 func tag_has_label(tag string) bool {
-	return tag == "sec" || tag == "cls" || tag == "sub"
+	return tag == "sec" || tag == "cls" || tag == "sub" || tag == "note"
+}
+
+func update_cls_counter(node *xmlquery.Node, cls_counter *int) {
+	var err error
+
+	if node.Data == "set-meta" {
+		val, ok := node.GetAttr("ClsCounter")
+		if ok {
+			*cls_counter, err = strconv.Atoi(val)
+			panicIfErr(err)
+		}
+	}
+	if node.Data == "cls" {
+		*cls_counter++
+	}
+}
+
+func tag_has_lexid(tag string) bool {
+	return tag == "sec" || tag == "cls" || tag == "sub" || tag == "note" || tag == "p"
 }
