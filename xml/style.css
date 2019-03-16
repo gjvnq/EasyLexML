@@ -80,6 +80,11 @@ corpus {
 br {
 	display: block;
 }
+abstract {
+	display: block;
+	text-align: center;
+	margin-top: 1rem;
+}
 :target {
 	animation-name: highlight;
 	animation-duration: 2s;
