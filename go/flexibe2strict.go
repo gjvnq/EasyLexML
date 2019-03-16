@@ -22,7 +22,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 
 	// Remove TOC
 	node := base.SelectElement("toc")
-	node.DeleteMe()
+	if node != nil {
+		node.DeleteMe()
+	}
 
 	// Put text within <p> (and also add <label>)
 	envelop_text(corpus)

@@ -13,16 +13,18 @@ EasyLexML {
 metadata, sub {
 	display: block;
 }
-sec, toc {
+sec, sec-nn, toc {
 	display: block;
 	margin-top: 2rem;
 }
-sec > label, cls > label, note > label, toc > label {
+sec > label, sec-nn > label, cls > label, note > label, toc > label {
 	content: attr(label);
 	text-align: center;
 	width: 100%;
 	display: block;
 	font-weight: bold;
+}
+sec > label, sec-nn > label, note > label, toc > label {
 	margin-bottom: 1rem;
 }
 note {

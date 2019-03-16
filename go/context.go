@@ -112,12 +112,12 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 	}
 
 	if href != "" {
-		node.SetAttr("href", href)
+		node.SetAttr("href", "#"+href)
 	}
 }
 
 func tag_has_label(tag string) bool {
-	return tag == "sec" || tag == "cls" || tag == "sub" || tag == "note"
+	return tag == "sec" || tag == "sec-nn" || tag == "cls" || tag == "sub" || tag == "note"
 }
 
 func update_cls_counter(node *xmlquery.Node, cls_counter *int) {
@@ -136,5 +136,5 @@ func update_cls_counter(node *xmlquery.Node, cls_counter *int) {
 }
 
 func tag_has_lexid(tag string) bool {
-	return tag == "sec" || tag == "cls" || tag == "sub" || tag == "note" || tag == "p"
+	return tag == "sec" || tag == "sec-nn" || tag == "cls" || tag == "sub" || tag == "note" || tag == "p"
 }

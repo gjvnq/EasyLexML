@@ -8,13 +8,15 @@
 		<author>European Commission</author>
 	</metadata>
 	<corpus>
-		<sec label-style="" title="Preamble">
-			<label-style cls="Article {num}\n{title}"/>
+		<set-meta SecLabel="§ {num}" ClsLabel="Art. {num}" SubLabel="{num}."/>
+		<set-meta SecHeading="CHAPTER {num}\n{title}" ClsHeading="Article {num}\n{title}"/>
+		<!-- sec-nn = non numbered section -->
+		<sec-nn label-style="{title}" title="Preamble">
+			<set-meta ClsLabel="({num})"/>
 			<cls>The peoples of Europe, in creating an ever closer union among them, are resolved to share a peaceful future based on common values.</cls>
 			<cls>Conscious of its spiritual and moral heritage, the Union is founded on the indivisible, universal values of human dignity, freedom, equality and solidarity; it is based on the principles of democracy and the rule of law. It places the individual at the heart of its activities, by establishing the citizenship of the Union and by creating an area of freedom, security and justice.</cls>
 			<cls>The Union contributes to the preservation and to the development of these common values while respecting the diversity of the cultures and traditions of the peoples of Europe as well as the national identities of the Member States and the organisation of their public authorities at national, regional and local levels; it seeks to promote balanced and sustainable development and ensures free movement of persons, goods, services and capital, and the freedom of establishment.</cls>
-		</sec>
-		<label-style toc="Fancy Table of Contents" sec="CHAPTER {num}\n{title}" sec-num="upper-roman" cls="Article {num}\n{title}" sub="{}."/>
+		</sec-nn>
 		<sec title="DIGNITY">
 			<cls title="Human dignity">
 				Human dignity is inviolable. It must be respected and protected.
@@ -26,7 +28,7 @@
 			<cls title="Right to the integrity of the person">
 				<sub>Everyone has the right to respect for his or her physical and mental integrity.</sub>
 				<sub>In the fields of medicine and biology, the following must be respected in particular:
-					<label-style sub="⸺"/>
+					<set-meta SubLabel="⸺"/>
 					<sub>the free and informed consent of the person concerned, according to the procedures laid down by law,</sub>
 					<sub>the prohibition of eugenic practices, in particular those aiming at the selection of persons,</sub>
 					<sub>the prohibition on making the human body and its parts as such a source of financial gain,</sub>
@@ -58,7 +60,9 @@
 				<sub>The principle of equality shall not prevent the maintenance or adoption of measures providing for specific advantages in favour of the under-represented sex.</sub>
 			</cls>
 			<cls title="The rights of the child">
-				<sub></sub>
+				<sub>Children shall have the right to such protection and care as is necessary for their well-being. They may express their views freely. Such views shall be taken into consideration on matters which concern them in accordance with their age and maturity.</sub>
+				<sub>In all actions relating to children, whether taken by public authorities or private institutions, the child’s best interests must be a primary consideration.</sub>
+				<sub>Every child shall have the right to maintain on a regular basis a personal relationship and direct contact with both his or her parents, unless that is contrary to his or her interests.</sub>
 			</cls>
 			<cls title="Right to liberty and security">
 				Everyone has the right to liberty and security of person.
