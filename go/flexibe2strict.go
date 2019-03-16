@@ -2,7 +2,9 @@ package easyLexML
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
+	"strconv"
 	"strings"
 
 	"github.com/gjvnq/xmlquery"
@@ -12,6 +14,8 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Read XML
 	root, err := xmlquery.Parse(input)
 	base := root.SelectElement("EasyLexML")
+	corpus := base.SelectElement("corpus")
+	tocTitle := "Table of Contents"
 	// cursor := root
 	if err != nil {
 		return err
@@ -22,10 +26,24 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	node.DeleteMe()
 
 	// Put text within <p> (and also add <label>)
-	cursor := base.SelectElement("corpus")
-	envelop_text(cursor)
+	envelop_text(corpus)
 
-	// Add id and lexid
+	// Add id, lexid and labels
+	ctx := new(context)
+	ctx.SecLabel = "§ {num}"
+	ctx.ClsLabel = "Cls. {num}"
+	ctx.SubLabel = "{num})"
+	ctx.ClsCounter = 0
+	corpus.Info = ctx
+	process_ids_and_labels(corpus)
+	corpus.SetAttr("id", "corpus")
+
+	// Get TocTitle
+	node = xmlquery.FindOne(root, "//set-meta[@TocTitle]")
+	if node != nil {
+		tocTitle = node.GetAttrWithDefault("TocTitle", tocTitle)
+	}
+	fmt.Println(tocTitle)
 
 	// Remove all <set-meta>
 	node = xmlquery.FindOne(root, "//set-meta")
@@ -55,6 +73,56 @@ func add_label(encoder *xml.Encoder, next_label string) {
 	tk_space := xml.CharData(" ")
 	Debugln(">>>", token2string(tk_space))
 	panicIfErr(encoder.EncodeToken(tk_space))
+}
+
+func process_ids_and_labels(node *xmlquery.Node) {
+	if node.Type != xmlquery.ElementNode {
+		return
+	}
+
+	fmt.Println(node)
+	ctx := node.Info.(*context)
+	lexid := gen_lexid(node)
+	if lexid != "" {
+		node.SetAttr("lexid", lexid)
+	}
+	ctx.Update(node)
+	fmt.Println(ctx)
+
+	if node.Data == "label" {
+		node.AddChild(new_node_text(ctx.GetLabel(node)))
+	}
+
+	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		child.Info = ctx.Copy()
+		process_ids_and_labels(child)
+		ctx.Update(node)
+	}
+	fmt.Println(ctx)
+}
+
+func gen_lexid(node *xmlquery.Node) string {
+	if node.Type != xmlquery.ElementNode {
+		return ""
+	}
+
+	list := make([]string, 0)
+	cursor := node
+	for cursor != nil && cursor.Data != "corpus" {
+		lexid_part := cursor.Data + strconv.Itoa(cursor.NthChildOfElem()+1)
+		list = append(list, lexid_part)
+		cursor = cursor.Parent
+	}
+
+	ans := ""
+	for i := len(list) - 1; i >= 0; i-- {
+		if len(ans) != 0 {
+			ans += "_"
+		}
+		ans += list[i]
+	}
+
+	return ans
 }
 
 func envelop_text(root *xmlquery.Node) {
@@ -126,7 +194,7 @@ func envelop_text(root *xmlquery.Node) {
 func requires_p(node *xmlquery.Node) bool {
 	if node.Type == xmlquery.ElementNode {
 		tag := node.Data
-		return tag == "sec" || tag == "cls" || tag == "sub"
+		return tag_has_label(tag)
 	}
 	return node.Type == xmlquery.TextNode
 }
@@ -135,6 +203,14 @@ func new_node_element(name string) *xmlquery.Node {
 	ans := new(xmlquery.Node)
 	ans.Type = xmlquery.ElementNode
 	ans.Data = name
+
+	return ans
+}
+
+func new_node_text(text string) *xmlquery.Node {
+	ans := new(xmlquery.Node)
+	ans.Type = xmlquery.TextNode
+	ans.Data = text
 
 	return ans
 }
