@@ -26,19 +26,29 @@
 			</p>
 		</cls>
 		<sec title="Introduction" lexid="sec1" id="sec1_v1">
+			<label href="sec1_v1">
+				Section 1
+				<br/>
+				Introduction
+			</label>
 			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
 				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
 					<label href="sec1_cls1_v1">
-						Cls. 2
+						Art. 2
 					</label>
 					Rule 1
 				</p>
 			</cls>
 			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
+				<label href="sec1_sec1_v1">
+					Section 1
+					<br/>
+					Sub-Intro
+				</label>
 				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
 					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
 						<label href="sec1_sec1_cls1_v1">
-							Cls. 3
+							Art. 3
 						</label>
 						Rule 
 						<a href="https://en.wikipedia.org/wiki/2">
@@ -89,10 +99,15 @@
 			</sec>
 		</sec>
 		<sec title="Final" lexid="sec2" id="sec2_v1">
+			<label href="sec2_v1">
+				Section 2
+				<br/>
+				Final
+			</label>
 			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
 				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
 					<label href="sec2_cls1_v1">
-						Cls. 1
+						Art. 1
 					</label>
 					 Final Rule 
 				</p>
@@ -120,6 +135,16 @@
 						 Exception 2 
 					</p>
 				</sub>
+			</cls>
+			<cls title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1">
+				<label href="sec2_cls2_v1">
+					Article 2
+					<br/>
+					Fancyness
+				</label>
+				<p lexid="sec2_cls2_p1" id="sec2_cls2_p1_v1">
+					 Fancy article with title 
+				</p>
 			</cls>
 		</sec>
 	</corpus>

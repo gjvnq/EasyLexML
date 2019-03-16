@@ -9,7 +9,7 @@
 	</metadata>
 	<corpus>
 		<sec label-style="" title="Preamble">
-			<label-style cls="Article {num}\n{title}">
+			<label-style cls="Article {num}\n{title}"/>
 			<cls>The peoples of Europe, in creating an ever closer union among them, are resolved to share a peaceful future based on common values.</cls>
 			<cls>Conscious of its spiritual and moral heritage, the Union is founded on the indivisible, universal values of human dignity, freedom, equality and solidarity; it is based on the principles of democracy and the rule of law. It places the individual at the heart of its activities, by establishing the citizenship of the Union and by creating an area of freedom, security and justice.</cls>
 			<cls>The Union contributes to the preservation and to the development of these common values while respecting the diversity of the cultures and traditions of the peoples of Europe as well as the national identities of the Member States and the organisation of their public authorities at national, regional and local levels; it seeks to promote balanced and sustainable development and ensures free movement of persons, goods, services and capital, and the freedom of establishment.</cls>

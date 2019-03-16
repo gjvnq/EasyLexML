@@ -1,7 +1,6 @@
 package easyLexML
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
@@ -10,10 +9,14 @@ import (
 )
 
 type context struct {
-	SecLabel  string
-	ClsLabel  string
-	SubLabel  string
-	NoteLabel string
+	SecLabel    string
+	ClsLabel    string
+	SubLabel    string
+	NoteLabel   string
+	SecHeading  string
+	ClsHeading  string
+	SubHeading  string
+	NoteHeading string
 }
 
 func (this *context) Update(node *xmlquery.Node) {
@@ -32,16 +35,16 @@ func (this *context) Update(node *xmlquery.Node) {
 			this.SubLabel = attr.Value
 		case "NoteLabel":
 			this.NoteLabel = attr.Value
+		case "SecHeading":
+			this.SecHeading = attr.Value
+		case "ClsHeading":
+			this.ClsHeading = attr.Value
+		case "SubHeading":
+			this.SubHeading = attr.Value
+		case "NoteHeading":
+			this.NoteLabel = attr.Value
 		}
 	}
-}
-
-func (this *context) String() string {
-	return fmt.Sprintf("context{%q %q %q}",
-		this.SecLabel,
-		this.ClsLabel,
-		this.SubLabel,
-	)
 }
 
 func (this *context) Copy() *context {
@@ -50,27 +53,43 @@ func (this *context) Copy() *context {
 	return ans
 }
 
-func gen_label(node *xmlquery.Node, cls_counter int) (string, string) {
+func gen_label(node *xmlquery.Node, cls_counter int) {
 	// Find teh "real" parent
 	parent := node.Parent
 	for !tag_has_label(parent.Data) {
 		parent = parent.Parent
 	}
-
+	title := parent.GetAttrWithDefault("title", "")
 	tag := parent.Data
 	ctx := parent.Info.(*context)
 	ans := ""
-	switch tag {
-	case "sec":
-		ans = ctx.SecLabel
-	case "cls":
-		ans = ctx.ClsLabel
-	case "sub":
-		ans = ctx.SubLabel
-	case "note":
-		ans = ctx.NoteLabel
-	default:
-		ans = "{lexid}"
+
+	if title == "" {
+		switch tag {
+		case "sec":
+			ans = ctx.SecLabel
+		case "cls":
+			ans = ctx.ClsLabel
+		case "sub":
+			ans = ctx.SubLabel
+		case "note":
+			ans = ctx.NoteLabel
+		default:
+			ans = "{lexid}"
+		}
+	} else {
+		switch tag {
+		case "sec":
+			ans = ctx.SecHeading
+		case "cls":
+			ans = ctx.ClsHeading
+		case "sub":
+			ans = ctx.SubHeading
+		case "note":
+			ans = ctx.NoteHeading
+		default:
+			ans = "{lexid} - {title}"
+		}
 	}
 	ans = parent.GetAttrWithDefault("label-style", ans)
 
@@ -81,8 +100,20 @@ func gen_label(node *xmlquery.Node, cls_counter int) (string, string) {
 	ans = strings.Replace(ans, "{num}", num, -1)
 	ans = strings.Replace(ans, "{id}", parent.GetAttrWithDefault("id", ""), -1)
 	ans = strings.Replace(ans, "{lexid}", parent.GetAttrWithDefault("lexid", ""), -1)
+	ans = strings.Replace(ans, "{title}", title, -1)
 
-	return ans, parent.GetAttrWithDefault("id", "")
+	href := parent.GetAttrWithDefault("id", "")
+	parts := strings.Split(ans, `\n`)
+	for i, part := range parts {
+		if i != 0 {
+			node.AddChild(new_node_element("br"))
+		}
+		node.AddChild(new_node_text(part))
+	}
+
+	if href != "" {
+		node.SetAttr("href", href)
+	}
 }
 
 func tag_has_label(tag string) bool {

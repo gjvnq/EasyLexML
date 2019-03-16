@@ -14,7 +14,8 @@
 		Just a simple example of EasyLexML.
 	</abstract>
 	<corpus>
-		<set-meta SecLabel="§{num} ٭ {title}" ArtLabel="Art. {num}" SubLabel="{num})"/>
+		<set-meta SecLabel="§ {num}" ClsLabel="Art. {num}" SubLabel="{num})"/>
+		<set-meta SecHeading="Section {num}\n{title}" ClsHeading="Article {num}\n{title}"/>
 		<cls label-style="({num})">Rule 0 (<b>see custom label style)</b>)</cls>
 		<sec title="Introduction">
 			<cls>Rule 1</cls>
@@ -43,6 +44,9 @@
 				<sub>
 					Exception 2
 				</sub>
+			</cls>
+			<cls title="Fancyness">
+				Fancy article with title
 			</cls>
 		</sec>
 	</corpus>

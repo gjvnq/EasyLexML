@@ -17,7 +17,7 @@ sec, toc {
 	display: block;
 	margin-top: 2rem;
 }
-sec > label, note > label, toc > label {
+sec > label, cls > label, note > label, toc > label {
 	content: attr(label);
 	text-align: center;
 	width: 100%;
@@ -74,6 +74,9 @@ toc {
 corpus {
 	display: block;
 	padding-top: 1.5rem;	
+}
+br {
+	display: block;
 }
 :target {
 	animation-name: highlight;

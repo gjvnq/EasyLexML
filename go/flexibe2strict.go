@@ -33,6 +33,10 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	ctx.ClsLabel = "Cls. {num}"
 	ctx.SubLabel = "{num})"
 	ctx.NoteLabel = "Note {num} —"
+	ctx.SecHeading = "§ {num}\\n{title}"
+	ctx.ClsHeading = "Cls. {num}\\n{title}"
+	ctx.SubHeading = "{num}\\n{title}"
+	ctx.NoteHeading = "Note {num}\\n{title}"
 	cls_counter := 0
 	corpus.Info = ctx
 	process_ids_and_labels(corpus, &cls_counter)
@@ -58,14 +62,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	return nil
 }
 
-var depth = 0
-
 func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
-	prefix := ""
-	for i := 0; i < depth; i++ {
-		prefix += "  "
-	}
-
 	if node.Type != xmlquery.ElementNode {
 		return
 	}
@@ -88,21 +85,14 @@ func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
 
 	// Fill labels
 	if node.Data == "label" {
-		txt, href := gen_label(node, *cls_counter)
-		node.AddChild(new_node_text(txt))
-		if href != "" {
-			node.SetAttr("href", href)
-		}
+		gen_label(node, *cls_counter)
 	}
 
 	// Take care of the children
 	for child := node.FirstChild; child != nil; child = child.NextSibling {
 		ctx.Update(child)
-		fmt.Println(prefix, child, ctx)
 		child.Info = ctx.Copy()
-		depth++
 		process_ids_and_labels(child, cls_counter)
-		depth--
 	}
 }
 
@@ -160,7 +150,17 @@ func envelop_text(root *xmlquery.Node) {
 
 	// Readd children
 	var p_node *xmlquery.Node
+	has_label := false
 	state := 0 // 0 - Looking for start node | 1 - Looking for end node
+
+	// Special case: labels that are headings (sections and EU-style articles)
+	_, ok_title := root.GetAttr("title")
+	if root.Data == "sec" || ok_title {
+		lbl_node := new_node_element("label")
+		root.AddChild(lbl_node)
+		has_label = true
+	}
+
 	for _, child := range children {
 		// Ignore empty children
 		if len(child.Data) == 0 {
@@ -171,9 +171,12 @@ func envelop_text(root *xmlquery.Node) {
 		case 0:
 			if child.Type == xmlquery.TextNode {
 				p_node = new_node_element("p")
-				lbl_node := new_node_element("label")
 				root.AddChild(p_node)
-				p_node.AddChild(lbl_node)
+				if !has_label {
+					lbl_node := new_node_element("label")
+					p_node.AddChild(lbl_node)
+					has_label = true
+				}
 				p_node.AddChild(child)
 				state = 1
 			} else {
