@@ -3,7 +3,7 @@ package main
 import "github.com/spf13/cobra"
 import "os"
 import "fmt"
-import "github.com/gjvnq/EasyLexML/go"
+import easyLexML "github.com/gjvnq/EasyLexML/go"
 
 var rootCmd = &cobra.Command{
 	Use:  os.Args[0],

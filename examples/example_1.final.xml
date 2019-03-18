@@ -13,7 +13,7 @@
 		 Just a simple example of EasyLexML. 
 	</abstract>
 	<corpus id="corpus">
-		<cls label-style="({num})" lexid="cls1" id="cls1_v1">
+		<cls lexid="cls1" id="cls1_v1">
 			<p lexid="cls1_p1" id="cls1_p1_v1">
 				<label href="#cls1_v1">
 					(1)
@@ -27,9 +27,12 @@
 		</cls>
 		<sec title="Introduction" lexid="sec1" id="sec1_v1">
 			<label href="#sec1_v1">
-				Section 1
-				<br/>
-				Introduction
+				<span>
+					Section 1
+				</span>
+				<span>
+					Introduction
+				</span>
 			</label>
 			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
 				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
@@ -41,9 +44,12 @@
 			</cls>
 			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
 				<label href="#sec1_sec1_v1">
-					Section 1.1
-					<br/>
-					Sub-Intro
+					<span>
+						Section 1.1
+					</span>
+					<span>
+						Sub-Intro
+					</span>
 				</label>
 				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
 					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
@@ -100,9 +106,12 @@
 		</sec>
 		<sec title="Final" lexid="sec2" id="sec2_v1">
 			<label href="#sec2_v1">
-				Section 2
-				<br/>
-				Final
+				<span>
+					Section 2
+				</span>
+				<span>
+					Final
+				</span>
 			</label>
 			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
 				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
@@ -138,9 +147,12 @@
 			</cls>
 			<cls title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1">
 				<label href="#sec2_cls2_v1">
-					Article 2
-					<br/>
-					Fancyness
+					<span>
+						Article 2
+					</span>
+					<span>
+						Fancyness
+					</span>
 				</label>
 				<p lexid="sec2_cls2_p1" id="sec2_cls2_p1_v1">
 					 Fancy article with title 
@@ -148,21 +160,30 @@
 			</cls>
 			<sec title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1">
 				<label href="#sec2_sec1_v1">
-					Section 1.1
-					<br/>
-					Recursion 1
+					<span>
+						Section 1.1
+					</span>
+					<span>
+						Recursion 1
+					</span>
 				</label>
 				<sec title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1">
 					<label href="#sec2_sec1_sec1_v1">
-						Section 1.1.1
-						<br/>
-						Recursion 2
+						<span>
+							Section 1.1.1
+						</span>
+						<span>
+							Recursion 2
+						</span>
 					</label>
 					<sec title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1">
 						<label href="#sec2_sec1_sec1_sec1_v1">
-							Section 1.1.1.1
-							<br/>
-							Recursion 3
+							<span>
+								Section 1.1.1.1
+							</span>
+							<span>
+								Recursion 3
+							</span>
 						</label>
 					</sec>
 				</sec>

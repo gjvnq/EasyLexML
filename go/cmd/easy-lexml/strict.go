@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/gjvnq/EasyLexML/go"
+	easyLexML "github.com/gjvnq/EasyLexML/go"
 	"github.com/spf13/cobra"
 )
 

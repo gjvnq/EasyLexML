@@ -58,6 +58,9 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		node = xmlquery.FindOne(root, "//set-meta")
 	}
 
+	// Remove "unnecessary" attributes
+	remove_draft_attr(base)
+
 	// Output
 	root.OutputXMLToWriter(output, true, false)
 
@@ -122,6 +125,19 @@ func gen_lexid(node *xmlquery.Node) string {
 	return ans
 }
 
+func remove_draft_attr(root *xmlquery.Node) {
+	if root.Type != xmlquery.ElementNode {
+		return
+	}
+
+	root.DelAttr("label-style")
+	root.DelAttr("ref")
+
+	for child := root.FirstChild; child != nil; child = child.NextSibling {
+		remove_draft_attr(child)
+	}
+}
+
 func envelop_text(root *xmlquery.Node) {
 	if !requires_p(root) {
 		for child := root.FirstChild; child != nil; child = child.NextSibling {
@@ -150,7 +166,7 @@ func envelop_text(root *xmlquery.Node) {
 		}
 	}
 
-	// Readd children
+	// Re-add children
 	var p_node *xmlquery.Node
 	has_label := false
 	state := 0 // 0 - Looking for start node | 1 - Looking for end node

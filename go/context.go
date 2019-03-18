@@ -122,11 +122,14 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 
 	href := parent.GetAttrWithDefault("id", "")
 	parts := strings.Split(ans, `\n`)
-	for i, part := range parts {
-		if i != 0 {
-			node.AddChild(new_node_element("br"))
+	if len(parts) > 1 {
+		for _, part := range parts {
+			span := new_node_element("span")
+			span.AddChild(new_node_text(part))
+			node.AddChild(span)
 		}
-		node.AddChild(new_node_text(part))
+	} else {
+		node.AddChild(new_node_text(ans))
 	}
 
 	if href != "" {
