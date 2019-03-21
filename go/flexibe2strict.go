@@ -1,7 +1,6 @@
 package easyLexML
 
 import (
-	"fmt"
 	"io"
 	"strconv"
 	"strings"
@@ -49,7 +48,6 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	if node != nil {
 		tocTitle = node.GetAttrWithDefault("TocTitle", tocTitle)
 	}
-	fmt.Println(tocTitle)
 
 	// Remove all <set-meta>
 	node = xmlquery.FindOne(root, "//set-meta")
@@ -61,10 +59,29 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Remove "unnecessary" attributes
 	remove_draft_attr(base)
 
+	generate_toc(base, tocTitle)
+
 	// Output
 	root.OutputXMLToWriter(output, true, false)
 
 	return nil
+}
+
+func generate_toc(base *xmlquery.Node, toc_title string) {
+	// Preapre
+	toc_node := new_node_element("toc")
+	toc_label := new_node_element("label")
+	toc_label.AddChild(new_node_text(toc_title))
+	toc_node.AddChild(toc_label)
+	// toc_cursor = toc_label
+
+	// Add toc after <metadata>
+	metadata_node := base.SelectElement("metadata")
+	if metadata_node != nil {
+		metadata_node.AddAfter(toc_node)
+	} else {
+		base.FirstChild.AddBefore(toc_node)
+	}
 }
 
 func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
