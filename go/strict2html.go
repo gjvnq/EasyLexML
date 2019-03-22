@@ -65,11 +65,12 @@ func replace_with_html_elements(root *xmlquery.Node) {
 		tag = "section"
 	case tag == "sub" || tag == "sub-nn":
 		tag = "section"
+		root.SetAttr("class", "sub")
 	case tag == "label":
 		tag = "a"
 		root.SetAttr("class", "label")
 	}
-	root.SetAttr("data-tag", tag)
+	root.SetAttr("data-tag", root.Data)
 	root.Data = tag
 	for child := root.FirstChild; child != nil; child = child.NextSibling {
 		replace_with_html_elements(child)
