@@ -36,6 +36,13 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 	// Replace elements
 	replace_with_html_elements(base)
 
+	// Get title
+	metadata := base.SelectElement("metadata")
+	if metadata != nil {
+		title := metadata.SelectElement("title")
+		pageData.Title = title.OutputXML(false)
+	}
+
 	// Finish
 	buf := new(bytes.Buffer)
 	corpus.OutputXMLToWriter(buf, true, true)
