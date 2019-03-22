@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				margin-top: 2rem;
+				font-family: sans-serif;
+				font-size: 12pt;
+				font-variant-numeric: tabular-nums;
+				text-align: justify;
+				text-rendering: optimizeLegibility;
+				hyphens: auto;
+				line-height: 200%;
+			}
+			@media (min-width: 42rem) {
+				body {
+					width: 42rem;
+					margin-left: calc(50% - 21rem);
+				}
+			}
+			section#toc ul {
+				list-style-type: none;
+			}
+			section#toc > ul {
+				padding: 0;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				text-align: center;
+			}
+			a.label, a.label:visited {
+				color: #000;
+				text-decoration: none;
+				text-decoration: none;
+			}
+			section {
+				margin-top: 1rem;
+			}
+			section > a {
+				text-align: center;
+				display: block;
+			}
+			section > a > span {
+				display: block;
+				margin-top: -0.5rem;
+				margin-bottom: -0.5rem;
+			}
+			section > a > span:nth-child(1) {
+				font-style: italic;
+			}
+			section > a > span:nth-child(2) {
+				font-weight: bold;
+			}
+			p {
+				margin: 0;
+			}
+			section#corpus section.cls section {
+				margin-left: 1.5rem;
+			} 
+			hr {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+			:target {
+				animation-name: highlight;
+				animation-duration: 2s;
+			}
+			@keyframes highlight {
+				0% {background-color: #ffa;}
+				75% {background-color: #ffa;}
+				100% {background-color: none;}
+			}
+			a, a:visited {
+				text-decoration: none;
+				word-break: break-all;
+				overflow-wrap: break-word;
+				color: blue;
+			}
+			a:hover, a:active {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<header id="header">
+			<h1></h1>
+		</header>
+		<section id="metadata">
+		</section>
+		<section id="abstract">
+			<h1></h1>
+			
+		</section>
+		<section id="toc">
+			
+		</section>
+		<section id="corpus">
+			<corpus id="corpus" data-tag="corpus">
+	<section lexid="cls1" id="cls1_v1" data-tag="section">
+		<p lexid="cls1_p1" id="cls1_p1_v1" data-tag="p">
+			<a href="#cls1_v1" class="label" data-tag="a">
+				 (1) 
+			</a>
+			 Rule 0 ( 
+			<b data-tag="b">
+				 see custom label style) 
+			</b>
+			 ) 
+		</p>
+	</section>
+	<section title="Introduction" lexid="sec1" id="sec1_v1" data-tag="section">
+		<a href="#sec1_v1" class="label" data-tag="a">
+			<span data-tag="span">
+				 Section 1 
+			</span>
+			<span data-tag="span">
+				 Introduction 
+			</span>
+		</a>
+		<section lexid="sec1_cls1" id="sec1_cls1_v1" data-tag="section">
+			<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1" data-tag="p">
+				<a href="#sec1_cls1_v1" class="label" data-tag="a">
+					 Art. 2 
+				</a>
+				 Rule 1 
+			</p>
+		</section>
+		<section title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1" data-tag="section">
+			<a href="#sec1_sec1_v1" class="label" data-tag="a">
+				<span data-tag="span">
+					 Section 1.1 
+				</span>
+				<span data-tag="span">
+					 Sub-Intro 
+				</span>
+			</a>
+			<section lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" data-tag="section">
+				<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1" data-tag="p">
+					<a href="#sec1_sec1_cls1_v1" class="label" data-tag="a">
+						 Art. 3 
+					</a>
+					 Rule 
+					<a href="https://en.wikipedia.org/wiki/2" data-tag="a">
+						 2 
+					</a>
+				</p>
+				<section lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" data-tag="section">
+					<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1" data-tag="p">
+						<a href="#sec1_sec1_cls1_sub1_v1" class="label" data-tag="a">
+							 1) 
+						</a>
+						 Exception 1 
+					</p>
+				</section>
+				<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1" data-tag="note">
+					<p lexid="sec1_sec1_cls1_note1_p1" id="sec1_sec1_cls1_note1_p1_v1" data-tag="p">
+						<a href="#sec1_sec1_cls1_note1_v1" class="label" data-tag="a">
+							 Note 1 — 
+						</a>
+						 I'm just an explanatory note. 
+					</p>
+				</note>
+				<section lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" data-tag="section">
+					<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1" data-tag="p">
+						<a href="#sec1_sec1_cls1_sub2_v1" class="label" data-tag="a">
+							 2) 
+						</a>
+						 Exception 2 
+					</p>
+					<section lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" data-tag="section">
+						<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1" data-tag="p">
+							<a href="#sec1_sec1_cls1_sub2_sub1_v1" class="label" data-tag="a">
+								 — 
+							</a>
+							 Exception of the exception (1) 
+						</p>
+					</section>
+					<section lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" data-tag="section">
+						<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1" data-tag="p">
+							<a href="#sec1_sec1_cls1_sub2_sub2_v1" class="label" data-tag="a">
+								 — 
+							</a>
+							 Exception of the exception (2) 
+						</p>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	<section title="Final" lexid="sec2" id="sec2_v1" data-tag="section">
+		<a href="#sec2_v1" class="label" data-tag="a">
+			<span data-tag="span">
+				 Section 2 
+			</span>
+			<span data-tag="span">
+				 Final 
+			</span>
+		</a>
+		<section lexid="sec2_cls1" id="sec2_cls1_v1" data-tag="section">
+			<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1" data-tag="p">
+				<a href="#sec2_cls1_v1" class="label" data-tag="a">
+					 Art. 1 
+				</a>
+				 Final Rule 
+			</p>
+			<section lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1" data-tag="section">
+				<p lexid="sec2_cls1_sub1_p1" id="sec2_cls1_sub1_p1_v1" data-tag="p">
+					<a href="#sec2_cls1_sub1_v1" class="label" data-tag="a">
+						 1) 
+					</a>
+					 Exception 1 
+				</p>
+			</section>
+			<section lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1" data-tag="section">
+				<p lexid="sec2_cls1_sub2_p1" id="sec2_cls1_sub2_p1_v1" data-tag="p">
+					<a href="#sec2_cls1_sub2_v1" class="label" data-tag="a">
+						 2) 
+					</a>
+					 Exception 3 (we added it latter) 
+				</p>
+			</section>
+			<section lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1" data-tag="section">
+				<p lexid="sec2_cls1_sub3_p1" id="sec2_cls1_sub3_p1_v1" data-tag="p">
+					<a href="#sec2_cls1_sub3_v1" class="label" data-tag="a">
+						 3) 
+					</a>
+					 Exception 2 
+				</p>
+			</section>
+		</section>
+		<section title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1" data-tag="section">
+			<a href="#sec2_cls2_v1" class="label" data-tag="a">
+				<span data-tag="span">
+					 Article 2 
+				</span>
+				<span data-tag="span">
+					 Fancyness 
+				</span>
+			</a>
+			<p lexid="sec2_cls2_p1" id="sec2_cls2_p1_v1" data-tag="p">
+				 Fancy article with title 
+			</p>
+		</section>
+		<section title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1" data-tag="section">
+			<a href="#sec2_sec1_v1" class="label" data-tag="a">
+				<span data-tag="span">
+					 Section 1.1 
+				</span>
+				<span data-tag="span">
+					 Recursion 1 
+				</span>
+			</a>
+			<section title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1" data-tag="section">
+				<a href="#sec2_sec1_sec1_v1" class="label" data-tag="a">
+					<span data-tag="span">
+						 Section 1.1.1 
+					</span>
+					<span data-tag="span">
+						 Recursion 2 
+					</span>
+				</a>
+				<section title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1" data-tag="section">
+					<a href="#sec2_sec1_sec1_sec1_v1" class="label" data-tag="a">
+						<span data-tag="span">
+							 Section 1.1.1.1 
+						</span>
+						<span data-tag="span">
+							 Recursion 3 
+						</span>
+					</a>
+				</section>
+			</section>
+		</section>
+	</section>
+</corpus>
+
+		</section>
+	</body>
+</html>

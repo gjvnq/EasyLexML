@@ -10,7 +10,7 @@
 		<!-- This whole thing will be deleted when we convert this document to its strict form -->
 		<bold><toc>hi</toc>fsdfds</bold>
 	</toc>
-	<abstract>
+	<abstract label="Ementa">
 		Just a simple example of EasyLexML.
 	</abstract>
 	<corpus>
