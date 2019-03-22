@@ -102,7 +102,7 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 		cursor := parent
 		for cursor != nil {
 			if cursor.Data == "sec" {
-				tmp = append(tmp, strconv.Itoa(parent.NthChildOfElem()+1))
+				tmp = append(tmp, strconv.Itoa(cursor.NthChildOfElem()+1))
 			}
 			cursor = cursor.Parent
 		}
