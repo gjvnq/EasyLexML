@@ -7,19 +7,24 @@
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&subset=latin-ext');
 			body {
+				font-size: 16px;
 				margin-top: 2rem;
 				font-family: "Libre Baskerville", sans-serif;
-				font-size: 14pt;
 				font-variant-numeric: tabular-nums;
-				text-align: justify;
+				text-align: left;
 				text-rendering: optimizeLegibility;
 				hyphens: auto;
 				line-height: 200%;
 			}
-			@media screen and (min-width: 42rem) {
+			@media screen and (min-width: 36rem) {
 				body {
-					width: 42rem;
-					margin-left: calc(50% - 21rem);
+					width: 36rem;
+					margin-left: calc(50% - 36rem / 2);
+				}
+			}
+			@media screen and (max-width: 36rem) {
+				body {
+					font-size: 14px;
 				}
 			}
 			section#toc ul {
@@ -58,10 +63,6 @@
 			}
 			p {
 				margin: 0;
-			}
-			section {
-				padding-left: 0.5rem;
-				padding-right: 0.5rem;
 			}
 			section.sub > section.sub {
 				padding-left: 1.5rem;
