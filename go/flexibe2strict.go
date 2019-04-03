@@ -58,12 +58,12 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Add <label> to <abstract>
 	node = xmlquery.FindOne(root, "//abstract")
 	if node != nil {
-		node.SetAttr("title", abstractTitle)
 		envelop_text(node)
 	}
 	node = xmlquery.FindOne(root, "//abstract/label")
 	if node != nil {
-		node.AddChild(new_node_text(abstractTitle))
+		txt := node.Parent.GetAttrWithDefault("label", abstractTitle)
+		node.AddChild(new_node_text(txt))
 	}
 
 	// Remove all <set-meta>
@@ -267,7 +267,7 @@ func envelop_text(root *xmlquery.Node) {
 
 	// Special case: labels that are headings (sections and EU-style articles)
 	_, ok_title := root.GetAttr("title")
-	if root.Data == "sec" || ok_title {
+	if root.Data == "sec" || root.Data == "abstract" || ok_title {
 		lbl_node := new_node_element("label")
 		root.AddChild(lbl_node)
 		has_label = true

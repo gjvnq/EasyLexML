@@ -11,13 +11,23 @@
 		<!-- This whole thing will be deleted when we convert this document to its strict form -->
 		<bold><toc>hi</toc>fsdfds</bold>
 	</toc>
-	<abstract>
+	<abstract label="𝕸𝖞 𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙">
 		Just a simple example of EasyLexML.
 	</abstract>
 	<corpus>
 		<set-meta SecLabel="§ {num}" ClsLabel="Art. {num}" SubLabel="{num})"/>
 		<set-meta SecHeading="Section {num}\n{title}" ClsHeading="Article {num}\n{title}"/>
 		<cls label-style="({num})">Rule 0 (<b>see custom label style)</b>)</cls>
+		<cls>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed odio augue. Phasellus feugiat fermentum leo, non pretium massa scelerisque et. Vestibulum rhoncus, urna hendrerit vehicula lacinia, orci tellus fermentum libero, sit amet ornare mauris nunc non risus. Nam suscipit dolor eu turpis bibendum, at imperdiet sapien dapibus. Aenean luctus molestie velit sed molestie. Nam a pellentesque ipsum. Nunc posuere ipsum non erat ornare pellentesque.</cls>
+		<cls title="75 characters">
+			aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		</cls>
+		<cls title="70 characters">
+			aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		</cls>
+		<cls title="60 characters">
+			aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		</cls>
 		<sec title="Introduction">
 			<cls>Rule 1</cls>
 			<sec title="Sub-Intro">

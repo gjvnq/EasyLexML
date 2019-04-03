@@ -15,9 +15,14 @@
 			European Commission
 		</author>
 	</metadata>
+	<toc>
+		<label>
+			Table of Contents
+		</label>
+	</toc>
 	<corpus id="corpus">
 		<!-- sec-nn = non numbered section -->
-		<sec-nn label-style="{title}" title="Preamble" lexid="sec-nn1" id="sec-nn1_v1">
+		<sec-nn title="Preamble" lexid="sec-nn1" id="sec-nn1_v1">
 			<label href="#sec-nn1_v1">
 				Preamble
 			</label>
@@ -48,15 +53,21 @@
 		</sec-nn>
 		<sec title="DIGNITY" lexid="sec1" id="sec1_v1">
 			<label href="#sec1_v1">
-				CHAPTER 1
-				<br/>
-				DIGNITY
+				<span>
+					CHAPTER 1
+				</span>
+				<span>
+					DIGNITY
+				</span>
 			</label>
 			<cls title="Human dignity" lexid="sec1_cls1" id="sec1_cls1_v1">
 				<label href="#sec1_cls1_v1">
-					Article 4
-					<br/>
-					Human dignity
+					<span>
+						Article 4
+					</span>
+					<span>
+						Human dignity
+					</span>
 				</label>
 				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
 					 Human dignity is inviolable. It must be respected and protected. 
@@ -64,9 +75,12 @@
 			</cls>
 			<cls title="Right to life" lexid="sec1_cls2" id="sec1_cls2_v1">
 				<label href="#sec1_cls2_v1">
-					Article 5
-					<br/>
-					Right to life
+					<span>
+						Article 5
+					</span>
+					<span>
+						Right to life
+					</span>
 				</label>
 				<sub lexid="sec1_cls2_sub1" id="sec1_cls2_sub1_v1">
 					<p lexid="sec1_cls2_sub1_p1" id="sec1_cls2_sub1_p1_v1">
@@ -87,9 +101,12 @@
 			</cls>
 			<cls title="Right to the integrity of the person" lexid="sec1_cls3" id="sec1_cls3_v1">
 				<label href="#sec1_cls3_v1">
-					Article 6
-					<br/>
-					Right to the integrity of the person
+					<span>
+						Article 6
+					</span>
+					<span>
+						Right to the integrity of the person
+					</span>
 				</label>
 				<sub lexid="sec1_cls3_sub1" id="sec1_cls3_sub1_v1">
 					<p lexid="sec1_cls3_sub1_p1" id="sec1_cls3_sub1_p1_v1">
@@ -142,9 +159,12 @@
 			</cls>
 			<cls title="Prohibition of torture and inhuman or degrading treatment or punishment" lexid="sec1_cls4" id="sec1_cls4_v1">
 				<label href="#sec1_cls4_v1">
-					Article 7
-					<br/>
-					Prohibition of torture and inhuman or degrading treatment or punishment
+					<span>
+						Article 7
+					</span>
+					<span>
+						Prohibition of torture and inhuman or degrading treatment or punishment
+					</span>
 				</label>
 				<p lexid="sec1_cls4_p1" id="sec1_cls4_p1_v1">
 					 No one shall be subjected to torture or to inhuman or degrading treatment or punishment. 
@@ -152,9 +172,12 @@
 			</cls>
 			<cls title="Prohibition of slavery and forced labour" lexid="sec1_cls5" id="sec1_cls5_v1">
 				<label href="#sec1_cls5_v1">
-					Article 8
-					<br/>
-					Prohibition of slavery and forced labour
+					<span>
+						Article 8
+					</span>
+					<span>
+						Prohibition of slavery and forced labour
+					</span>
 				</label>
 				<sub lexid="sec1_cls5_sub1" id="sec1_cls5_sub1_v1">
 					<p lexid="sec1_cls5_sub1_p1" id="sec1_cls5_sub1_p1_v1">
@@ -184,15 +207,21 @@
 		</sec>
 		<sec title="FREEDOMS" lexid="sec2" id="sec2_v1">
 			<label href="#sec2_v1">
-				CHAPTER 2
-				<br/>
-				FREEDOMS
+				<span>
+					CHAPTER 2
+				</span>
+				<span>
+					FREEDOMS
+				</span>
 			</label>
 			<cls title="Equality before the law" lexid="sec2_cls1" id="sec2_cls1_v1">
 				<label href="#sec2_cls1_v1">
-					Article 9
-					<br/>
-					Equality before the law
+					<span>
+						Article 9
+					</span>
+					<span>
+						Equality before the law
+					</span>
 				</label>
 				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
 					 Everyone is equal before the law. 
@@ -200,9 +229,12 @@
 			</cls>
 			<cls title="Non-discrimination" lexid="sec2_cls2" id="sec2_cls2_v1">
 				<label href="#sec2_cls2_v1">
-					Article 10
-					<br/>
-					Non-discrimination
+					<span>
+						Article 10
+					</span>
+					<span>
+						Non-discrimination
+					</span>
 				</label>
 				<sub lexid="sec2_cls2_sub1" id="sec2_cls2_sub1_v1">
 					<p lexid="sec2_cls2_sub1_p1" id="sec2_cls2_sub1_p1_v1">
@@ -223,9 +255,12 @@
 			</cls>
 			<cls title="Cultural, religious and linguistic diversity" lexid="sec2_cls3" id="sec2_cls3_v1">
 				<label href="#sec2_cls3_v1">
-					Article 11
-					<br/>
-					Cultural, religious and linguistic diversity
+					<span>
+						Article 11
+					</span>
+					<span>
+						Cultural, religious and linguistic diversity
+					</span>
 				</label>
 				<p lexid="sec2_cls3_p1" id="sec2_cls3_p1_v1">
 					 The Union shall respect cultural, religious and linguistic diversity. 
@@ -233,9 +268,12 @@
 			</cls>
 			<cls title="Equality between men and women" lexid="sec2_cls4" id="sec2_cls4_v1">
 				<label href="#sec2_cls4_v1">
-					Article 12
-					<br/>
-					Equality between men and women
+					<span>
+						Article 12
+					</span>
+					<span>
+						Equality between men and women
+					</span>
 				</label>
 				<sub lexid="sec2_cls4_sub1" id="sec2_cls4_sub1_v1">
 					<p lexid="sec2_cls4_sub1_p1" id="sec2_cls4_sub1_p1_v1">
@@ -256,9 +294,12 @@
 			</cls>
 			<cls title="The rights of the child" lexid="sec2_cls5" id="sec2_cls5_v1">
 				<label href="#sec2_cls5_v1">
-					Article 13
-					<br/>
-					The rights of the child
+					<span>
+						Article 13
+					</span>
+					<span>
+						The rights of the child
+					</span>
 				</label>
 				<sub lexid="sec2_cls5_sub1" id="sec2_cls5_sub1_v1">
 					<p lexid="sec2_cls5_sub1_p1" id="sec2_cls5_sub1_p1_v1">
@@ -287,9 +328,12 @@
 			</cls>
 			<cls title="Right to liberty and security" lexid="sec2_cls6" id="sec2_cls6_v1">
 				<label href="#sec2_cls6_v1">
-					Article 14
-					<br/>
-					Right to liberty and security
+					<span>
+						Article 14
+					</span>
+					<span>
+						Right to liberty and security
+					</span>
 				</label>
 				<p lexid="sec2_cls6_p1" id="sec2_cls6_p1_v1">
 					 Everyone has the right to liberty and security of person. 
@@ -297,9 +341,12 @@
 			</cls>
 			<cls title="Protection of personal data" lexid="sec2_cls7" id="sec2_cls7_v1">
 				<label href="#sec2_cls7_v1">
-					Article 15
-					<br/>
-					Protection of personal data
+					<span>
+						Article 15
+					</span>
+					<span>
+						Protection of personal data
+					</span>
 				</label>
 				<sub lexid="sec2_cls7_sub1" id="sec2_cls7_sub1_v1">
 					<p lexid="sec2_cls7_sub1_p1" id="sec2_cls7_sub1_p1_v1">
@@ -328,9 +375,12 @@
 			</cls>
 			<cls title="Right to marry and right to found a family" lexid="sec2_cls8" id="sec2_cls8_v1">
 				<label href="#sec2_cls8_v1">
-					Article 16
-					<br/>
-					Right to marry and right to found a family
+					<span>
+						Article 16
+					</span>
+					<span>
+						Right to marry and right to found a family
+					</span>
 				</label>
 				<p lexid="sec2_cls8_p1" id="sec2_cls8_p1_v1">
 					 The right to marry and the right to found a family shall be guaranteed in accordance with the national laws governing the exercise of these rights. 
@@ -338,9 +388,12 @@
 			</cls>
 			<cls title="Freedom of thought, conscience and religion" lexid="sec2_cls9" id="sec2_cls9_v1">
 				<label href="#sec2_cls9_v1">
-					Article 17
-					<br/>
-					Freedom of thought, conscience and religion
+					<span>
+						Article 17
+					</span>
+					<span>
+						Freedom of thought, conscience and religion
+					</span>
 				</label>
 				<sub lexid="sec2_cls9_sub1" id="sec2_cls9_sub1_v1">
 					<p lexid="sec2_cls9_sub1_p1" id="sec2_cls9_sub1_p1_v1">
@@ -361,9 +414,12 @@
 			</cls>
 			<cls title="Freedom of expression and information" lexid="sec2_cls10" id="sec2_cls10_v1">
 				<label href="#sec2_cls10_v1">
-					Article 18
-					<br/>
-					Freedom of expression and information
+					<span>
+						Article 18
+					</span>
+					<span>
+						Freedom of expression and information
+					</span>
 				</label>
 				<sub lexid="sec2_cls10_sub1" id="sec2_cls10_sub1_v1">
 					<p lexid="sec2_cls10_sub1_p1" id="sec2_cls10_sub1_p1_v1">
@@ -384,9 +440,12 @@
 			</cls>
 			<cls title="Freedom of assembly and of association" lexid="sec2_cls11" id="sec2_cls11_v1">
 				<label href="#sec2_cls11_v1">
-					Article 19
-					<br/>
-					Freedom of assembly and of association
+					<span>
+						Article 19
+					</span>
+					<span>
+						Freedom of assembly and of association
+					</span>
 				</label>
 				<sub lexid="sec2_cls11_sub1" id="sec2_cls11_sub1_v1">
 					<p lexid="sec2_cls11_sub1_p1" id="sec2_cls11_sub1_p1_v1">
@@ -407,9 +466,12 @@
 			</cls>
 			<cls title="Freedom of the arts and sciences" lexid="sec2_cls12" id="sec2_cls12_v1">
 				<label href="#sec2_cls12_v1">
-					Article 20
-					<br/>
-					Freedom of the arts and sciences
+					<span>
+						Article 20
+					</span>
+					<span>
+						Freedom of the arts and sciences
+					</span>
 				</label>
 				<sub lexid="sec2_cls12_sub1" id="sec2_cls12_sub1_v1">
 					<p lexid="sec2_cls12_sub1_p1" id="sec2_cls12_sub1_p1_v1">
@@ -422,9 +484,12 @@
 			</cls>
 			<cls title="Right to education" lexid="sec2_cls13" id="sec2_cls13_v1">
 				<label href="#sec2_cls13_v1">
-					Article 21
-					<br/>
-					Right to education
+					<span>
+						Article 21
+					</span>
+					<span>
+						Right to education
+					</span>
 				</label>
 				<sub lexid="sec2_cls13_sub1" id="sec2_cls13_sub1_v1">
 					<p lexid="sec2_cls13_sub1_p1" id="sec2_cls13_sub1_p1_v1">
@@ -453,9 +518,12 @@
 			</cls>
 			<cls title="Freedom to choose an occupation and right to engage in work" lexid="sec2_cls14" id="sec2_cls14_v1">
 				<label href="#sec2_cls14_v1">
-					Article 22
-					<br/>
-					Freedom to choose an occupation and right to engage in work
+					<span>
+						Article 22
+					</span>
+					<span>
+						Freedom to choose an occupation and right to engage in work
+					</span>
 				</label>
 				<sub lexid="sec2_cls14_sub1" id="sec2_cls14_sub1_v1">
 					<p lexid="sec2_cls14_sub1_p1" id="sec2_cls14_sub1_p1_v1">
@@ -484,9 +552,12 @@
 			</cls>
 			<cls title="Freedom to conduct a business" lexid="sec2_cls15" id="sec2_cls15_v1">
 				<label href="#sec2_cls15_v1">
-					Article 23
-					<br/>
-					Freedom to conduct a business
+					<span>
+						Article 23
+					</span>
+					<span>
+						Freedom to conduct a business
+					</span>
 				</label>
 				<sub lexid="sec2_cls15_sub1" id="sec2_cls15_sub1_v1">
 					<p lexid="sec2_cls15_sub1_p1" id="sec2_cls15_sub1_p1_v1">
@@ -499,9 +570,12 @@
 			</cls>
 			<cls title="Right to property" lexid="sec2_cls16" id="sec2_cls16_v1">
 				<label href="#sec2_cls16_v1">
-					Article 24
-					<br/>
-					Right to property
+					<span>
+						Article 24
+					</span>
+					<span>
+						Right to property
+					</span>
 				</label>
 				<sub lexid="sec2_cls16_sub1" id="sec2_cls16_sub1_v1">
 					<p lexid="sec2_cls16_sub1_p1" id="sec2_cls16_sub1_p1_v1">
@@ -522,9 +596,12 @@
 			</cls>
 			<cls title="Right to asylum" lexid="sec2_cls17" id="sec2_cls17_v1">
 				<label href="#sec2_cls17_v1">
-					Article 25
-					<br/>
-					Right to asylum
+					<span>
+						Article 25
+					</span>
+					<span>
+						Right to asylum
+					</span>
 				</label>
 				<sub lexid="sec2_cls17_sub1" id="sec2_cls17_sub1_v1">
 					<p lexid="sec2_cls17_sub1_p1" id="sec2_cls17_sub1_p1_v1">
@@ -537,9 +614,12 @@
 			</cls>
 			<cls title="Protection in the event of removal, expulsion or extradition" lexid="sec2_cls18" id="sec2_cls18_v1">
 				<label href="#sec2_cls18_v1">
-					Article 26
-					<br/>
-					Protection in the event of removal, expulsion or extradition
+					<span>
+						Article 26
+					</span>
+					<span>
+						Protection in the event of removal, expulsion or extradition
+					</span>
 				</label>
 				<sub lexid="sec2_cls18_sub1" id="sec2_cls18_sub1_v1">
 					<p lexid="sec2_cls18_sub1_p1" id="sec2_cls18_sub1_p1_v1">
@@ -561,15 +641,21 @@
 		</sec>
 		<sec title="EQUALITY" lexid="sec3" id="sec3_v1">
 			<label href="#sec3_v1">
-				CHAPTER 3
-				<br/>
-				EQUALITY
+				<span>
+					CHAPTER 3
+				</span>
+				<span>
+					EQUALITY
+				</span>
 			</label>
 			<cls title="Equality before the law" lexid="sec3_cls1" id="sec3_cls1_v1">
 				<label href="#sec3_cls1_v1">
-					Article 27
-					<br/>
-					Equality before the law
+					<span>
+						Article 27
+					</span>
+					<span>
+						Equality before the law
+					</span>
 				</label>
 				<p lexid="sec3_cls1_p1" id="sec3_cls1_p1_v1">
 					 Everyone is equal before the law. 
@@ -577,9 +663,12 @@
 			</cls>
 			<cls title="Non-discrimination" lexid="sec3_cls2" id="sec3_cls2_v1">
 				<label href="#sec3_cls2_v1">
-					Article 28
-					<br/>
-					Non-discrimination
+					<span>
+						Article 28
+					</span>
+					<span>
+						Non-discrimination
+					</span>
 				</label>
 				<sub lexid="sec3_cls2_sub1" id="sec3_cls2_sub1_v1">
 					<p lexid="sec3_cls2_sub1_p1" id="sec3_cls2_sub1_p1_v1">
@@ -600,9 +689,12 @@
 			</cls>
 			<cls title="Cultural, religious and linguistic diversity" lexid="sec3_cls3" id="sec3_cls3_v1">
 				<label href="#sec3_cls3_v1">
-					Article 29
-					<br/>
-					Cultural, religious and linguistic diversity
+					<span>
+						Article 29
+					</span>
+					<span>
+						Cultural, religious and linguistic diversity
+					</span>
 				</label>
 				<p lexid="sec3_cls3_p1" id="sec3_cls3_p1_v1">
 					 The Union shall respect cultural, religious and linguistic diversity. 
@@ -610,9 +702,12 @@
 			</cls>
 			<cls title="Equality between men and women" lexid="sec3_cls4" id="sec3_cls4_v1">
 				<label href="#sec3_cls4_v1">
-					Article 30
-					<br/>
-					Equality between men and women
+					<span>
+						Article 30
+					</span>
+					<span>
+						Equality between men and women
+					</span>
 				</label>
 				<label-style sub=""/>
 				<sub lexid="sec3_cls4_sub1" id="sec3_cls4_sub1_v1">
@@ -634,9 +729,12 @@
 			</cls>
 			<cls title="The rights of the child" lexid="sec3_cls5" id="sec3_cls5_v1">
 				<label href="#sec3_cls5_v1">
-					Article 31
-					<br/>
-					The rights of the child
+					<span>
+						Article 31
+					</span>
+					<span>
+						The rights of the child
+					</span>
 				</label>
 				<sub lexid="sec3_cls5_sub1" id="sec3_cls5_sub1_v1">
 					<p lexid="sec3_cls5_sub1_p1" id="sec3_cls5_sub1_p1_v1">
@@ -665,9 +763,12 @@
 			</cls>
 			<cls title="The rights of the elderly" lexid="sec3_cls6" id="sec3_cls6_v1">
 				<label href="#sec3_cls6_v1">
-					Article 32
-					<br/>
-					The rights of the elderly
+					<span>
+						Article 32
+					</span>
+					<span>
+						The rights of the elderly
+					</span>
 				</label>
 				<p lexid="sec3_cls6_p1" id="sec3_cls6_p1_v1">
 					 The Union recognises and respects the rights of the elderly to lead a life of dignity and independence and to participate in social and cultural life. 
@@ -675,9 +776,12 @@
 			</cls>
 			<cls title="Integration of persons with disabilities" lexid="sec3_cls7" id="sec3_cls7_v1">
 				<label href="#sec3_cls7_v1">
-					Article 33
-					<br/>
-					Integration of persons with disabilities
+					<span>
+						Article 33
+					</span>
+					<span>
+						Integration of persons with disabilities
+					</span>
 				</label>
 				<p lexid="sec3_cls7_p1" id="sec3_cls7_p1_v1">
 					 The Union recognises and respects the right of persons with disabilities to benefit from measures designed to ensure their independence, social and occupational integration and participation in the life of the community. 
@@ -686,15 +790,21 @@
 		</sec>
 		<sec title="SOLIDARITY" lexid="sec4" id="sec4_v1">
 			<label href="#sec4_v1">
-				CHAPTER 4
-				<br/>
-				SOLIDARITY
+				<span>
+					CHAPTER 4
+				</span>
+				<span>
+					SOLIDARITY
+				</span>
 			</label>
 			<cls title="Workers’ right to information and consultation within the undertaking" lexid="sec4_cls1" id="sec4_cls1_v1">
 				<label href="#sec4_cls1_v1">
-					Article 34
-					<br/>
-					Workers’ right to information and consultation within the undertaking
+					<span>
+						Article 34
+					</span>
+					<span>
+						Workers’ right to information and consultation within the undertaking
+					</span>
 				</label>
 				<p lexid="sec4_cls1_p1" id="sec4_cls1_p1_v1">
 					 Workers or their representatives must, at the appropriate levels, be guaranteed information and consultation in good time in the cases and under the conditions provided for by Community law and national laws and practices. 
@@ -702,9 +812,12 @@
 			</cls>
 			<cls title="Right of collective bargaining and action" lexid="sec4_cls2" id="sec4_cls2_v1">
 				<label href="#sec4_cls2_v1">
-					Article 35
-					<br/>
-					Right of collective bargaining and action
+					<span>
+						Article 35
+					</span>
+					<span>
+						Right of collective bargaining and action
+					</span>
 				</label>
 				<p lexid="sec4_cls2_p1" id="sec4_cls2_p1_v1">
 					 Workers and employers, or their respective organisations, have, in accordance with Community law and national laws and practices, the right to negotiate and conclude collective agreements at the appropriate levels and, in cases of conflicts of interest, to take collective action to defend their interests, including strike action. 
@@ -712,9 +825,12 @@
 			</cls>
 			<cls title="Right of access to placement services" lexid="sec4_cls3" id="sec4_cls3_v1">
 				<label href="#sec4_cls3_v1">
-					Article 36
-					<br/>
-					Right of access to placement services
+					<span>
+						Article 36
+					</span>
+					<span>
+						Right of access to placement services
+					</span>
 				</label>
 				<p lexid="sec4_cls3_p1" id="sec4_cls3_p1_v1">
 					 Everyone has the right of access to a free placement service. 
@@ -722,9 +838,12 @@
 			</cls>
 			<cls title="Protection in the event of unjustified dismissal" lexid="sec4_cls4" id="sec4_cls4_v1">
 				<label href="#sec4_cls4_v1">
-					Article 37
-					<br/>
-					Protection in the event of unjustified dismissal
+					<span>
+						Article 37
+					</span>
+					<span>
+						Protection in the event of unjustified dismissal
+					</span>
 				</label>
 				<p lexid="sec4_cls4_p1" id="sec4_cls4_p1_v1">
 					 Every worker has the right to protection against unjustified dismissal, in accordance with Community law and national laws and practices. 
@@ -732,9 +851,12 @@
 			</cls>
 			<cls title="Fair and just working conditions" lexid="sec4_cls5" id="sec4_cls5_v1">
 				<label href="#sec4_cls5_v1">
-					Article 38
-					<br/>
-					Fair and just working conditions
+					<span>
+						Article 38
+					</span>
+					<span>
+						Fair and just working conditions
+					</span>
 				</label>
 				<sub lexid="sec4_cls5_sub1" id="sec4_cls5_sub1_v1">
 					<p lexid="sec4_cls5_sub1_p1" id="sec4_cls5_sub1_p1_v1">
@@ -755,9 +877,12 @@
 			</cls>
 			<cls title="Prohibition of child labour and protection of young people at work" lexid="sec4_cls6" id="sec4_cls6_v1">
 				<label href="#sec4_cls6_v1">
-					Article 39
-					<br/>
-					Prohibition of child labour and protection of young people at work
+					<span>
+						Article 39
+					</span>
+					<span>
+						Prohibition of child labour and protection of young people at work
+					</span>
 				</label>
 				<label-style sub=""/>
 				<sub lexid="sec4_cls6_sub1" id="sec4_cls6_sub1_v1">
@@ -779,9 +904,12 @@
 			</cls>
 			<cls title="Family and professional life" lexid="sec4_cls7" id="sec4_cls7_v1">
 				<label href="#sec4_cls7_v1">
-					Article 40
-					<br/>
-					Family and professional life
+					<span>
+						Article 40
+					</span>
+					<span>
+						Family and professional life
+					</span>
 				</label>
 				<sub lexid="sec4_cls7_sub1" id="sec4_cls7_sub1_v1">
 					<p lexid="sec4_cls7_sub1_p1" id="sec4_cls7_sub1_p1_v1">
@@ -802,9 +930,12 @@
 			</cls>
 			<cls title="Social security and social assistance" lexid="sec4_cls8" id="sec4_cls8_v1">
 				<label href="#sec4_cls8_v1">
-					Article 41
-					<br/>
-					Social security and social assistance
+					<span>
+						Article 41
+					</span>
+					<span>
+						Social security and social assistance
+					</span>
 				</label>
 				<sub lexid="sec4_cls8_sub1" id="sec4_cls8_sub1_v1">
 					<p lexid="sec4_cls8_sub1_p1" id="sec4_cls8_sub1_p1_v1">
@@ -833,9 +964,12 @@
 			</cls>
 			<cls title="Health care" lexid="sec4_cls9" id="sec4_cls9_v1">
 				<label href="#sec4_cls9_v1">
-					Article 42
-					<br/>
-					Health care
+					<span>
+						Article 42
+					</span>
+					<span>
+						Health care
+					</span>
 				</label>
 				<p lexid="sec4_cls9_p1" id="sec4_cls9_p1_v1">
 					 Everyone has the right of access to preventive health care and the right to benefit from medical treatment under the conditions established by national laws and practices. A high level of human health protection shall be ensured in the definition and implementation of all Union policies and activities. 
