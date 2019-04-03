@@ -68,6 +68,9 @@ func replace_with_html_elements(root *xmlquery.Node) {
 	switch {
 	case tag == "toc":
 		tag = "section"
+	case tag == "note":
+		tag = "section"
+		root.SetAttr("class", "note")
 	case tag == "sec" || tag == "sec-nn":
 		tag = "section"
 	case tag == "cls" || tag == "cls-nn":

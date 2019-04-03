@@ -112,12 +112,14 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 }
 
 func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
-	// Only <sec> and <cls> get TOC entries
+	// Only <sec>, <cls>, <sec-nn> and <cls-nn> get TOC entries
 	if doc_cursor.Type != xmlquery.ElementNode {
 		return
 	}
 	add_to_toc, _ := strconv.ParseBool(doc_cursor.GetAttrWithDefault("toc-entry", "true"))
-	if add_to_toc && (doc_cursor.Data == "sec" || doc_cursor.Data == "cls") {
+	tag := doc_cursor.Data
+	tag_has_toc := tag == "sec" || tag == "sec-nn" || tag == "cls" || tag == "cls-nn"
+	if add_to_toc && tag_has_toc {
 		// Get name
 		label := xmlquery.FindOne(doc_cursor, "//label")
 
