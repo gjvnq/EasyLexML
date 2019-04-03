@@ -132,7 +132,7 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 		toc_cursor.AddChild(li)
 
 		// Create a sub level
-		if doc_cursor.Data == "sec" {
+		if tag == "sec" || tag == "sec-nn" {
 			ul := new_node_element("ul")
 			li.AddChild(ul)
 			toc_cursor = ul

@@ -1,5 +1,6 @@
 # TODO
 
+* [ ] Remove dead code.
 * [ ] Generate TXT.
 * [ ] Add code syntax highlight.
 * [ ] Add version control/diff.
