@@ -17,8 +17,7 @@ sec, sec-nn, toc {
 	display: block;
 	margin-top: 2rem;
 }
-sec > label, sec-nn > label, cls > label, note > label, toc > label {
-	content: attr(label);
+sec > label, sec-nn > label, cls > label, note > label, toc > label, abstract > label {
 	text-align: center;
 	width: 100%;
 	display: block;
@@ -76,6 +75,9 @@ toc {
 	display: block;
 	padding-bottom: 1.5rem;
 	border-bottom: 1px solid black;
+}
+toc > ul {
+	margin: 0;
 }
 corpus {
 	display: block;

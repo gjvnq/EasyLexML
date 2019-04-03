@@ -1,7 +1,6 @@
 package easyLexML
 
 import (
-	"fmt"
 	"io"
 	"strconv"
 	"strings"
@@ -15,6 +14,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	base := root.SelectElement("EasyLexML")
 	corpus := base.SelectElement("corpus")
 	tocTitle := "Table of Contents"
+	abstractTitle := "Abstract"
 	// cursor := root
 	if err != nil {
 		return err
@@ -50,6 +50,22 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		tocTitle = node.GetAttrWithDefault("TocTitle", tocTitle)
 	}
 
+	// Get AbstractTitle
+	node = xmlquery.FindOne(root, "//set-meta[@AbstractTitle]")
+	if node != nil {
+		abstractTitle = node.GetAttrWithDefault("AbstractTitle", abstractTitle)
+	}
+	// Add <label> to <abstract>
+	node = xmlquery.FindOne(root, "//abstract")
+	if node != nil {
+		node.SetAttr("title", abstractTitle)
+		envelop_text(node)
+	}
+	node = xmlquery.FindOne(root, "//abstract/label")
+	if node != nil {
+		node.AddChild(new_node_text(abstractTitle))
+	}
+
 	// Remove all <set-meta>
 	node = xmlquery.FindOne(root, "//set-meta")
 	for node != nil {
@@ -77,27 +93,33 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 	toc_ul := new_node_element("ul")
 	toc_node.AddChild(toc_ul)
 
-	// Add toc after <metadata>
-	metadata_node := base.SelectElement("metadata")
-	if metadata_node != nil {
-		metadata_node.AddAfter(toc_node)
+	// Add TOC after <abstract>
+	abstract_node := base.SelectElement("abstract")
+	if abstract_node != nil {
+		abstract_node.AddAfter(toc_node)
 	} else {
-		base.FirstChild.AddBefore(toc_node)
+		// Add toc before <metadata>
+		metadata_node := base.SelectElement("metadata")
+		if metadata_node != nil {
+			metadata_node.AddAfter(toc_node)
+		} else {
+			base.FirstChild.AddBefore(toc_node)
+		}
 	}
 
 	toc_iterator_generator(toc_ul, base)
 }
 
 func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
-	fmt.Println(toc_cursor, doc_cursor)
+	// Only <sec> and <cls> get TOC entries
 	if doc_cursor.Type != xmlquery.ElementNode {
 		return
 	}
-
 	if doc_cursor.Data == "sec" || doc_cursor.Data == "cls" {
 		// Get name
 		label := doc_cursor.SelectElement("label")
 		if label != nil {
+			// Generate and add link
 			li := new_node_element("li")
 			link := new_node_element("a")
 			link.SetAttr("href", "#"+doc_cursor.SelectAttr("id"))
@@ -105,6 +127,7 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 			li.AddChild(link)
 			toc_cursor.AddChild(li)
 
+			// Create a sub level
 			if doc_cursor.Data == "sec" {
 				ul := new_node_element("ul")
 				li.AddChild(ul)
@@ -113,6 +136,7 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 		}
 	}
 
+	// Recursive step
 	for child := doc_cursor.FirstChild; child != nil; child = child.NextSibling {
 		toc_iterator_generator(toc_cursor, child)
 	}

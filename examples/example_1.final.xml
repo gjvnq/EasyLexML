@@ -9,6 +9,14 @@
 			gjvnq
 		</author>
 	</metadata>
+	<abstract title="𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙">
+		<label>
+			𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙
+		</label>
+		<p>
+			 Just a simple example of EasyLexML. 
+		</p>
+	</abstract>
 	<toc>
 		<label>
 			𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘
@@ -75,9 +83,6 @@
 			</li>
 		</ul>
 	</toc>
-	<abstract>
-		 Just a simple example of EasyLexML. 
-	</abstract>
 	<corpus id="corpus">
 		<cls lexid="cls1" id="cls1_v1">
 			<p lexid="cls1_p1" id="cls1_p1_v1">

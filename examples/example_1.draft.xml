@@ -2,6 +2,7 @@
 <?xml-stylesheet href="../xml/style.css"?>
 <EasyLexML>
 	<set-meta TocTitle="𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘"/>
+	<set-meta AbstractTitle="𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙"/>
 	<metadata>
 		<title>Example 1</title>
 		<author>gjvnq</author>

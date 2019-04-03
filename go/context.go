@@ -54,7 +54,7 @@ func (this *context) Copy() *context {
 }
 
 func gen_label(node *xmlquery.Node, cls_counter int) {
-	// Find teh "real" parent
+	// Find the "real" parent
 	parent := node.Parent
 	for !tag_has_label(parent.Data) {
 		parent = parent.Parent
@@ -138,7 +138,7 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 }
 
 func tag_has_label(tag string) bool {
-	return tag == "sec" || tag == "sec-nn" || tag == "cls" || tag == "sub" || tag == "note"
+	return tag == "sec" || tag == "sec-nn" || tag == "cls" || tag == "sub" || tag == "note" || tag == "abstract"
 }
 
 func update_cls_counter(node *xmlquery.Node, cls_counter *int) {
