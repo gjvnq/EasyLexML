@@ -17,11 +17,16 @@
 			 Just a simple example of EasyLexML. 
 		</p>
 	</abstract>
-	<toc>
+	<toc id="toc">
 		<label>
 			𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘
 		</label>
 		<ul>
+			<li>
+				<a href="#cls2_v1">
+					Art. 2
+				</a>
+			</li>
 			<li>
 				<a href="#cls3_v1">
 					Article 3
@@ -51,12 +56,23 @@
 				</a>
 				<ul>
 					<li>
+						<a href="#sec1_cls1_v1">
+							Art. 6
+						</a>
+					</li>
+					<li>
 						<a href="#sec1_sec1_v1">
 							Section 1.1
 							 - 
 							Sub-Intro
 						</a>
-						<ul/>
+						<ul>
+							<li>
+								<a href="#sec1_sec1_cls1_v1">
+									Art. 7
+								</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</li>
@@ -67,6 +83,11 @@
 					Final
 				</a>
 				<ul>
+					<li>
+						<a href="#sec2_cls1_v1">
+							Art. 1
+						</a>
+					</li>
 					<li>
 						<a href="#sec2_cls2_v1">
 							Article 2
@@ -105,7 +126,7 @@
 		</ul>
 	</toc>
 	<corpus id="corpus">
-		<cls lexid="cls1" id="cls1_v1">
+		<cls toc-entry="false" lexid="cls1" id="cls1_v1" num="1">
 			<p lexid="cls1_p1" id="cls1_p1_v1">
 				<label href="#cls1_v1">
 					(1)
@@ -117,7 +138,7 @@
 				)
 			</p>
 		</cls>
-		<cls lexid="cls2" id="cls2_v1">
+		<cls lexid="cls2" id="cls2_v1" num="2">
 			<p lexid="cls2_p1" id="cls2_p1_v1">
 				<label href="#cls2_v1">
 					Art. 2
@@ -125,7 +146,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed odio augue. Phasellus feugiat fermentum leo, non pretium massa scelerisque et. Vestibulum rhoncus, urna hendrerit vehicula lacinia, orci tellus fermentum libero, sit amet ornare mauris nunc non risus. Nam suscipit dolor eu turpis bibendum, at imperdiet sapien dapibus. Aenean luctus molestie velit sed molestie. Nam a pellentesque ipsum. Nunc posuere ipsum non erat ornare pellentesque.
 			</p>
 		</cls>
-		<cls title="75 characters" lexid="cls3" id="cls3_v1">
+		<cls title="75 characters" lexid="cls3" id="cls3_v1" num="3">
 			<label href="#cls3_v1">
 				<span>
 					Article 3
@@ -138,7 +159,7 @@
 				 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 			</p>
 		</cls>
-		<cls title="70 characters" lexid="cls4" id="cls4_v1">
+		<cls title="70 characters" lexid="cls4" id="cls4_v1" num="4">
 			<label href="#cls4_v1">
 				<span>
 					Article 4
@@ -151,7 +172,7 @@
 				 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 			</p>
 		</cls>
-		<cls title="60 characters" lexid="cls5" id="cls5_v1">
+		<cls title="60 characters" lexid="cls5" id="cls5_v1" num="5">
 			<label href="#cls5_v1">
 				<span>
 					Article 5
@@ -164,7 +185,7 @@
 				 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 			</p>
 		</cls>
-		<sec title="Introduction" lexid="sec1" id="sec1_v1">
+		<sec title="Introduction" lexid="sec1" id="sec1_v1" num="1">
 			<label href="#sec1_v1">
 				<span>
 					Section 1
@@ -173,7 +194,7 @@
 					Introduction
 				</span>
 			</label>
-			<cls lexid="sec1_cls1" id="sec1_cls1_v1">
+			<cls lexid="sec1_cls1" id="sec1_cls1_v1" num="6">
 				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
 					<label href="#sec1_cls1_v1">
 						Art. 6
@@ -181,7 +202,7 @@
 					Rule 1
 				</p>
 			</cls>
-			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1">
+			<sec title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1" num="1.1">
 				<label href="#sec1_sec1_v1">
 					<span>
 						Section 1.1
@@ -190,7 +211,7 @@
 						Sub-Intro
 					</span>
 				</label>
-				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1">
+				<cls lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" num="7">
 					<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1">
 						<label href="#sec1_sec1_cls1_v1">
 							Art. 7
@@ -200,7 +221,7 @@
 							2
 						</a>
 					</p>
-					<sub lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1">
+					<sub lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" num="1">
 						<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1">
 							<label href="#sec1_sec1_cls1_sub1_v1">
 								1)
@@ -208,7 +229,7 @@
 							Exception 1
 						</p>
 					</sub>
-					<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1">
+					<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1" num="1">
 						<p lexid="sec1_sec1_cls1_note1_p1" id="sec1_sec1_cls1_note1_p1_v1">
 							<label href="#sec1_sec1_cls1_note1_v1">
 								Note 1 —
@@ -216,14 +237,14 @@
 							I'm just an explanatory note.
 						</p>
 					</note>
-					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1">
+					<sub lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" num="2">
 						<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1">
 							<label href="#sec1_sec1_cls1_sub2_v1">
 								2)
 							</label>
 							Exception 2 
 						</p>
-						<sub lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1">
+						<sub lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" num="1">
 							<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1">
 								<label href="#sec1_sec1_cls1_sub2_sub1_v1">
 									—
@@ -231,7 +252,7 @@
 								Exception of the exception (1)
 							</p>
 						</sub>
-						<sub lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1">
+						<sub lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" num="2">
 							<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1">
 								<label href="#sec1_sec1_cls1_sub2_sub2_v1">
 									—
@@ -243,7 +264,7 @@
 				</cls>
 			</sec>
 		</sec>
-		<sec title="Final" lexid="sec2" id="sec2_v1">
+		<sec title="Final" lexid="sec2" id="sec2_v1" num="2">
 			<label href="#sec2_v1">
 				<span>
 					Section 2
@@ -252,14 +273,14 @@
 					Final
 				</span>
 			</label>
-			<cls lexid="sec2_cls1" id="sec2_cls1_v1">
+			<cls lexid="sec2_cls1" id="sec2_cls1_v1" num="1">
 				<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1">
 					<label href="#sec2_cls1_v1">
 						Art. 1
 					</label>
 					 Final Rule 
 				</p>
-				<sub lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1">
+				<sub lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1" num="1">
 					<p lexid="sec2_cls1_sub1_p1" id="sec2_cls1_sub1_p1_v1">
 						<label href="#sec2_cls1_sub1_v1">
 							1)
@@ -267,7 +288,7 @@
 						 Exception 1 
 					</p>
 				</sub>
-				<sub lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1">
+				<sub lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1" num="2">
 					<p lexid="sec2_cls1_sub2_p1" id="sec2_cls1_sub2_p1_v1">
 						<label href="#sec2_cls1_sub2_v1">
 							2)
@@ -275,7 +296,7 @@
 						 Exception 3 (we added it latter) 
 					</p>
 				</sub>
-				<sub lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1">
+				<sub lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1" num="3">
 					<p lexid="sec2_cls1_sub3_p1" id="sec2_cls1_sub3_p1_v1">
 						<label href="#sec2_cls1_sub3_v1">
 							3)
@@ -284,7 +305,7 @@
 					</p>
 				</sub>
 			</cls>
-			<cls title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1">
+			<cls title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1" num="2">
 				<label href="#sec2_cls2_v1">
 					<span>
 						Article 2
@@ -297,7 +318,7 @@
 					 Fancy article with title 
 				</p>
 			</cls>
-			<sec title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1">
+			<sec title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1" num="2.1">
 				<label href="#sec2_sec1_v1">
 					<span>
 						Section 2.1
@@ -306,7 +327,7 @@
 						Recursion 1
 					</span>
 				</label>
-				<sec title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1">
+				<sec title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1" num="2.1.1">
 					<label href="#sec2_sec1_sec1_v1">
 						<span>
 							Section 2.1.1
@@ -315,7 +336,7 @@
 							Recursion 2
 						</span>
 					</label>
-					<sec title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1">
+					<sec title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1" num="2.1.1.1">
 						<label href="#sec2_sec1_sec1_sec1_v1">
 							<span>
 								Section 2.1.1.1

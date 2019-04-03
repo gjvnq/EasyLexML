@@ -87,6 +87,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 func generate_toc(base *xmlquery.Node, toc_title string) {
 	// Preapre
 	toc_node := new_node_element("toc")
+	toc_node.SetAttr("id", "toc")
 	toc_label := new_node_element("label")
 	toc_label.AddChild(new_node_text(toc_title))
 	toc_node.AddChild(toc_label)
@@ -115,24 +116,24 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 	if doc_cursor.Type != xmlquery.ElementNode {
 		return
 	}
-	if doc_cursor.Data == "sec" || doc_cursor.Data == "cls" {
+	add_to_toc, _ := strconv.ParseBool(doc_cursor.GetAttrWithDefault("toc-entry", "true"))
+	if add_to_toc && (doc_cursor.Data == "sec" || doc_cursor.Data == "cls") {
 		// Get name
-		label := doc_cursor.SelectElement("label")
-		if label != nil {
-			// Generate and add link
-			li := new_node_element("li")
-			link := new_node_element("a")
-			link.SetAttr("href", "#"+doc_cursor.SelectAttr("id"))
-			genTocEntry(label, link)
-			li.AddChild(link)
-			toc_cursor.AddChild(li)
+		label := xmlquery.FindOne(doc_cursor, "//label")
 
-			// Create a sub level
-			if doc_cursor.Data == "sec" {
-				ul := new_node_element("ul")
-				li.AddChild(ul)
-				toc_cursor = ul
-			}
+		// Generate and add link
+		li := new_node_element("li")
+		link := new_node_element("a")
+		link.SetAttr("href", "#"+doc_cursor.SelectAttr("id"))
+		genTocEntry(label, link)
+		li.AddChild(link)
+		toc_cursor.AddChild(li)
+
+		// Create a sub level
+		if doc_cursor.Data == "sec" {
+			ul := new_node_element("ul")
+			li.AddChild(ul)
+			toc_cursor = ul
 		}
 	}
 

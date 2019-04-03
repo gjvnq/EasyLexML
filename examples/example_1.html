@@ -7,7 +7,7 @@
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&subset=latin-ext');
 			body {
-				font-size: 16px;
+				font-size: 18px;
 				margin-top: 2rem;
 				font-family: "Libre Baskerville", sans-serif;
 				font-variant-numeric: tabular-nums;
@@ -39,6 +39,9 @@
 			a.label, a.label:visited {
 				color: #000;
 				text-decoration: none;
+			}
+			section#toc > a.label {
+				padding-bottom: 0;
 			}
 			section > a {
 				margin-top: 1rem;
@@ -101,12 +104,97 @@
 			<h1></h1>
 			
 		</section>
-		<section id="toc">
-			
-		</section>
-		<section id="corpus">
-			<corpus id="corpus" data-tag="corpus">
-	<section lexid="cls1" id="cls1_v1" data-tag="cls">
+		<section id="toc" data-tag="toc">
+	<a class="label" data-tag="label">
+		 𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘 
+	</a>
+	<ul data-tag="ul">
+		<li data-tag="li">
+			<a href="#cls2_v1" data-tag="a">
+				 Art. 2 
+			</a>
+		</li>
+		<li data-tag="li">
+			<a href="#cls3_v1" data-tag="a">
+				 Article 3 - 75 characters 
+			</a>
+		</li>
+		<li data-tag="li">
+			<a href="#cls4_v1" data-tag="a">
+				 Article 4 - 70 characters 
+			</a>
+		</li>
+		<li data-tag="li">
+			<a href="#cls5_v1" data-tag="a">
+				 Article 5 - 60 characters 
+			</a>
+		</li>
+		<li data-tag="li">
+			<a href="#sec1_v1" data-tag="a">
+				 Section 1 - Introduction 
+			</a>
+			<ul data-tag="ul">
+				<li data-tag="li">
+					<a href="#sec1_cls1_v1" data-tag="a">
+						 Art. 6 
+					</a>
+				</li>
+				<li data-tag="li">
+					<a href="#sec1_sec1_v1" data-tag="a">
+						 Section 1.1 - Sub-Intro 
+					</a>
+					<ul data-tag="ul">
+						<li data-tag="li">
+							<a href="#sec1_sec1_cls1_v1" data-tag="a">
+								 Art. 7 
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li data-tag="li">
+			<a href="#sec2_v1" data-tag="a">
+				 Section 2 - Final 
+			</a>
+			<ul data-tag="ul">
+				<li data-tag="li">
+					<a href="#sec2_cls1_v1" data-tag="a">
+						 Art. 1 
+					</a>
+				</li>
+				<li data-tag="li">
+					<a href="#sec2_cls2_v1" data-tag="a">
+						 Article 2 - Fancyness 
+					</a>
+				</li>
+				<li data-tag="li">
+					<a href="#sec2_sec1_v1" data-tag="a">
+						 Section 2.1 - Recursion 1 
+					</a>
+					<ul data-tag="ul">
+						<li data-tag="li">
+							<a href="#sec2_sec1_sec1_v1" data-tag="a">
+								 Section 2.1.1 - Recursion 2 
+							</a>
+							<ul data-tag="ul">
+								<li data-tag="li">
+									<a href="#sec2_sec1_sec1_sec1_v1" data-tag="a">
+										 Section 2.1.1.1 - Recursion 3 
+									</a>
+									<ul data-tag="ul"/>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+		<corpus id="corpus" data-tag="corpus">
+	<section toc-entry="false" lexid="cls1" id="cls1_v1" num="1" data-tag="cls">
 		<p lexid="cls1_p1" id="cls1_p1_v1" data-tag="p">
 			<a href="#cls1_v1" class="label" data-tag="label">
 				 (1) 
@@ -118,7 +206,7 @@
 			 ) 
 		</p>
 	</section>
-	<section lexid="cls2" id="cls2_v1" data-tag="cls">
+	<section lexid="cls2" id="cls2_v1" num="2" data-tag="cls">
 		<p lexid="cls2_p1" id="cls2_p1_v1" data-tag="p">
 			<a href="#cls2_v1" class="label" data-tag="label">
 				 Art. 2 
@@ -126,7 +214,7 @@
 			 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed odio augue. Phasellus feugiat fermentum leo, non pretium massa scelerisque et. Vestibulum rhoncus, urna hendrerit vehicula lacinia, orci tellus fermentum libero, sit amet ornare mauris nunc non risus. Nam suscipit dolor eu turpis bibendum, at imperdiet sapien dapibus. Aenean luctus molestie velit sed molestie. Nam a pellentesque ipsum. Nunc posuere ipsum non erat ornare pellentesque. 
 		</p>
 	</section>
-	<section title="75 characters" lexid="cls3" id="cls3_v1" data-tag="cls">
+	<section title="75 characters" lexid="cls3" id="cls3_v1" num="3" data-tag="cls">
 		<a href="#cls3_v1" class="label" data-tag="label">
 			<span data-tag="span">
 				 Article 3 
@@ -139,7 +227,7 @@
 			 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 		</p>
 	</section>
-	<section title="70 characters" lexid="cls4" id="cls4_v1" data-tag="cls">
+	<section title="70 characters" lexid="cls4" id="cls4_v1" num="4" data-tag="cls">
 		<a href="#cls4_v1" class="label" data-tag="label">
 			<span data-tag="span">
 				 Article 4 
@@ -152,7 +240,7 @@
 			 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 		</p>
 	</section>
-	<section title="60 characters" lexid="cls5" id="cls5_v1" data-tag="cls">
+	<section title="60 characters" lexid="cls5" id="cls5_v1" num="5" data-tag="cls">
 		<a href="#cls5_v1" class="label" data-tag="label">
 			<span data-tag="span">
 				 Article 5 
@@ -165,7 +253,7 @@
 			 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
 		</p>
 	</section>
-	<section title="Introduction" lexid="sec1" id="sec1_v1" data-tag="sec">
+	<section title="Introduction" lexid="sec1" id="sec1_v1" num="1" data-tag="sec">
 		<a href="#sec1_v1" class="label" data-tag="label">
 			<span data-tag="span">
 				 Section 1 
@@ -174,7 +262,7 @@
 				 Introduction 
 			</span>
 		</a>
-		<section lexid="sec1_cls1" id="sec1_cls1_v1" data-tag="cls">
+		<section lexid="sec1_cls1" id="sec1_cls1_v1" num="6" data-tag="cls">
 			<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1" data-tag="p">
 				<a href="#sec1_cls1_v1" class="label" data-tag="label">
 					 Art. 6 
@@ -182,7 +270,7 @@
 				 Rule 1 
 			</p>
 		</section>
-		<section title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1" data-tag="sec">
+		<section title="Sub-Intro" lexid="sec1_sec1" id="sec1_sec1_v1" num="1.1" data-tag="sec">
 			<a href="#sec1_sec1_v1" class="label" data-tag="label">
 				<span data-tag="span">
 					 Section 1.1 
@@ -191,7 +279,7 @@
 					 Sub-Intro 
 				</span>
 			</a>
-			<section lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" data-tag="cls">
+			<section lexid="sec1_sec1_cls1" id="sec1_sec1_cls1_v1" num="7" data-tag="cls">
 				<p lexid="sec1_sec1_cls1_p1" id="sec1_sec1_cls1_p1_v1" data-tag="p">
 					<a href="#sec1_sec1_cls1_v1" class="label" data-tag="label">
 						 Art. 7 
@@ -201,7 +289,7 @@
 						 2 
 					</a>
 				</p>
-				<section lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" class="sub" data-tag="sub">
+				<section lexid="sec1_sec1_cls1_sub1" id="sec1_sec1_cls1_sub1_v1" num="1" class="sub" data-tag="sub">
 					<p lexid="sec1_sec1_cls1_sub1_p1" id="sec1_sec1_cls1_sub1_p1_v1" data-tag="p">
 						<a href="#sec1_sec1_cls1_sub1_v1" class="label" data-tag="label">
 							 1) 
@@ -209,7 +297,7 @@
 						 Exception 1 
 					</p>
 				</section>
-				<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1" data-tag="note">
+				<note lexid="sec1_sec1_cls1_note1" id="sec1_sec1_cls1_note1_v1" num="1" data-tag="note">
 					<p lexid="sec1_sec1_cls1_note1_p1" id="sec1_sec1_cls1_note1_p1_v1" data-tag="p">
 						<a href="#sec1_sec1_cls1_note1_v1" class="label" data-tag="label">
 							 Note 1 — 
@@ -217,14 +305,14 @@
 						 I'm just an explanatory note. 
 					</p>
 				</note>
-				<section lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" class="sub" data-tag="sub">
+				<section lexid="sec1_sec1_cls1_sub2" id="sec1_sec1_cls1_sub2_v1" num="2" class="sub" data-tag="sub">
 					<p lexid="sec1_sec1_cls1_sub2_p1" id="sec1_sec1_cls1_sub2_p1_v1" data-tag="p">
 						<a href="#sec1_sec1_cls1_sub2_v1" class="label" data-tag="label">
 							 2) 
 						</a>
 						 Exception 2 
 					</p>
-					<section lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" class="sub" data-tag="sub">
+					<section lexid="sec1_sec1_cls1_sub2_sub1" id="sec1_sec1_cls1_sub2_sub1_v1" num="1" class="sub" data-tag="sub">
 						<p lexid="sec1_sec1_cls1_sub2_sub1_p1" id="sec1_sec1_cls1_sub2_sub1_p1_v1" data-tag="p">
 							<a href="#sec1_sec1_cls1_sub2_sub1_v1" class="label" data-tag="label">
 								 — 
@@ -232,7 +320,7 @@
 							 Exception of the exception (1) 
 						</p>
 					</section>
-					<section lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" class="sub" data-tag="sub">
+					<section lexid="sec1_sec1_cls1_sub2_sub2" id="sec1_sec1_cls1_sub2_sub2_v1" num="2" class="sub" data-tag="sub">
 						<p lexid="sec1_sec1_cls1_sub2_sub2_p1" id="sec1_sec1_cls1_sub2_sub2_p1_v1" data-tag="p">
 							<a href="#sec1_sec1_cls1_sub2_sub2_v1" class="label" data-tag="label">
 								 — 
@@ -244,7 +332,7 @@
 			</section>
 		</section>
 	</section>
-	<section title="Final" lexid="sec2" id="sec2_v1" data-tag="sec">
+	<section title="Final" lexid="sec2" id="sec2_v1" num="2" data-tag="sec">
 		<a href="#sec2_v1" class="label" data-tag="label">
 			<span data-tag="span">
 				 Section 2 
@@ -253,14 +341,14 @@
 				 Final 
 			</span>
 		</a>
-		<section lexid="sec2_cls1" id="sec2_cls1_v1" data-tag="cls">
+		<section lexid="sec2_cls1" id="sec2_cls1_v1" num="1" data-tag="cls">
 			<p lexid="sec2_cls1_p1" id="sec2_cls1_p1_v1" data-tag="p">
 				<a href="#sec2_cls1_v1" class="label" data-tag="label">
 					 Art. 1 
 				</a>
 				 Final Rule 
 			</p>
-			<section lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1" class="sub" data-tag="sub">
+			<section lexid="sec2_cls1_sub1" id="sec2_cls1_sub1_v1" num="1" class="sub" data-tag="sub">
 				<p lexid="sec2_cls1_sub1_p1" id="sec2_cls1_sub1_p1_v1" data-tag="p">
 					<a href="#sec2_cls1_sub1_v1" class="label" data-tag="label">
 						 1) 
@@ -268,7 +356,7 @@
 					 Exception 1 
 				</p>
 			</section>
-			<section lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1" class="sub" data-tag="sub">
+			<section lexid="sec2_cls1_sub2" id="sec2_cls1_sub2_v1" num="2" class="sub" data-tag="sub">
 				<p lexid="sec2_cls1_sub2_p1" id="sec2_cls1_sub2_p1_v1" data-tag="p">
 					<a href="#sec2_cls1_sub2_v1" class="label" data-tag="label">
 						 2) 
@@ -276,7 +364,7 @@
 					 Exception 3 (we added it latter) 
 				</p>
 			</section>
-			<section lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1" class="sub" data-tag="sub">
+			<section lexid="sec2_cls1_sub3" id="sec2_cls1_sub3_v1" num="3" class="sub" data-tag="sub">
 				<p lexid="sec2_cls1_sub3_p1" id="sec2_cls1_sub3_p1_v1" data-tag="p">
 					<a href="#sec2_cls1_sub3_v1" class="label" data-tag="label">
 						 3) 
@@ -285,7 +373,7 @@
 				</p>
 			</section>
 		</section>
-		<section title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1" data-tag="cls">
+		<section title="Fancyness" lexid="sec2_cls2" id="sec2_cls2_v1" num="2" data-tag="cls">
 			<a href="#sec2_cls2_v1" class="label" data-tag="label">
 				<span data-tag="span">
 					 Article 2 
@@ -298,7 +386,7 @@
 				 Fancy article with title 
 			</p>
 		</section>
-		<section title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1" data-tag="sec">
+		<section title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1" num="2.1" data-tag="sec">
 			<a href="#sec2_sec1_v1" class="label" data-tag="label">
 				<span data-tag="span">
 					 Section 2.1 
@@ -307,7 +395,7 @@
 					 Recursion 1 
 				</span>
 			</a>
-			<section title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1" data-tag="sec">
+			<section title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1" num="2.1.1" data-tag="sec">
 				<a href="#sec2_sec1_sec1_v1" class="label" data-tag="label">
 					<span data-tag="span">
 						 Section 2.1.1 
@@ -316,7 +404,7 @@
 						 Recursion 2 
 					</span>
 				</a>
-				<section title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1" data-tag="sec">
+				<section title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1" num="2.1.1.1" data-tag="sec">
 					<a href="#sec2_sec1_sec1_sec1_v1" class="label" data-tag="label">
 						<span data-tag="span">
 							 Section 2.1.1.1 
@@ -331,6 +419,5 @@
 	</section>
 </corpus>
 
-		</section>
 	</body>
 </html>

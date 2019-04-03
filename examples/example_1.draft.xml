@@ -17,7 +17,7 @@
 	<corpus>
 		<set-meta SecLabel="§ {num}" ClsLabel="Art. {num}" SubLabel="{num})"/>
 		<set-meta SecHeading="Section {num}\n{title}" ClsHeading="Article {num}\n{title}"/>
-		<cls label-style="({num})">Rule 0 (<b>see custom label style)</b>)</cls>
+		<cls label-style="({num})" toc-entry="false">Rule 0 (<b>see custom label style)</b>)</cls>
 		<cls>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed odio augue. Phasellus feugiat fermentum leo, non pretium massa scelerisque et. Vestibulum rhoncus, urna hendrerit vehicula lacinia, orci tellus fermentum libero, sit amet ornare mauris nunc non risus. Nam suscipit dolor eu turpis bibendum, at imperdiet sapien dapibus. Aenean luctus molestie velit sed molestie. Nam a pellentesque ipsum. Nunc posuere ipsum non erat ornare pellentesque.</cls>
 		<cls title="75 characters">
 			aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

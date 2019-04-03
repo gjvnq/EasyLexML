@@ -7,7 +7,7 @@
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&subset=latin-ext');
 			body {
-				font-size: 16px;
+				font-size: 18px;
 				margin-top: 2rem;
 				font-family: "Libre Baskerville", sans-serif;
 				font-variant-numeric: tabular-nums;
@@ -39,6 +39,9 @@
 			a.label, a.label:visited {
 				color: #000;
 				text-decoration: none;
+			}
+			section#toc > a.label {
+				padding-bottom: 0;
 			}
 			section > a {
 				margin-top: 1rem;
@@ -101,11 +104,7 @@
 			<h1>{{.AbstractTitle}}</h1>
 			{{.Abstract}}
 		</section>
-		<section id="toc">
-			{{.Toc}}
-		</section>
-		<section id="corpus">
-			{{.Corpus}}
-		</section>
+		{{.Toc}}
+		{{.Corpus}}
 	</body>
 </html>

@@ -32,6 +32,7 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 	}
 	base := root.SelectElement("EasyLexML")
 	corpus := base.SelectElement("corpus")
+	toc := base.SelectElement("toc")
 
 	// Replace elements
 	replace_with_html_elements(base)
@@ -43,12 +44,18 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 		pageData.Title = title.OutputXML(false)
 	}
 
-	// Finish
+	// Finish Corpus
 	buf := new(bytes.Buffer)
 	corpus.OutputXMLToWriter(buf, true, true)
 	pageData.Corpus = template.HTML(buf.String())
-	tmpl.Execute(output, pageData)
 
+	// Finish Metadata
+	buf = new(bytes.Buffer)
+	toc.OutputXMLToWriter(buf, true, true)
+	pageData.Toc = template.HTML(buf.String())
+
+	// Finish
+	tmpl.Execute(output, pageData)
 	return nil
 }
 
@@ -59,6 +66,8 @@ func replace_with_html_elements(root *xmlquery.Node) {
 
 	tag := root.Data
 	switch {
+	case tag == "toc":
+		tag = "section"
 	case tag == "sec" || tag == "sec-nn":
 		tag = "section"
 	case tag == "cls" || tag == "cls-nn":

@@ -115,6 +115,7 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 	default:
 		num = strconv.Itoa(parent.NthChildOfElem() + 1)
 	}
+	parent.SetAttr("num", num)
 	ans = strings.Replace(ans, "{num}", num, -1)
 	ans = strings.Replace(ans, "{id}", parent.GetAttrWithDefault("id", ""), -1)
 	ans = strings.Replace(ans, "{lexid}", parent.GetAttrWithDefault("lexid", ""), -1)
