@@ -62,6 +62,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	}
 	node = xmlquery.FindOne(root, "//abstract/label")
 	if node != nil {
+		node.SetAttr("href", "#abstract")
 		txt := node.Parent.GetAttrWithDefault("label", abstractTitle)
 		node.AddChild(new_node_text(txt))
 	}
@@ -89,6 +90,7 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 	toc_node := new_node_element("toc")
 	toc_node.SetAttr("id", "toc")
 	toc_label := new_node_element("label")
+	toc_label.SetAttr("href", "#toc")
 	toc_label.AddChild(new_node_text(toc_title))
 	toc_node.AddChild(toc_label)
 	toc_ul := new_node_element("ul")
@@ -112,6 +114,8 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 }
 
 func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
+	var ul *xmlquery.Node
+
 	// Only <sec>, <cls>, <sec-nn> and <cls-nn> get TOC entries
 	if doc_cursor.Type != xmlquery.ElementNode {
 		return
@@ -133,7 +137,7 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 
 		// Create a sub level
 		if tag == "sec" || tag == "sec-nn" {
-			ul := new_node_element("ul")
+			ul = new_node_element("ul")
 			li.AddChild(ul)
 			toc_cursor = ul
 		}
@@ -141,7 +145,15 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 
 	// Recursive step
 	for child := doc_cursor.FirstChild; child != nil; child = child.NextSibling {
+		if child.Type != xmlquery.ElementNode {
+			continue
+		}
 		toc_iterator_generator(toc_cursor, child)
+	}
+
+	// Prevent HTML bug: <ul/> is treated as <ul> *without* </ul>
+	if ul != nil && ul.FirstChild == nil {
+		ul.DeleteMe()
 	}
 }
 

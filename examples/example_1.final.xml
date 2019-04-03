@@ -10,7 +10,7 @@
 		</author>
 	</metadata>
 	<abstract label="𝕸𝖞 𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙">
-		<label>
+		<label href="#abstract">
 			𝕸𝖞 𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙
 		</label>
 		<p>
@@ -18,7 +18,7 @@
 		</p>
 	</abstract>
 	<toc id="toc">
-		<label>
+		<label href="#toc">
 			𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘
 		</label>
 		<ul>
@@ -115,13 +115,32 @@
 											 - 
 											Recursion 3
 										</a>
-										<ul/>
+									</li>
+									<li>
+										<a href="#sec2_sec1_sec1_cls1_v1">
+											Art. 3
+										</a>
 									</li>
 								</ul>
 							</li>
+							<li>
+								<a href="#sec2_sec1_cls1_v1">
+									Art. 4
+								</a>
+							</li>
 						</ul>
 					</li>
+					<li>
+						<a href="#sec2_cls3_v1">
+							Art. 5
+						</a>
+					</li>
 				</ul>
+			</li>
+			<li>
+				<a href="#cls6_v1">
+					Art. 6
+				</a>
 			</li>
 		</ul>
 	</toc>
@@ -346,8 +365,40 @@
 							</span>
 						</label>
 					</sec>
+					<cls lexid="sec2_sec1_sec1_cls1" id="sec2_sec1_sec1_cls1_v1" num="3">
+						<p lexid="sec2_sec1_sec1_cls1_p1" id="sec2_sec1_sec1_cls1_p1_v1">
+							<label href="#sec2_sec1_sec1_cls1_v1">
+								Art. 3
+							</label>
+							A.
+						</p>
+					</cls>
 				</sec>
+				<cls lexid="sec2_sec1_cls1" id="sec2_sec1_cls1_v1" num="4">
+					<p lexid="sec2_sec1_cls1_p1" id="sec2_sec1_cls1_p1_v1">
+						<label href="#sec2_sec1_cls1_v1">
+							Art. 4
+						</label>
+						B.
+					</p>
+				</cls>
 			</sec>
+			<cls lexid="sec2_cls3" id="sec2_cls3_v1" num="5">
+				<p lexid="sec2_cls3_p1" id="sec2_cls3_p1_v1">
+					<label href="#sec2_cls3_v1">
+						Art. 5
+					</label>
+					C.
+				</p>
+			</cls>
 		</sec>
+		<cls lexid="cls6" id="cls6_v1" num="6">
+			<p lexid="cls6_p1" id="cls6_p1_v1">
+				<label href="#cls6_v1">
+					Art. 6
+				</label>
+				Final article.
+			</p>
+		</cls>
 	</corpus>
 </EasyLexML>

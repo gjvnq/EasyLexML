@@ -71,9 +71,12 @@
 				padding-left: 1.5rem;
 			}
 			section.note {
-		    border: 1px solid #000;
+		    border: 1px solid #aaa;
 		    border-radius: 0.5rem;
 		    padding: 0px 10px;
+			}
+			section.note, section.note a.label {
+		    color: #aaa;
 			}
 			hr {
 				margin-top: 1rem;
@@ -86,7 +89,7 @@
 			@keyframes highlight {
 				0% {background-color: #ffa;}
 				75% {background-color: #ffa;}
-				100% {background-color: none;}
+				100% {background-color: transparent;}
 			}
 			a, a:visited {
 				text-decoration: none;

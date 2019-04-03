@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/cpuguy83/go-md2man v1.0.10 // indirect
-	github.com/gjvnq/xmlquery v1.1.1
+	github.com/gjvnq/xmlquery v1.1.2
 	github.com/go-playground/assert v1.2.1
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
@@ -20,5 +20,8 @@ require (
 	github.com/sourcegraph/jsonrpc2 v0.0.0-20190106185902-35a74f039c6a // indirect
 	github.com/spf13/cobra v0.0.3
 	github.com/spf13/pflag v1.0.3 // indirect
+	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c // indirect
+	golang.org/x/net v0.0.0-20190403144856-b630fd6fe46b // indirect
+	golang.org/x/sys v0.0.0-20190403152447-81d4e9dc473e // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
 )

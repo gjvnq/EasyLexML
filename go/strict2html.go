@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"html/template"
 	"io"
+	"strings"
 
 	"github.com/gjvnq/xmlquery"
 )
@@ -65,8 +66,11 @@ func replace_with_html_elements(root *xmlquery.Node) {
 	}
 
 	tag := root.Data
+	old_tag := tag
 	switch {
 	case tag == "toc":
+		tag = "section"
+	case tag == "corpus":
 		tag = "section"
 	case tag == "note":
 		tag = "section"
@@ -82,9 +86,47 @@ func replace_with_html_elements(root *xmlquery.Node) {
 		tag = "a"
 		root.SetAttr("class", "label")
 	}
-	root.SetAttr("data-tag", root.Data)
 	root.Data = tag
+	// Ensure we don't lose the information of the original XML tag
+	if old_tag != tag {
+		root.SetAttr("data-tag", old_tag)
+	}
+	// Fix attributes
+	prefix_non_html_attributes(root)
+	// Recursive step
 	for child := root.FirstChild; child != nil; child = child.NextSibling {
 		replace_with_html_elements(child)
+	}
+}
+
+func is_valid_html_attribute(tag, attr string) bool {
+	ans := false
+
+	if strings.HasPrefix(attr, "data-") {
+		return true
+	}
+
+	//General attributes
+	ans = ans || (attr == "id")
+	ans = ans || (attr == "class")
+
+	// Tag specific attributes
+	switch tag {
+	case "a":
+		ans = ans || (attr == "href")
+	}
+
+	return ans
+}
+
+func prefix_non_html_attributes(node *xmlquery.Node) {
+	if node.Type != xmlquery.ElementNode {
+		return
+	}
+	for i := range node.Attr {
+		attr := &node.Attr[i]
+		if !is_valid_html_attribute(node.Data, attr.Name.Local) {
+			attr.Name.Local = "data-" + attr.Name.Local
+		}
 	}
 }

@@ -63,8 +63,12 @@
 				<sec title="Recursion 2">
 					<sec title="Recursion 3">
 					</sec>
+					<cls>A.</cls>
 				</sec>
+				<cls>B.</cls>
 			</sec>
+			<cls>C.</cls>
 		</sec>
+		<cls>Final article.</cls>
 	</corpus>
 </EasyLexML>
