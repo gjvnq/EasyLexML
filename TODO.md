@@ -1,5 +1,6 @@
 # TODO
 
+* [ ] Use UUIDs for notes.
 * [ ] Remove dead code.
 * [ ] Generate TXT.
 * [ ] Add code syntax highlight.
