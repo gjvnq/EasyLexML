@@ -13,6 +13,67 @@
 		<label>
 			𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘
 		</label>
+		<ul>
+			<li>
+				<a href="#sec1_v1">
+					Section 1
+					 - 
+					Introduction
+				</a>
+				<ul>
+					<li>
+						<a href="#sec1_sec1_v1">
+							Section 1.1
+							 - 
+							Sub-Intro
+						</a>
+						<ul/>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#sec2_v1">
+					Section 2
+					 - 
+					Final
+				</a>
+				<ul>
+					<li>
+						<a href="#sec2_cls2_v1">
+							Article 2
+							 - 
+							Fancyness
+						</a>
+					</li>
+					<li>
+						<a href="#sec2_sec1_v1">
+							Section 2.1
+							 - 
+							Recursion 1
+						</a>
+						<ul>
+							<li>
+								<a href="#sec2_sec1_sec1_v1">
+									Section 2.1.1
+									 - 
+									Recursion 2
+								</a>
+								<ul>
+									<li>
+										<a href="#sec2_sec1_sec1_sec1_v1">
+											Section 2.1.1.1
+											 - 
+											Recursion 3
+										</a>
+										<ul/>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	</toc>
 	<abstract>
 		 Just a simple example of EasyLexML. 
@@ -166,7 +227,7 @@
 			<sec title="Recursion 1" lexid="sec2_sec1" id="sec2_sec1_v1">
 				<label href="#sec2_sec1_v1">
 					<span>
-						Section 1.1
+						Section 2.1
 					</span>
 					<span>
 						Recursion 1
@@ -175,7 +236,7 @@
 				<sec title="Recursion 2" lexid="sec2_sec1_sec1" id="sec2_sec1_sec1_v1">
 					<label href="#sec2_sec1_sec1_v1">
 						<span>
-							Section 1.1.1
+							Section 2.1.1
 						</span>
 						<span>
 							Recursion 2
@@ -184,7 +245,7 @@
 					<sec title="Recursion 3" lexid="sec2_sec1_sec1_sec1" id="sec2_sec1_sec1_sec1_v1">
 						<label href="#sec2_sec1_sec1_sec1_v1">
 							<span>
-								Section 1.1.1.1
+								Section 2.1.1.1
 							</span>
 							<span>
 								Recursion 3

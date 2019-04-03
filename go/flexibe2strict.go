@@ -1,6 +1,7 @@
 package easyLexML
 
 import (
+	"fmt"
 	"io"
 	"strconv"
 	"strings"
@@ -73,7 +74,8 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 	toc_label := new_node_element("label")
 	toc_label.AddChild(new_node_text(toc_title))
 	toc_node.AddChild(toc_label)
-	// toc_cursor = toc_label
+	toc_ul := new_node_element("ul")
+	toc_node.AddChild(toc_ul)
 
 	// Add toc after <metadata>
 	metadata_node := base.SelectElement("metadata")
@@ -81,6 +83,57 @@ func generate_toc(base *xmlquery.Node, toc_title string) {
 		metadata_node.AddAfter(toc_node)
 	} else {
 		base.FirstChild.AddBefore(toc_node)
+	}
+
+	toc_iterator_generator(toc_ul, base)
+}
+
+func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
+	fmt.Println(toc_cursor, doc_cursor)
+	if doc_cursor.Type != xmlquery.ElementNode {
+		return
+	}
+
+	if doc_cursor.Data == "sec" || doc_cursor.Data == "cls" {
+		// Get name
+		label := doc_cursor.SelectElement("label")
+		if label != nil {
+			li := new_node_element("li")
+			link := new_node_element("a")
+			link.SetAttr("href", "#"+doc_cursor.SelectAttr("id"))
+			genTocEntry(label, link)
+			li.AddChild(link)
+			toc_cursor.AddChild(li)
+
+			if doc_cursor.Data == "sec" {
+				ul := new_node_element("ul")
+				li.AddChild(ul)
+				toc_cursor = ul
+			}
+		}
+	}
+
+	for child := doc_cursor.FirstChild; child != nil; child = child.NextSibling {
+		toc_iterator_generator(toc_cursor, child)
+	}
+}
+
+func genTocEntry(label, toc *xmlquery.Node) {
+	i := 0
+	for label_child := label.FirstChild; label_child != nil; label_child = label_child.NextSibling {
+		if label_child.Type == xmlquery.ElementNode && label_child.Data == "span" {
+			if i > 0 {
+				toc.AddChild(new_node_text(" - "))
+			}
+			genTocEntry(label_child, toc)
+			i++
+		} else {
+			toc_child := new(xmlquery.Node)
+			toc_child.Type = label_child.Type
+			toc_child.Data = label_child.Data
+			genTocEntry(label_child, toc_child)
+			toc.AddChild(toc_child)
+		}
 	}
 }
 
