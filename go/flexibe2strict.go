@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/gjvnq/xmlquery"
+	"github.com/google/uuid"
 )
 
 func Draft2Strict(input io.Reader, output io.Writer) error {
@@ -215,6 +216,12 @@ func gen_lexid(node *xmlquery.Node) string {
 		return ""
 	}
 
+	// Given that many people may add notes, they are identified by an UUID
+	if node.Data == "note" {
+		return uuid.Must(uuid.NewRandom()).String()
+	}
+
+	// Generate traditional ids
 	list := make([]string, 0)
 	cursor := node
 	for cursor != nil && cursor.Data != "corpus" {

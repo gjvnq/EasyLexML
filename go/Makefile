@@ -13,6 +13,9 @@ endif
 
 all: cmd/easy-lexml/easy-lexml easy-lexml.a
 
+install: cmd/easy-lexml/easy-lexml easy-lexml.a
+	go install github.com/gjvnq/EasyLexML/go/cmd/easy-lexml
+
 test: easy-lexml.a
 	go test
 

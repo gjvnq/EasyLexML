@@ -42,7 +42,7 @@ func (this *context) Update(node *xmlquery.Node) {
 		case "SubHeading":
 			this.SubHeading = attr.Value
 		case "NoteHeading":
-			this.NoteLabel = attr.Value
+			this.NoteHeading = attr.Value
 		}
 	}
 }

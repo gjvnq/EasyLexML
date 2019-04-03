@@ -7,6 +7,7 @@ require (
 	github.com/gjvnq/xmlquery v1.1.2
 	github.com/go-playground/assert v1.2.1
 	github.com/gogo/protobuf v1.2.1 // indirect
+	github.com/google/uuid v1.1.1
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
 	github.com/jinzhu/copier v0.0.0-20180308034124-7e38e58719c3
 	github.com/neelance/parallel v0.0.0-20160708114440-4de9ce63d14c // indirect
