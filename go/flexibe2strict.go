@@ -1,6 +1,7 @@
 package easyLexML
 
 import (
+	"errors"
 	"io"
 	"strconv"
 	"strings"
@@ -12,14 +13,19 @@ import (
 func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Read XML
 	root, err := xmlquery.Parse(input)
-	base := root.SelectElement("EasyLexML")
-	corpus := base.SelectElement("corpus")
-	tocTitle := "Table of Contents"
-	abstractTitle := "Abstract"
-	// cursor := root
 	if err != nil {
 		return err
 	}
+	base := root.SelectElement("EasyLexML")
+	if base == nil {
+		return errors.New("no <EasyLexML> found")
+	}
+	corpus := base.SelectElement("corpus")
+	if corpus == nil {
+		return errors.New("no <corpus> found")
+	}
+	tocTitle := "Table of Contents"
+	abstractTitle := "Abstract"
 
 	// Remove TOC
 	node := base.SelectElement("toc")
@@ -32,13 +38,13 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 
 	// Add id, lexid and labels
 	ctx := new(context)
-	ctx.SecLabel = "§ {num}"
+	ctx.SecLabel = "Section {num}"
 	ctx.ClsLabel = "Cls. {num}"
 	ctx.SubLabel = "{num})"
 	ctx.NoteLabel = "Note {num} —"
-	ctx.SecHeading = "§ {num}\\n{title}"
+	ctx.SecHeading = "Section {num}\\n{title}"
 	ctx.ClsHeading = "Cls. {num}\\n{title}"
-	ctx.SubHeading = "{num}\\n{title}"
+	ctx.SubHeading = "{num}"
 	ctx.NoteHeading = "Note {num}\\n{title}"
 	cls_counter := 0
 	corpus.Info = ctx
@@ -253,8 +259,10 @@ func remove_draft_attr(root *xmlquery.Node) {
 		return
 	}
 
+	root.DelAttr("label")
 	root.DelAttr("label-style")
 	root.DelAttr("ref")
+	root.DelAttr("title")
 
 	for child := root.FirstChild; child != nil; child = child.NextSibling {
 		remove_draft_attr(child)

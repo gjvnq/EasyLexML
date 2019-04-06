@@ -40,3 +40,13 @@ cmd/easy-lexml/easy-lexml: cmd/easy-lexml/*.go easy-lexml.a
 	@$(ECHO) -e $(ANSI_GREEN)"["$@"] Compiling code..."$(ANSI_RESET)
 	cd cmd/easy-lexml/ && go build -o ../../$@
 	@$(ECHO) -e $(ANSI_BLUE)"["$@"] Finished target $@"$(ANSI_RESET)
+
+coverage.out: *.go easy-lexml.a
+	@$(ECHO) -e $(ANSI_GREEN)"["$@"] Testing code..."$(ANSI_RESET)
+	go test -cover -coverprofile=coverage.out
+	@$(ECHO) -e $(ANSI_BLUE)"["$@"] Finished target"$(ANSI_RESET)
+
+test-html: coverage.out
+	@$(ECHO) -e $(ANSI_GREEN)"Generating coverage report..."$(ANSI_RESET)
+	go tool cover -html=coverage.out
+	@$(ECHO) -e $(ANSI_BLUE)"Finished target"$(ANSI_RESET)
