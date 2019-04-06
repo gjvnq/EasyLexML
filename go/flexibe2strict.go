@@ -65,6 +65,7 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	if node != nil {
 		node.SetAttr("href", "#abstract")
 		txt := node.Parent.GetAttrWithDefault("label", abstractTitle)
+		txt = " " + txt + " "
 		node.AddChild(new_node_text(txt))
 	}
 
@@ -78,10 +79,12 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	// Remove "unnecessary" attributes
 	remove_draft_attr(base)
 
+	// Generate TOC
+	tocTitle = " " + tocTitle + " "
 	generate_toc(base, tocTitle)
 
 	// Output
-	root.OutputXMLToWriter(output, true, false)
+	root.OutputXMLToWriter(output, false, true)
 
 	return nil
 }
@@ -168,6 +171,10 @@ func genTocEntry(label, toc *xmlquery.Node) {
 			genTocEntry(label_child, toc)
 			i++
 		} else {
+			// Make output prettier
+			label_child.Data = " " + label_child.Data + " "
+
+			// Add entry
 			toc_child := new(xmlquery.Node)
 			toc_child.Type = label_child.Type
 			toc_child.Data = label_child.Data
@@ -218,7 +225,7 @@ func gen_lexid(node *xmlquery.Node) string {
 
 	// Given that many people may add notes, they are identified by an UUID
 	if node.Data == "note" {
-		return uuid.Must(uuid.NewRandom()).String()
+		return "note_" + uuid.Must(uuid.NewRandom()).String()
 	}
 
 	// Generate traditional ids
@@ -306,6 +313,7 @@ func envelop_text(root *xmlquery.Node) {
 			if child.Type == xmlquery.TextNode {
 				p_node = new_node_element("p")
 				root.AddChild(p_node)
+				root.AddChild(new_node_text(" "))
 				if !has_label {
 					lbl_node := new_node_element("label")
 					p_node.AddChild(lbl_node)
