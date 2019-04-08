@@ -160,6 +160,9 @@ func toc_iterator_generator(toc_cursor, doc_cursor *xmlquery.Node) {
 
 func genTocEntry(label, toc *xmlquery.Node) {
 	i := 0
+	if label == nil || toc == nil {
+		return
+	}
 	for label_child := label.FirstChild; label_child != nil; label_child = label_child.NextSibling {
 		if label_child.Type == xmlquery.ElementNode && label_child.Data == "span" {
 			if i > 0 {

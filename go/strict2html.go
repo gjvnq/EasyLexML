@@ -52,8 +52,10 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 
 	// Finish Metadata
 	buf = new(bytes.Buffer)
-	toc.OutputXMLToWriter(buf, true, true)
-	pageData.Toc = template.HTML(buf.String())
+	if toc != nil {
+		toc.OutputXMLToWriter(buf, true, true)
+		pageData.Toc = template.HTML(buf.String())
+	}
 
 	// Finish
 	tmpl.Execute(output, pageData)
