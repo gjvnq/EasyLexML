@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/cpuguy83/go-md2man v1.0.10 // indirect
-	github.com/gjvnq/xmlquery v1.1.4
+	github.com/gjvnq/xmlquery v1.1.6
 	github.com/go-playground/assert v1.2.1
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/google/uuid v1.1.1

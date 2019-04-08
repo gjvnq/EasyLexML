@@ -130,7 +130,7 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 			node.AddChild(span)
 		}
 	} else {
-		node.AddChild(new_node_text(ans))
+		node.AddChild(new_node_text(" " + ans + " "))
 	}
 
 	if href != "" {
