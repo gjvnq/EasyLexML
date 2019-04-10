@@ -145,16 +145,16 @@ func TestDraft2Strict_Doc1(t *testing.T) {
 		</label>
 		<ul>
 			<li>
-				<a href="#cls1_v1">
+				<a href="#cls1">
 					Cls. 1
 				</a>
 			</li>
 		</ul>
 	</toc>
 	<corpus id="corpus">
-		<cls lexid="cls1" id="cls1_v1" num="1">
-			<p lexid="cls1_p1" id="cls1_p1_v1">
-				<label href="#cls1_v1">
+		<cls id="cls1" num="1">
+			<p id="cls1_p1">
+				<label href="#cls1">
 					Cls. 1
 				</label>Lorem
 				<a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Ipsum</a>.</p>
@@ -186,29 +186,29 @@ func TestDraft2Strict_Doc2(t *testing.T) {
 		</label>
 		<ul>
 			<li>
-				<a href="#sec1_v1">
+				<a href="#sec1">
 					Section 1
 					-
 					My Title
 				</a>
 				<ul>
 					<li>
-						<a href="#sec1_cls1_v1">
+						<a href="#sec1_cls1">
 							Cls. 1
 						</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="#cls1_v1">
+				<a href="#cls1">
 					Cls. 2
 				</a>
 			</li>
 		</ul>
 	</toc>
 	<corpus id="corpus">
-		<sec lexid="sec1" id="sec1_v1" num="1">
-			<label href="#sec1_v1">
+		<sec id="sec1" num="1">
+			<label href="#sec1">
 				<span>
 					Section 1
 				</span>
@@ -216,17 +216,17 @@ func TestDraft2Strict_Doc2(t *testing.T) {
 					My Title
 				</span>
 			</label>
-			<cls lexid="sec1_cls1" id="sec1_cls1_v1" num="1">
-				<p lexid="sec1_cls1_p1" id="sec1_cls1_p1_v1">
-					<label href="#sec1_cls1_v1">
+			<cls id="sec1_cls1" num="1">
+				<p id="sec1_cls1_p1">
+					<label href="#sec1_cls1">
 						Cls. 1
 					</label>Lorem
 					<a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Ipsum</a>.</p>
 			</cls>
 		</sec>
-		<cls lexid="cls1" id="cls1_v1" num="2">
-			<p lexid="cls1_p1" id="cls1_p1_v1">
-				<label href="#cls1_v1">
+		<cls id="cls1" num="2">
+			<p id="cls1_p1">
+				<label href="#cls1">
 					Cls. 2
 				</label>Final topic!
 			</p>

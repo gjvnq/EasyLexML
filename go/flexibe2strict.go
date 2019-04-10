@@ -273,8 +273,8 @@ func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
 
 	ctx := node.Info.(*context)
 	// Set id if is not yet set
-	id, _ := node.GetAttr("id")
-	if tag_has_lexid(node.Data) && id == "" {
+	_, has_id := node.GetAttr("id")
+	if tag_has_lexid(node.Data) && !has_id {
 		node.SetAttr("id", gen_lexid(node))
 	}
 
