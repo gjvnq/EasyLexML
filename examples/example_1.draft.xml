@@ -50,10 +50,10 @@
 					Exception 1
 				</sub>
 				<sub>
-					Exception 3 (we added it latter)
+					Exception 2 according to <a ref="final-article">article <cite-cls/>, item <cite-sub/></a>.
 				</sub>
 				<sub>
-					Exception 2
+					Exception 3
 				</sub>
 			</cls>
 			<cls title="Fancyness">
@@ -65,7 +65,13 @@
 					</sec>
 					<cls>A.</cls>
 				</sec>
-				<cls>B.</cls>
+				<cls title="Some title">
+					Hi
+					<sub>Hi2</sub>
+					<sub>Hi3
+						<sub name="final-article">B.</sub>
+					</sub>
+				</cls>
 			</sec>
 			<cls>C.</cls>
 		</sec>

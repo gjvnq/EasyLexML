@@ -82,6 +82,11 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 		node = xmlquery.FindOne(root, "//set-meta")
 	}
 
+	// Make ref map
+	name2id := make(map[string]*xmlquery.Node)
+	make_ref_map(name2id, base)
+	fix_links(name2id, base)
+
 	// Remove "unnecessary" attributes
 	remove_draft_attr(base)
 
@@ -93,6 +98,77 @@ func Draft2Strict(input io.Reader, output io.Writer) error {
 	root.OutputXMLToWriter(output, false, true)
 
 	return nil
+}
+
+func make_ref_map(name2id map[string]*xmlquery.Node, base *xmlquery.Node) {
+	if base == nil || base.Type != xmlquery.ElementNode {
+		return
+	}
+
+	name, ok := base.GetAttr("name")
+	if ok {
+		_, ok2 := base.GetAttr("id")
+		if !ok2 {
+			panic("element " + base.String() + " has @name but not @id")
+		}
+		name2id[name] = base
+	}
+
+	for child := base.FirstChild; child != nil; child = child.NextSibling {
+		make_ref_map(name2id, child)
+	}
+}
+
+func fix_links(name2id map[string]*xmlquery.Node, base *xmlquery.Node) {
+	if base == nil || base.Type != xmlquery.ElementNode {
+		return
+	}
+
+	ref, ok := base.GetAttr("ref")
+	if ok {
+		ref_node, ok2 := name2id[ref]
+		if !ok2 {
+			panic("no element has name '" + ref + "'")
+		}
+		base.SetAttr("href", "#"+ref_node.GetAttrWithDefault("id", ""))
+		base.DelAttr("ref")
+
+		for child := base.FirstChild; child != nil; child = child.NextSibling {
+			if child.Type != xmlquery.ElementNode {
+				continue
+			}
+			switch child.Data {
+			case "cite-cls":
+				child.AddChild(new_node_text(get_label_for(ref_node, "cls")))
+			case "cite-sub":
+				child.AddChild(new_node_text(get_label_for(ref_node, "sub")))
+			case "cite-sec":
+				child.AddChild(new_node_text(get_label_for(ref_node, "sec")))
+			}
+		}
+	}
+
+	for child := base.FirstChild; child != nil; child = child.NextSibling {
+		fix_links(name2id, child)
+	}
+}
+
+func get_label_for(base *xmlquery.Node, tag string) string {
+	// Find tag
+	cursor := base
+	for cursor != nil && cursor.Data != tag {
+		cursor = cursor.Parent
+	}
+	if cursor == nil {
+		return "???"
+	}
+
+	num := cursor.GetAttrWithDefault("num", "???")
+	title := cursor.GetAttrWithDefault("title", "")
+	if title != "" {
+		return num + " - “" + title + "”"
+	}
+	return num
 }
 
 func generate_toc(base *xmlquery.Node, toc_title string) {
@@ -196,15 +272,10 @@ func process_ids_and_labels(node *xmlquery.Node, cls_counter *int) {
 	}
 
 	ctx := node.Info.(*context)
-	// Set lexid and id if they areno not set yet
-	lexid, _ := node.GetAttr("lexid")
+	// Set id if is not yet set
 	id, _ := node.GetAttr("id")
-	if tag_has_lexid(node.Data) && lexid == "" {
-		node.SetAttr("lexid", gen_lexid(node))
-	}
 	if tag_has_lexid(node.Data) && id == "" {
-		lexid, _ = node.GetAttr("lexid")
-		node.SetAttr("id", lexid+"_v1")
+		node.SetAttr("id", gen_lexid(node))
 	}
 
 	// Update variables
@@ -262,6 +333,7 @@ func remove_draft_attr(root *xmlquery.Node) {
 	root.DelAttr("label")
 	root.DelAttr("label-style")
 	root.DelAttr("ref")
+	root.DelAttr("name")
 	root.DelAttr("title")
 
 	for child := root.FirstChild; child != nil; child = child.NextSibling {

@@ -94,14 +94,14 @@ func gen_label(node *xmlquery.Node, cls_counter int) {
 	ans = parent.GetAttrWithDefault("label-style", ans)
 
 	num := ""
-	switch tag {
-	case "cls":
+	switch {
+	case tag == "cls":
 		num = strconv.Itoa(cls_counter)
-	case "sec":
+	case tag == "sec" || tag == "sub":
 		tmp := make([]string, 0)
 		cursor := parent
 		for cursor != nil {
-			if cursor.Data == "sec" {
+			if cursor.Data == tag {
 				tmp = append(tmp, strconv.Itoa(cursor.NthChildOfElem()+1))
 			}
 			cursor = cursor.Parent

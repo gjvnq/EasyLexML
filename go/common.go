@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-const VERSION = "0.3.3"
+const VERSION = "0.4.0"
 
 var Debug bool = false
 
