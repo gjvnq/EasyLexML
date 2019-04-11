@@ -230,9 +230,9 @@
 								1)
 							</label>Exception 1</p>
 					</sub>
-					<note id="note_88f5ec56-1e83-4c24-b9e5-1dde7481bd05" num="1">
+					<note id="note_bf245f31-16aa-4725-a1bc-d87559bc57a4" num="1">
 						<p id="sec1_sec1_cls1_note1_p1">
-							<label href="#note_88f5ec56-1e83-4c24-b9e5-1dde7481bd05">
+							<label href="#note_bf245f31-16aa-4725-a1bc-d87559bc57a4">
 								Note 1 —
 							</label>I&#39;m just an explanatory note.</p>
 					</note>
@@ -300,6 +300,17 @@
 						</label>
 						Exception 3
 					</p>
+				</sub>
+				<sub id="sec2_cls1_sub4" num="4">
+					<p id="sec2_cls1_sub4_p1">
+						<label href="#sec2_cls1_sub4">
+							4)
+						</label>
+						A math formula:
+						<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+							<mrow>
+								<munder>
+									<mo lspace="0em" rspace="0em">lim</mo><mrow><mi>n</mi><mo stretchy="false">→</mo><mo>+</mo><mn>∞</mn></mrow></munder><mfrac><msqrt><mrow><mn>2</mn><mi>π</mi><mi>n</mi></mrow></msqrt><mrow><mi>n</mi><mo>!</mo></mrow></mfrac><msup><mrow><mo>(</mo><mfrac><mi>n</mi><mi>e</mi></mfrac><mo>)</mo></mrow><mi>n</mi></msup></mrow><mo>=</mo><mn>1</mn></math></p>
 				</sub>
 			</cls>
 			<cls id="sec2_cls2" num="2">

@@ -101,6 +101,54 @@ func replace_with_html_elements(root *xmlquery.Node) {
 	}
 }
 
+func is_math_ml_element(tag string) bool {
+	ans := false
+	ans = ans || (tag == "math")
+	ans = ans || (tag == "maction")
+	ans = ans || (tag == "maligngroup")
+	ans = ans || (tag == "malignmark")
+	ans = ans || (tag == "menclose")
+	ans = ans || (tag == "merror")
+	ans = ans || (tag == "mfenced")
+	ans = ans || (tag == "mfrac")
+	ans = ans || (tag == "mglyph")
+	ans = ans || (tag == "mi")
+	ans = ans || (tag == "mlabeldtr")
+	ans = ans || (tag == "mlongdiv")
+	ans = ans || (tag == "mmultiscript")
+	ans = ans || (tag == "mn")
+	ans = ans || (tag == "mo")
+	ans = ans || (tag == "mover")
+	ans = ans || (tag == "mpadded")
+	ans = ans || (tag == "mphantom")
+	ans = ans || (tag == "mroot")
+	ans = ans || (tag == "mrow")
+	ans = ans || (tag == "ms")
+	ans = ans || (tag == "mscarries")
+	ans = ans || (tag == "mscarry")
+	ans = ans || (tag == "msgroup")
+	ans = ans || (tag == "mstack")
+	ans = ans || (tag == "msline")
+	ans = ans || (tag == "mspace")
+	ans = ans || (tag == "msqrt")
+	ans = ans || (tag == "msrow")
+	ans = ans || (tag == "mstyle")
+	ans = ans || (tag == "msub")
+	ans = ans || (tag == "msup")
+	ans = ans || (tag == "msubsup")
+	ans = ans || (tag == "mtable")
+	ans = ans || (tag == "mtd")
+	ans = ans || (tag == "mtext")
+	ans = ans || (tag == "mtr")
+	ans = ans || (tag == "munder")
+	ans = ans || (tag == "munderover")
+	ans = ans || (tag == "semantics")
+	ans = ans || (tag == "annotation")
+	ans = ans || (tag == "annotation-xml")
+
+	return ans
+}
+
 func is_valid_html_attribute(tag, attr string) bool {
 	ans := false
 
@@ -111,6 +159,14 @@ func is_valid_html_attribute(tag, attr string) bool {
 	//General attributes
 	ans = ans || (attr == "id")
 	ans = ans || (attr == "class")
+	ans = ans || (attr == "style")
+	ans = ans || (attr == "display")
+	ans = ans || (attr == "height")
+	ans = ans || (attr == "width")
+
+	if is_math_ml_element(tag) {
+		return true
+	}
 
 	// Tag specific attributes
 	switch tag {
