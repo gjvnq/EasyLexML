@@ -5,6 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{.Title}}</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_SVG" async="1"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js" async="1"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4/dist/gumshoe.polyfills.min.js" async="1"></script>
+		<script>
+			function OnLoad () {
+				var scroll = new SmoothScroll('a[href*="#"]');
+				var spy = new Gumshoe('#toc a');
+				console.log("Finished onLoad");
+			}
+		</script>
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&subset=latin-ext');
 			body {
@@ -20,8 +29,7 @@
 			@media screen and (min-width: 36rem) {
 				body {
 					width: 36rem;
-					margin-left: 25rem;
-					padding-left: 2rem;
+					margin-left: 28rem;
 					padding-right: 1rem;
 				}
 				nav#sidebar {
@@ -32,8 +40,8 @@
 					top: 0;
 					left: 0;
 					overflow: scroll;
-					margin-left: 1em;
-					margin-right: 1em;
+					padding-left: 1em;
+					padding-right: 1em;
 					border-right: 1px solid #000;
 				}
 				nav#sidebar a {
@@ -42,6 +50,12 @@
 				nav#sidebar ul {
 					line-height: 125%;
 					padding-left: 1rem; 
+				}
+				nav#sidebar li.active {
+					background-color: black;
+				}
+				nav#sidebar li.active a {
+					color: white;
 				}
 			}
 			@media screen and (max-width: 36rem) {
@@ -128,7 +142,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="OnLoad()">
 		<header id="header">
 			<h1>{{.Title}}</h1>
 		</header>
