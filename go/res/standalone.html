@@ -10,7 +10,14 @@
 		<script>
 			function OnLoad () {
 				console.log("Started onLoad");
-				var scroll = new SmoothScroll('a[href*="#"]');
+				var scroll = new SmoothScroll('a[href*="#"]', {
+					speed: 500,
+					speedAsDuration: true,
+					easing: 'easeInOutCubic',
+					updateURL: true,
+					popstate: true,
+					clip: true
+				});
 				var spy = new Gumshoe('#toc a', {
 					nested: false
 				});
@@ -24,7 +31,7 @@
 				margin-top: 2rem;
 				font-family: "Libre Baskerville", sans-serif;
 				font-variant-numeric: tabular-nums;
-				text-align: left;
+				text-align: justify;
 				text-rendering: optimizeLegibility;
 				hyphens: auto;
 				line-height: 200%;
@@ -123,15 +130,6 @@
 			hr {
 				margin-top: 1rem;
 				margin-bottom: 1rem;
-			}
-			:target {
-				animation-name: highlight;
-				animation-duration: 2s;
-			}
-			@keyframes highlight {
-				0% {background-color: #ffa;}
-				75% {background-color: #ffa;}
-				100% {background-color: transparent;}
 			}
 			a, a:visited {
 				overflow-wrap: break-word;
