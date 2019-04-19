@@ -167,6 +167,8 @@ func TestDraft2Strict_Doc1(t *testing.T) {
 func TestDraft2Strict_Doc2(t *testing.T) {
 	input := bytes.NewBufferString(`
 <EasyLexML>
+	<set-meta TocTitle="𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘"/>
+	<set-meta AbstractTitle="𝕬𝖇𝖘𝖙𝖗𝖆𝖈𝖙"/>
 	<corpus>
 		<sec title="My Title">
 			<cls>Lorem <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Ipsum</a>.</cls>
@@ -182,7 +184,7 @@ func TestDraft2Strict_Doc2(t *testing.T) {
 <EasyLexML>
 	<toc id="toc">
 		<label href="#toc">
-			Table of Contents
+			𝕿𝖆𝖇𝖑𝖊 𝖔𝖋 𝕮𝖔𝖓𝖙𝖊𝖓𝖙𝖘
 		</label>
 		<ul>
 			<li>

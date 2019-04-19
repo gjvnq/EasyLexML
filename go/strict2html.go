@@ -2,6 +2,7 @@ package easyLexML
 
 import (
 	"bytes"
+	"errors"
 	"html/template"
 	"io"
 	"strings"
@@ -21,10 +22,14 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 	// Prepare the template
 	pageData := htmlPage{}
 	tmpl_raw, err := Asset("res/standalone.html")
-	panicIfErr(err)
+	if err != nil {
+		return err
+	}
 	tmpl := template.New("standalone")
 	tmpl, err = tmpl.Parse(string(tmpl_raw))
-	panicIfErr(err)
+	if err != nil {
+		return err
+	}
 
 	// Read XML
 	root, err := xmlquery.Parse(input)
@@ -32,7 +37,13 @@ func Strict2HTML(input io.Reader, output io.Writer) error {
 		return err
 	}
 	base := root.SelectElement("EasyLexML")
+	if base == nil {
+		return errors.New("no <EasyLexML> found")
+	}
 	corpus := base.SelectElement("corpus")
+	if base == nil {
+		return errors.New("no <corpus> found")
+	}
 	toc := base.SelectElement("toc")
 
 	// Replace elements
