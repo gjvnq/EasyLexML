@@ -4,13 +4,16 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{.Title}}</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_SVG" async="1"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_CHTML" async="1"></script>
 		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js" async="1"></script>
 		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4/dist/gumshoe.polyfills.min.js" async="1"></script>
 		<script>
 			function OnLoad () {
+				console.log("Started onLoad");
 				var scroll = new SmoothScroll('a[href*="#"]');
-				var spy = new Gumshoe('#toc a');
+				var spy = new Gumshoe('#toc a', {
+					nested: false
+				});
 				console.log("Finished onLoad");
 			}
 		</script>
@@ -51,10 +54,10 @@
 					line-height: 125%;
 					padding-left: 1rem; 
 				}
-				nav#sidebar li.active {
-					background-color: black;
+				nav#sidebar li.active > a{
+					background-color: darkblue;
 				}
-				nav#sidebar li.active a {
+				nav#sidebar li.active > a {
 					color: white;
 				}
 			}
