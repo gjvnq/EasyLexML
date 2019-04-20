@@ -8,8 +8,11 @@
 		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js" async="1"></script>
 		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4/dist/gumshoe.polyfills.min.js" async="1"></script>
 		<script>
+			var enable_side_bar_scroll = true;
+			var sidebar = null;
 			function OnLoad () {
 				console.log("Started onLoad");
+				sidebar = document.getElementById('sidebar');
 				var scroll = new SmoothScroll('a[href*="#"]', {
 					speed: 500,
 					speedAsDuration: true,
@@ -22,7 +25,32 @@
 					nested: false
 				});
 				console.log("Finished onLoad");
+				autoScrollScrollbar();
 			}
+			function autoScrollScrollbar(event) {
+				scrollScrollbarTo(document.location.hash);
+			}
+			function scrollScrollbarTo(element) {
+				var target = document.querySelector('a[href="'+element+'"]');
+				if (target == null) {
+					return;
+				}
+				sidebar.scrollTop = target.offsetTop - sidebar.clientHeight/3;
+			}
+			window.onhashchange = autoScrollScrollbar;
+			document.addEventListener('scrollStart', function() {
+				enable_side_bar_scroll = false;
+				autoScrollScrollbar();
+			}, false);
+			document.addEventListener('scrollStop', function() {
+				enable_side_bar_scroll = true;
+			}, false);
+			document.addEventListener('scrollStart', autoScrollScrollbar, false);
+			document.addEventListener('gumshoeActivate', function (event) {
+				if (enable_side_bar_scroll) {
+					scrollScrollbarTo("#"+event.detail.content.id);
+				}
+			}, false);
 		</script>
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&subset=latin-ext');
@@ -35,6 +63,7 @@
 				text-rendering: optimizeLegibility;
 				hyphens: auto;
 				line-height: 200%;
+				scroll-behavior: smooth;
 			}
 			@media screen and (min-width: 36rem) {
 				body {
@@ -56,6 +85,8 @@
 				}
 				nav#sidebar a {
 					padding: 0;
+					width: 100%;
+					display: inline-block;
 				}
 				nav#sidebar ul {
 					line-height: 125%;
@@ -90,7 +121,6 @@
 				padding-bottom: 0;
 			}
 			section > a {
-				margin-top: 1rem;
 				text-align: center;
 				display: block;
 				font-weight: bold;
@@ -117,15 +147,15 @@
 				padding-left: 1.5rem;
 			}
 			section.note {
-		    border: 1px solid #aaa;
-		    border-radius: 0.5rem;
-		    padding: 0px 10px;
+			    border: 1px solid #aaa;
+			    border-radius: 0.5rem;
+			    padding: 1rem;
 			}
 			section.note, section.note a.label {
-		    color: #aaa;
+		    	color: #aaa;
 			}
 			section.note a {
-		    color: #00a;
+		    	color: #00a;
 			}
 			hr {
 				margin-top: 1rem;
